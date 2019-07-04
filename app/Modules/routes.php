@@ -1,12 +1,5 @@
 <?php
-namespace App\_backoffice;
-
-use Illuminate\Support\ServiceProvider;
-
-class ModuleServiceProvider extends ServiceProvider
-{
-    public function boot()
-    {
-
-    }
-}
+Route::prefix('liff')->group(function () {
+    Route::Get('/','\App\Modules\Home\HomeController@index');
+    Route::Get('/product','\App\Modules\Product\ProductController@index');
+});
