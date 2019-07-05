@@ -9,5 +9,7 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/Home/Views','home');
         $this->loadViewsFrom(__DIR__.'/Product/Views','product');
+        $this->loadViewsFrom(__DIR__.'/Profressor/Views','pro');
+        $this->loadViewsFrom(__DIR__.'/Login/Views','login');
     }
 }

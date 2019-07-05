@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard One | Notika - Notika Admin Template</title>
+    <title>BA&IT</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -67,9 +67,9 @@
     <div class="header-top-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg- col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="#"><img src="/assets/img/logo/logo.png" alt="" /></a>
+                        <a href="#"><img src="/assets/img/logo/rmuts.png" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
