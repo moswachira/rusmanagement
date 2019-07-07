@@ -1806,7 +1806,7 @@ ul.wizard-nav-ac li .disabled{
 .panel-collapse .panel-heading:before{
     content:"\e923";
     -ms-transform:scale(1);
-    -ms-transform:scale(1);
+    -o-transform:scale(1);
 	 font-family: 'notika-icon';
 }
 .panel-collapse .panel-heading:after{
@@ -3212,7 +3212,7 @@ textarea.auto-size {
     background:#fafafa;
     box-shadow:0 2px 8px rgba(0,0,0,.28);
     border-radius:50%;
-    -webkit-transition:left .28s cubic-bezier(.4,0,.2,1),background .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1);
+    webkit-transition:left .28s cubic-bezier(.4,0,.2,1),background .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1);
     transition:left .28s cubic-bezier(.4,0,.2,1),background .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1)
 }
 .nk-toggle-switch:not(.disabled) .ts-helper:active:before{
