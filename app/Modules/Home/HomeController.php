@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('train::formtrain');
     }
+    public function train2()
+    {
+        return view('train2::formtrain2');
+    }
 }

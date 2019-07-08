@@ -91,9 +91,9 @@
                     </div>
                     <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
-                            <li><a href="normal-table.html">แบบฟอร์ม</a>
+                            <li><a href="/Home/train">แบบฟอร์ม</a>
                             </li>
-                            <li><a href="data-table.html">การนำไปใช้ประโยชน์</a>
+                            <li><a href="/Home/train2"">การนำไปใช้ประโยชน์</a>
                             </li>
                         </ul>
                     </div>
@@ -137,7 +137,9 @@
         <div class="col-md-8">   
             <div class="panel panel-default">
             <div class="panel-heading">
-           เพิ่ม/แก้ไข รายการอาจารย์ประจำมหาวิทยาลัย
+            แบบติดตามการนำความรู้และทักษะจากการไปฝึกอบรม ประชุมสัมมนา ดูงาน ไปใช้ประโยชน์
+สำหรับบุคลากรสายวิชาการ
+
         </div>
             <div class="panel-body">
             <form action="/action_page.php">
@@ -146,38 +148,48 @@
     <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group">
-    <label for="email">ชื่อ-นามสกุล:</label>
+    <label for="email">ตำแหน่ง:</label>
     <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group">
-    <label for="email">ชื่อ-นามสกุล:</label>
+    <label for="email">สังกัด:</label>
     <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group">
-    <label for="email">ชื่อ-นามสกุล:</label>
+    <label for="email">ไปฝึกอบรม/ ประชุมสัมมนา / ดูงาน  เรื่อง:</label>
     <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group">
-    <label for="email">ชื่อ-นามสกุล:</label>
+    <label for="email">ระหว่างวันที่:</label>
     <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group">
-    <label for="email">ชื่อ-นามสกุล:</label>
+    <label for="email">ณ (สถานที่อบรม):</label>
     <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group">
-    <label for="email">ชื่อ-นามสกุล:</label>
+    <label for="email">จัดโดย:</label>
     <input type="email" class="form-control" id="email">
   </div>
+  ภายในระยะเวลา 6 เดือน หลังจากการไปฝึกอบรม/ ประชุมสัมมนา/ ดูงาน ท่านได้นำความรู้และทักษะที่ได้รับจากการพัฒนามาใช้ประโยชน์ในด้านใดบ้างและอย่างไร
 
   <div class="form-group">
-    <label for="pwd">Password:</label>
+    <label for="pwd">ด้านวิชาการ:</label>
     <input type="password" class="form-control" id="pwd">
   </div>
-  <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
+  <div class="form-group">
+    <label for="pwd">ด้านเทคนิคการสอน:</label>
+    <input type="password" class="form-control" id="pwd">
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <div class="form-group">
+    <label for="pwd">ด้านการวัดผลการเรียนการสอน:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="form-group">
+    <label for="pwd">ด้านอื่น ๆ:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <button type="submit" class="btn btn-default">ยืนยัน</button><button type="submit" class="btn btn-default">ยกเลิก</button>
 </form>
 </div>
 <div class="col-md-2">   

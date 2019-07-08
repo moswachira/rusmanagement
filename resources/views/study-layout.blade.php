@@ -93,7 +93,7 @@
                         <ul class="notika-main-menu-dropdown">
                             <li><a href="/Home/train">แบบฟอร์ม</a>
                             </li>
-                            <li><a href="data-table.html">การนำไปใช้ประโยชน์</a>
+                            <li><a href="/Home/train2">การนำไปใช้ประโยชน์</a>
                             </li>
                         </ul>
                     </div>
