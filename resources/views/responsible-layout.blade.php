@@ -59,31 +59,27 @@
                     </li>
                     <li><a href="/profressor"><i class="fa fa-group"></i> อาจารย์</a>
                     </li>
-                    <li><a data-toggle="tab" href="#formres"><i class="fa fa-bar-chart"></i></i> วิจัย</a>
+                    <li><a data-toggle="tab" href="#Interface"><i class="fa fa-bar-chart"></i></i> รับอาจารย์</a>
                     </li>
-                    <li><a data-toggle="tab" href="#formaca"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
+                    <li><a data-toggle="tab" href="#Charts"><span class="glyphicon glyphicon-book"></i> แผนทดแทนอาจารย์</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Tables"><i class="fa fa-clipboard"></i> การอบรม</a>
-                    </li>
-                    <li><a data-toggle="tab" href="#Forms"><span class="glyphicon glyphicon-education"></i> วางแผนศึกษาต่อ</a>
-                    </li>
-                    <li><a data-toggle="tab" href=""><i class="fa fa-address-card"></i> ขอตำแหน่งทางวิชาการ</a>
+                    <li><a data-toggle="tab" href="#Tables"><i class="fa fa-clipboard"></i> แต่งตั้งอาจารย์ประจำหลักสูตร</a>
                     </li>
                 </ul>
                 <div class="tab-content custom-menu-content">
                     <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               
                     </div>
-                    <div id="formres" class="tab-pane notika-tab-menu-bg animated flipInX">
+                    <div id="Interface" class="tab-pane notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
-                            <li><a href="/Home/study">แบบฟอร์ม</a>
+                            <li><a href="animations.html">แบบฟอร์ม</a>
                             </li>
                             <li><a href="google-map.html">แหล่งทุน</a>
                             </li>
                         </ul>
                     </div>
-                    <div id="formaca" class="tab-pane notika-tab-menu-bg animated flipInX">
+                    <div id="Charts" class="tab-pane notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
-                            <li><a href="/Home/academic">แบบฟอร์ม</a>
+                            <li><a href="flot-charts.html">แบบฟอร์ม</a>
                             </li>
                             <li><a href="bar-charts.html">แหล่งเผยแพร่</a>
                             </li>
@@ -91,7 +87,7 @@
                     </div>
                     <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
-                            <li><a href="/Home/train">แบบฟอร์ม</a>
+                            <li><a href="normal-table.html">แบบฟอร์ม</a>
                             </li>
                             <li><a href="data-table.html">การนำไปใช้ประโยชน์</a>
                             </li>
@@ -102,6 +98,46 @@
                             <li><a href="form-elements.html">รายละเอียดการศึกษา</a>
                             </li>
                             <li><a href="form-components.html">ติดตามแผนการศึกษาต่อ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="Appviews" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <ul class="notika-main-menu-dropdown">
+                            <li><a href="notification.html">Notifications</a>
+                            </li>
+                            <li><a href="alert.html">Alerts</a>
+                            </li>
+                            <li><a href="modals.html">Modals</a>
+                            </li>
+                            <li><a href="buttons.html">Buttons</a>
+                            </li>
+                            <li><a href="tabs.html">Tabs</a>
+                            </li>
+                            <li><a href="accordion.html">Accordion</a>
+                            </li>
+                            <li><a href="dialog.html">Dialogs</a>
+                            </li>
+                            <li><a href="popovers.html">Popovers</a>
+                            </li>
+                            <li><a href="tooltips.html">Tooltips</a>
+                            </li>
+                            <li><a href="dropdown.html">Dropdowns</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <ul class="notika-main-menu-dropdown">
+                            <li><a href="contact.html">Contact</a>
+                            </li>
+                            <li><a href="invoice.html">Invoice</a>
+                            </li>
+                            <li><a href="typography.html">Typography</a>
+                            </li>
+                            <li><a href="color.html">Color</a>
+                            </li>
+                            <li><a href="login-register.html">Login Register</a>
+                            </li>
+                            <li><a href="404.html">404 Page</a>
                             </li>
                         </ul>
                     </div>
