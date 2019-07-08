@@ -2,7 +2,7 @@
 .navbar-brand{padding:5px 0px 15px 15px;}
 .navbar-brand .mylogo{height:80px;}
 .nav-bg-color{background: #2759be;}
-.nav-menu a{color:#fff!important;}
+.panel-menu a{color:#1073C6!important;}
 .sub-nav-menu a{color:#333!important; font-size:13px;}
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,.2)}
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{background-color: rgba(0,0,0,.3)}
