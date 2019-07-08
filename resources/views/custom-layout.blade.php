@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav pull-right">
                 <li class="nav-menu"><a href="/">หน้าแรก</a></li>
                 <li class="nav-menu"><a href="/profressor">อาจารย์</a></li>
-                <li class="nav-menu"><a href="#">นักศึกษา</a></li>
+                <li class="nav-menu"><a href="/student">นักศึกษา</a></li>
                 <li class="nav-menu"><a href="#">วิชา</a></li>
 
                 <li class="dropdown nav-menu">
