@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> </title>
+    <title>@yield('title') </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Perspective Page View Navigation: Transforms the page in 3D to reveal a menu" />
@@ -61,7 +61,7 @@
                     </li>
                     <li><a data-toggle="tab" href="#formres"><i class="fa fa-bar-chart"></i></i> วิจัย</a>
                     </li>
-                    <li><a data-toggle="tab" href="#formaca"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
+                    <li><a data-toggle="tab" href="#Charts"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
                     </li>
                     <li><a data-toggle="tab" href="#Tables"><i class="fa fa-clipboard"></i> การอบรม</a>
                     </li>
@@ -81,7 +81,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="formaca" class="tab-pane notika-tab-menu-bg animated flipInX">
+                    <div id="Charts" class="tab-pane notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
                             <li><a href="/Home/academic">แบบฟอร์ม</a>
                             </li>
@@ -129,4 +129,60 @@
 		============================================ -->
         <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </body>
-</html>
+@yield('content')
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2">   
+        </div>
+        <div class="col-md-8">   
+            <div class="panel panel-default">
+            <div class="panel-heading">
+           เพิ่ม/แก้ไข รายการอาจารย์ประจำมหาวิทยาลัย
+        </div>
+            <div class="panel-body">
+            <form action="/action_page.php">
+  <div class="form-group">
+    <label for="email">ชื่อ-นามสกุล:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="email">ชื่อ-นามสกุล:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="email">ชื่อ-นามสกุล:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="email">ชื่อ-นามสกุล:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="email">ชื่อ-นามสกุล:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="email">ชื่อ-นามสกุล:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="email">ชื่อ-นามสกุล:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+<div class="col-md-2">   
+</div>
+            </div>
+        </div>
+    </div>
+</div>

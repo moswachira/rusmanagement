@@ -13,4 +13,16 @@ class HomeController extends Controller
     {
         return view('home::index');
     }
+    public function study()
+    {
+        return view('study::formstudy');
+    }
+    public function academic()
+    {
+        return view('academic::formacademic');
+    }
+    public function train()
+    {
+        return view('train::formtrain');
+    }
 }
