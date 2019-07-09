@@ -84,7 +84,6 @@ margin: 0;
 padding: 0
 }
 .clear{clear:both}
-body {}
 .mg-tb-40{
 	margin:40px 0px;
 }
@@ -3212,7 +3211,7 @@ textarea.auto-size {
     background:#fafafa;
     box-shadow:0 2px 8px rgba(0,0,0,.28);
     border-radius:50%;
-    webkit-transition:left .28s cubic-bezier(.4,0,.2,1),background .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1);
+    -webkit-transition:left .28s cubic-bezier(.4,0,.2,1),background .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1);
     transition:left .28s cubic-bezier(.4,0,.2,1),background .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1)
 }
 .nk-toggle-switch:not(.disabled) .ts-helper:active:before{
