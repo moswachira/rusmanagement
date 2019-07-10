@@ -30,8 +30,16 @@
                 <input type="email" class="form-control" id="email">
                 </div>
                 <div class="form-group">
-                    <label for="email">ระหว่างวันที่   เดือน     พ.ศ.     ถึงวันที่     เดือน     พ.ศ.:</label>
-                <input type="email" class="form-control" id="email">
+                <div class="col-md-6"> 
+                    <label for="email">ระหว่างวันที่   เดือน     พ.ศ.:</label>
+                <input type="date" class="form-control" id="">
+                </div>
+                </div>
+                <div class="form-group">
+                <div class="col-md-6"> 
+                    <label for="email">ถึงวันที่     เดือน     พ.ศ.:</label>
+                <input type="date" class="form-control" id="">
+                </div>
                 </div>
                 <div class="form-group">
                     <label for="email">ณ (สถานที่อบรม):</label>

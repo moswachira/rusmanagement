@@ -29,4 +29,12 @@ class HomeController extends Controller
     {
         return view('train2::formtrain2');
     }
+    public function education()
+    {
+        return view('edu::education');
+    }
+    public function education2()
+    {
+        return view('edu2::education2');
+    }
 }

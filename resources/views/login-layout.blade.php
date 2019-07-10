@@ -2,6 +2,7 @@
 <html class="no-js" lang="">
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="เข้าสู่ระบบ TARAD.com - Backoffice">
     <meta name="author" content="Coderthemes">
@@ -34,25 +35,25 @@
                 <form id="login-form" method="post" role="form" class="form-horizontal bv-form" action="login_submit" data-toggle="validator" novalidate="novalidate"><button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
                     <div class="form-group has-feedback">
                         <div class="col-xs-12">
-                            <input name="username" class="form-control" type="text" required="" placeholder="Username" data-bv-field="username"><i class="form-control-feedback bv-no-label" data-bv-icon-for="username" style="display: none;"></i>
+                            <input name="username" id="username" class="form-control" type="text"  placeholder="Username" data-bv-field="username"><i class="form-control-feedback bv-no-label" data-bv-icon-for="username" style="display: none;"></i>
                         <small class="help-block" data-bv-validator="stringLength" data-bv-for="username" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a value with valid length</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="username" data-bv-result="NOT_VALIDATED" style="display: none;">กรุณากรอก Username</small></div>
                     </div>
                     <div class="form-group has-feedback">
                         <div class="col-xs-12">
-                            <input name="password" class="form-control" type="password" required="" placeholder="Password" data-bv-field="password"><i class="form-control-feedback bv-no-label" data-bv-icon-for="password" style="display: none;"></i>
+                            <input name="password" id="password" class="form-control" type="password"  placeholder="Password" data-bv-field="password"><i class="form-control-feedback bv-no-label" data-bv-icon-for="password" style="display: none;"></i>
                         <small class="help-block" data-bv-validator="notEmpty" data-bv-for="password" data-bv-result="NOT_VALIDATED" style="display: none;">กรุณากรอก Password</small></div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
                             <div class="checkbox checkbox-primary">
-                                <input id="checkbox-signup" type="checkbox" name="access">
-                                <label for="checkbox-signup"> จดจำการเข้าระบบ </label>
+                                <input id="remember" type="checkbox" name="access">
+                                <label for="remember"> จดจำการเข้าระบบ </label>
                             </div>
                         </div>
                     </div>
                                         <div class="form-group text-center m-t-40">
                         <div class="col-xs-12">
-                            <button class="btn btn-default btn-block text-uppercase waves-effect waves-light" type="submit">เข้าสู่ระบบ</button>
+                            <button class="btn btn-default btn-block text-uppercase waves-effect waves-light" id="login" type="button">เข้าสู่ระบบ</button>
                         </div>
                     </div>
                     
@@ -89,11 +90,21 @@
     <script src="https://new-backoffice.tarad.com/assets/js/bootstrapValidator.js"></script>
 
     <script src="https://new-backoffice.tarad.com/assets/js/jquery.core.js"></script>
-    <script src="https://new-backoffice.tarad.com/assets/js/jquery.app.js"></script>
+    <script src="/assets/js/myscript.js"></script>
+    
 
     <script>
         $(document).ready(function() {
-            $('#login-form').bootstrapValidator({
+            $('#login').on('click',function(){
+                Helper.ajax('/login','POST',{
+                    username:$('#username').val(),
+                    password:$('#password').val(),
+                    remember:$('#remember').val(),
+                },function(response){
+                    window.location.href='/';
+                })
+            })
+            /** $('#login-form').bootstrapValidator({
                 // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
@@ -120,7 +131,7 @@
                     }
 
                 }
-            })
+            })**/
         });
     </script>
 

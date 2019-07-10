@@ -37,7 +37,7 @@
             <ul style="margin-top:30px;" class="nav navbar-nav pull-right">
                 <li class="dropdown nav-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                        <i class="fa fa-user" aria-hidden="true"></i> อ.ไพทูล จัทร์เรือง<span class="caret"></span>
+                        <i class="fa fa-user" aria-hidden="true"></i> {{CurrentUser::user()->first_name}}<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="sub-nav-menu"><a href="#">รายละเอียด</a></li>
@@ -58,15 +58,13 @@
                             <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                                 <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a>
                                 </li>
-                                <li><a href="/profressor"><i class="fa fa-group"></i> อาจารย์</a>
-                                </li>
                                 <li><a data-toggle="tab" href="#formres"><i class="fa fa-bar-chart"></i></i> วิจัย</a>
                                 </li>
                                 <li><a data-toggle="tab" href="#formaca"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
                                 </li>
                                 <li><a data-toggle="tab" href="#Tables"><i class="fa fa-clipboard"></i> การอบรม</a>
                                 </li>
-                                <li><a data-toggle="tab" href="#Forms"><span class="glyphicon glyphicon-education"></i> วางแผนศึกษาต่อ</a>
+                                <li class=""><a href="/Home/education"><i class="glyphicon glyphicon-education"></i> แผนการศึกษาต่อ</a>
                                 </li>
                                 <li><a data-toggle="tab" href=""><i class="fa fa-address-card"></i> ขอตำแหน่งทางวิชาการ</a>
                                 </li>
