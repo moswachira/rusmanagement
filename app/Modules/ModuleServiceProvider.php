@@ -8,12 +8,12 @@ class ModuleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/Home/Views','home');
-        $this->loadViewsFrom(__DIR__.'/Home/Views','study');
+        $this->loadViewsFrom(__DIR__.'/Study/Views','stu');
         $this->loadViewsFrom(__DIR__.'/Home/Views','academic');
-        $this->loadViewsFrom(__DIR__.'/Home/Views','train');
-        $this->loadViewsFrom(__DIR__.'/Home/Views','train2');
-        $this->loadViewsFrom(__DIR__.'/Home/Views','edu');
-        $this->loadViewsFrom(__DIR__.'/Home/Views','edu2');
+        $this->loadViewsFrom(__DIR__.'/Trian/Views','tra');
+        $this->loadViewsFrom(__DIR__.'/Train/Views','tra2');
+        $this->loadViewsFrom(__DIR__.'/Education/Views','edu');
+        $this->loadViewsFrom(__DIR__.'/Education/Views','edu2');
         $this->loadViewsFrom(__DIR__.'/Product/Views','product');
         $this->loadViewsFrom(__DIR__.'/Profressor/Views','pro');
         $this->loadViewsFrom(__DIR__.'/Login/Views','login');

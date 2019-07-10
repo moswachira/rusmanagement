@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Modules\Education;
+namespace App\Modules\Study;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
 use DB;
 
-class EducationController extends Controller
+class StudyController extends Controller
 {
     public function index()
     {
-        return view('chi::index3');
+        return view('stu::studyform1');
     }
 }

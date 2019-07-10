@@ -13,28 +13,9 @@ class HomeController extends Controller
     {
         return view('home::index');
     }
-    public function study()
-    {
-        return view('study::formstudy');
-    }
     public function academic()
     {
         return view('academic::formacademic');
     }
-    public function train()
-    {
-        return view('train::formtrain');
-    }
-    public function train2()
-    {
-        return view('train2::formtrain2');
-    }
-    public function education()
-    {
-        return view('edu::education');
-    }
-    public function education2()
-    {
-        return view('edu2::education2');
-    }
+    
 }
