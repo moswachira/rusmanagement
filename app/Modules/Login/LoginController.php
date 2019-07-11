@@ -47,6 +47,8 @@ class LoginController extends Controller
                 ->where('id',$user->id)
                 ->update(['last_login_at'=>date('Y-m-d H:i:s')]);
             return MyResponse::success('Login สำเร็จ');
+        }else{
+            return MyResponse::error('Username หรือ Password ผิดครับ');
         }
     }
 }

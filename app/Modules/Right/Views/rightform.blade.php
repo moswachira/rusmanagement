@@ -12,32 +12,24 @@
                             <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสการศึกษาต่อ</th>
-                                <th>ชื่อ</th>
-                                <th>นามสกุล</th>
-                                <th>ชื่อสถาบัน</th>
-                                <th>คุณวุฒิ</th>
-                                <th>สาขา</th>
-                                <th>ปีที่ไป</th>
-                                <th>สถานะ</th>
+                                <th>รหัสสิทธ์</th>
+                                <th>ชื่อสิทธ์</th>
                                 <th style="width:200.px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
-                        <tbody>                       
-                                <td>00001</td>
-                                <td>ไพทูลย์</td>
-                                <td>จันทร์เรือง</td>
-                                <td>มหาวิทยาลัยจุฬา</td>
-                                <td>ปริญญาเอก</td>
-                                <td>Building Design</td>
-                                <td>2565</td>
-                                <td><input type="checkbox" name="vehicle1" value="Bike"> ผ่านแล้ว<br></td>
+                        <tbody>
+                            @foreach($right as $index => $row)
+                            <tr>                       
+                                <td>{{$index+1}}</td>
+                                <td>{{$row->right_name}}</td>     
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-default"><a class="fa fa-edit"></button></a>
                                         <button type="button" class="btn btn-default"><a class="fa fa-trash"></button></a>
                                     </div>
                                 </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <ul class="pagination">

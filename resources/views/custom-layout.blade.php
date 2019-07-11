@@ -58,13 +58,15 @@
                             <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                                 <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a>
                                 </li>
-                                <li><a data-toggle="tab" href="#formres"><i class="fa fa-bar-chart"></i></i> วิจัย</a>
+                                <li><a href="/profressor"><i class="fa fa-user"></i></i> อาจารย์</a>
+                                </li>
+                                 <li><a href="/study"><span class="fa fa-bar-chart"></i> วิจัย</a>
                                 </li>
                                 <li><a data-toggle="tab" href="#formaca"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
                                 </li>
-                                <li><a data-toggle="tab" href="#Tables"><i class="fa fa-clipboard"></i> การอบรม</a>
+                                <li><a href="/train"><i class="fa fa-clipboard"></i> การอบรม</a>
                                 </li>
-                                <li class=""><a href="/Home/education"><i class="glyphicon glyphicon-education"></i> แผนการศึกษาต่อ</a>
+                                <li class=""><a href="/education"><i class="glyphicon glyphicon-education"></i> แผนการศึกษาต่อ</a>
                                 </li>
                                 <li><a data-toggle="tab" href=""><i class="fa fa-address-card"></i> ขอตำแหน่งทางวิชาการ</a>
                                 </li>
@@ -77,14 +79,6 @@
                                         <li><a href="/Home/study">แบบฟอร์ม</a>
                                         </li>
                                         <li><a href="google-map.html">แหล่งทุน</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="formaca" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                    <ul class="notika-main-menu-dropdown">
-                                        <li><a href="/Home/academic">แบบฟอร์ม</a>
-                                        </li>
-                                        <li><a href="bar-charts.html">แหล่งเผยแพร่</a>
                                         </li>
                                     </ul>
                                 </div>

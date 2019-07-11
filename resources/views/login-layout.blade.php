@@ -94,11 +94,11 @@
     
 
     <script>
-        $(document).ready(function() {
-            $('#login').on('click',function(){
+        $(document).ready(function() { //ตรวจสอบว่าหน้าเว็บแลนเดอร์เสร็จหรือยัง
+            $('#login').on('click',function(){  //สั่งให้ปุ่มทำงาน
                 Helper.ajax('/login','POST',{
                     username:$('#username').val(),
-                    password:$('#password').val(),
+                    password:$('#password').val(),  //ดึงค่าจากฟอร์มต่างๆ
                     remember:$('#remember').val(),
                 },function(response){
                     window.location.href='/';

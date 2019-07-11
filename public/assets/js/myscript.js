@@ -5,11 +5,11 @@ $.ajaxSetup({
     }
 });
 Helper.ajax = function(url,method,params,callback){
-    if(typeof params ==='object'){
+    if(typeof params ==='object'){ 
         if(method !='GET'){
             params['_method']=method
         }
-    } else if(typeof params ==='string'){
+    } else if(typeof params ==='string'){   
         if(method !='GET'){
             params+='&_method='+method
         }

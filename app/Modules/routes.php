@@ -14,4 +14,6 @@ Route::prefix('')->group(function () {
     Route::Get('/logout','\App\Modules\Login\LoginController@logout');
     Route::Get('/responsible','\App\Modules\Responsible\ResponsibleController@index');
     Route::Get('/chief','\App\Modules\Chief\ChiefController@index');
+    Route::Get('/right','\App\Modules\Right\RightController@index');
+
 });
