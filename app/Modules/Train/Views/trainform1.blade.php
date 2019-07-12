@@ -1,23 +1,7 @@
 @extends('custom-layout') 
 @section('title','เพิ่มราการอาจารย์ประจำมหาวิทยาลัย')
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="panel panel-default">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                    <form action="/action_page.php">
-                        <div class="form-group">
-                            <label for="email">ค้นหา</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>  
-                        <button type="submit" class="btn btn-default">ค้นหาอาจารย์</button>
-                    </form>
-                </div>
-            </div>
-        </div> 
-        <div class="col-md-10">
+@section('content') 
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">ตารางการอบรม</div>
                 <div class="panel-body">
@@ -25,7 +9,8 @@
                         <thead>
                             <tr>
                                 <th>รหัสการอบรม</th>
-                                <th>ชื่อเองอบรม</th>
+                                <th>ชื่อ-สกุล</th>
+                                <th>ชื่อเรื่องที่อบรม</th>
                                 <th>ระยะเวลา</th>
                                 <th>สถานที่</th>
                                 <th>ผ่านการอบรม</th>
@@ -34,6 +19,7 @@
                         </thead>
                         <tbody>                       
                                 <td>0001</td>
+                                <td>ไพทูลย์ จันทร์เรือง</td>
                                 <td>การออกแบบระบบ</td>
                                 <td>2/7/2562-3/7/2562</td>
                                 <td>หอศิลป์วัฒนธรรม</td>

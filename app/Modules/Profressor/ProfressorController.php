@@ -11,7 +11,8 @@ class ProfressorController extends Controller
 {
     public function index()
     {
-        return view('pro::list');
+        $teacher = DB::table('teacher')->paginate(5);
+        return view('pro::list',compact('teacher'));
     }
 
     public function create()

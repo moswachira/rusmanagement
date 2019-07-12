@@ -13,4 +13,8 @@ class TrainController extends Controller
     {
         return view('tra::trainform1');
     }
+    public function conclude()
+    {
+        return view('tra2::trainform2');
+    }
 }

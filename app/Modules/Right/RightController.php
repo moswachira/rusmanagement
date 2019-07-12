@@ -9,7 +9,7 @@ use DB;
 
 class RightController extends Controller
 {
-    public function index()
+    public function right()
     {
         $right = DB::table('right')->paginate(3);
         return view('rig::rightform',compact('right'));

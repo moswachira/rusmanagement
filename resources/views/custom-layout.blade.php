@@ -41,7 +41,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="sub-nav-menu"><a href="#">รายละเอียด</a></li>
-                        <li class="sub-nav-menu"><a href="#">ออกจากระบบ</a></li>
+                        <li class="sub-nav-menu"><a href="/logout">ออกจากระบบ</a></li>
                     </ul>
                 </li>
                 <li><a href="#"></a></li>
@@ -58,11 +58,11 @@
                             <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                                 <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a>
                                 </li>
-                                <li><a href="/profressor"><i class="fa fa-user"></i></i> อาจารย์</a>
+                                <li><a data-toggle="tab" href="#tea"><i class="fa fa-user"></i></i> อาจารย์</a>
                                 </li>
-                                 <li><a href="/study"><span class="fa fa-bar-chart"></i> วิจัย</a>
+                                 <li><a data-toggle="tab" href="#sou"><span class="fa fa-bar-chart"></i> วิจัย</a>
                                 </li>
-                                <li><a data-toggle="tab" href="#formaca"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
+                                <li><a href="/home/academic"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
                                 </li>
                                 <li><a href="/train"><i class="fa fa-clipboard"></i> การอบรม</a>
                                 </li>
@@ -71,6 +71,28 @@
                                 <li><a data-toggle="tab" href=""><i class="fa fa-address-card"></i> ขอตำแหน่งทางวิชาการ</a>
                                 </li>
                             </ul>
+                            <div class="tab-content custom-menu-content">
+                                <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               
+                                </div>
+                                <div id="tea" class="tab-pane notika-tab-menu-bg animated flipInX">
+                                    <ul class="notika-main-menu-dropdown">
+                                        <li><a href="/home/profressor">รายชื่ออาจารย์</a>
+                                        </li>
+                                        <li><a href="/home/right">สิทธ์อาจารย์</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <div class="tab-content custom-menu-content">
+                                <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               
+                                </div>
+                                <div id="sou" class="tab-pane notika-tab-menu-bg animated flipInX">
+                                    <ul class="notika-main-menu-dropdown">
+                                        <li><a href="/home/study">รายชื่ออาจารย์การทำวิจัย</a>
+                                        </li>
+                                        <li><a href="/home/soure">แหล่งทุน</a>
+                                        </li>
+                                    </ul>
+                            </div>
                             <div class="tab-content custom-menu-content">
                                 <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               
                                 </div>
