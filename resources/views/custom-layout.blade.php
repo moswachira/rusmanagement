@@ -76,7 +76,7 @@
                                 </div>
                                 <div id="tea" class="tab-pane notika-tab-menu-bg animated flipInX">
                                     <ul class="notika-main-menu-dropdown">
-                                        <li><a href="/home/profressor">รายชื่ออาจารย์</a>
+                                        <li><a href="/profressor">รายชื่ออาจารย์</a>
                                         </li>
                                         <li><a href="/home/right">สิทธ์อาจารย์</a>
                                         </li>

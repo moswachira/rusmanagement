@@ -9,7 +9,10 @@ Route::prefix('')->group(function () {
     Route::GET('/conclude','\App\Modules\Train\TrainController@conclude');
     Route::GET('/education','\App\Modules\Education\EducationController@index');
     Route::GET('/finish','\App\Modules\Education\EducationController@finish');
-    Route::GET('/home/profressor','\App\Modules\Profressor\ProfressorController@index');
+    Route::GET('/profressor','\App\Modules\Profressor\ProfressorController@index');
+    Route::GET('/profressor/edit/{tea_id}','\App\Modules\Profressor\ProfressorController@editform');
+    Route::post('/profressor/edit/{tea_id}','\App\Modules\Profressor\ProfressorController@action');
+    Route::GET('/profressor/delete/{tea_id}','\App\Modules\Profressor\ProfressorController@delete');
     Route::GET('/profressor/create','\App\Modules\Profressor\ProfressorController@create');
     Route::Get('/login','\App\Modules\Login\LoginController@index');
     Route::Post('/login','\App\Modules\Login\LoginController@action');

@@ -1,72 +1,27 @@
 @extends('custom-layout')
 @section('title')
 @section('content' )
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                    <form action="/action_page.php">
-                        <div class="form-group">
-                            <label for="email">รหัสสินค้า</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">ชื่อสินค้า</label>
-                            <input type="password" class="form-control" id="pwd">
-                        </div>
-                        
-                        <button type="submit" class="btn btn-default">ค้นหา</button>
-                    </form>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-info"><a href="/product/productfrom">เพิ่มสินค้าใหม่</a></button>
-            <button type="submit" class="btn btn-info"><a href="/product/categoryfrom">เพิ่มหมวดสินค้า</a></button>
-            
-        </div> 
-        <div class="col-md-9">
-            <div class="panel panel-default">
-                <div class="panel-heading">สินค้า</div>
-                <div class="panel-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>รหัสสินค้า</th>
-                                <th>ชื่อสินค้า</th>
-                                <th>หมวดสินค้า</th>
-                                <th>ราคาสินค้า</th>
-                                
-                                <th style="width:110px">แก้ไขรายการ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @for($i=0;$i<25;$i++)
-                            <tr>
-                                <td>01</td>
-                                <td>ชุดไทยเรือนต้น</td>
-                                <td>ชุดไทยราชนิยม</td>
-                                <td>1000 บาท</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
-                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endfor
-                        </tbody>
-                    </table>
-                    <ul class="pagination">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
-                </div>
-            </div>
+<div class="row">
+        <div class="col-md-2">   
         </div>
-    </div>  
+          <div class="col-md-8">   
+            <div class="panel panel-default">
+                <a herf="/"กลับหน้าหลัก></a>
+                <div class="panel-heading" style="font-size: 20px;">อาจารย์ : {{$profressor->first_name}}</div>
+                <form action="/profressor/edit/{{$profressor->tea_id}}" method="POST">
+                    <div class="panel-body">
+                        <th>ชื่อ:</th>
+                    <input type="text" name="firstname" class="form-control" value="{{$profressor->first_name}}"/>
+                        <th>นามสกุล:</th>
+                    <input type="text" name="lastname" class="form-control" value="{{$profressor->last_name}}"/>
+                    <th>เพศ:</th>
+                    <input type="text" name="gender" class="form-control" value="{{$profressor->gender}}"/>
+                    <th>email:</th>
+                    <input type="text" name="email" class="form-control" value="{{$profressor->email}}"/>
+                    </div> 
+                <input type="submit" value="ยืนยัน"/>
+                </div> 
+        <div class="col-md-2">   
+        </div>
 </div>
 @endsection

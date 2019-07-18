@@ -37,32 +37,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($teacher as $index => $row)
+                        @foreach($teacher as $index => $profressor)
                             <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{$row->first_name}}</td>
-                                <td>{{$row->last_name}}</td>
-                                <td>ชาย</td>
+                                <td>{{$profressor->first_name}}</td>
+                                <td>{{$profressor->last_name}}</td>
+                                <td>{{$profressor->gender}}</td>
                                 <td>ปริญญาโท</td>
                                 <th>อาจารย์</th>
-                                <td>kcxnjf@hotmail.com</td>
+                                <td>{{$profressor->email}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default"><a class="fa fa-edit"></button></a>
-                                        <button type="button" class="btn btn-default"><a class="fa fa-trash"></button></a>
+                                    <a class="btn btn-default" href="/profressor/edit/{{$profressor->tea_id}}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-default" href="/profressor/delete/{{$profressor->tea_id}}"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    <ul class="pagination">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
