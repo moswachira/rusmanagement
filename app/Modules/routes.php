@@ -1,6 +1,25 @@
 <?php
 Route::prefix('')->group(function () {
+    Route::Get('/login','\App\Modules\Login\LoginController@index')->name('login');
+    Route::Post('/login','\App\Modules\Login\LoginController@action');
+    Route::Get('/logout','\App\Modules\Login\LoginController@logout');
+    Route::group(['middleware' => ['auth']], function ()
+{
     Route::Get('/','\App\Modules\Home\HomeController@index');
+    Route::resource('profressor', '\App\Modules\Profressor\ProfressorController');
+    Route::resource('right','\App\Modules\Right\RightController');
+    Route::resource('position','\App\Modules\Position\PositionController');
+    Route::resource('qualification','\App\Modules\Qualification\QualificationController');
+    Route::resource('study','\App\Modules\Study\StudyController');
+    Route::resource('soure','\App\Modules\Soure\SoureController');
+    Route::resource('reports','\App\Modules\Reports\ReportsController');
+    Route::resource('portfolio','\App\Modules\Portfolio\PortfolioController');
+    Route::resource('type','\App\Modules\Academictype\AcademictypeController');
+    Route::resource('train','\App\Modules\Train\TrainController');
+    Route::resource('typesoure','\App\Modules\Typesoure\TypesoureController'); 
+    Route::resource('groups','\App\Modules\Groups\GroupsController');
+    Route::resource('publishs','\App\Modules\Publishs\PublishsController');
+    /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');
     Route::GET('/home/soure','\App\Modules\Soure\SoureController@soure');
     Route::GET('/home/academic','\App\Modules\Academic\AcademicController@listacademic');
@@ -11,14 +30,15 @@ Route::prefix('')->group(function () {
     Route::GET('/finish','\App\Modules\Education\EducationController@finish');
     Route::GET('/profressor','\App\Modules\Profressor\ProfressorController@index');
     Route::GET('/profressor/edit/{tea_id}','\App\Modules\Profressor\ProfressorController@editform');
-    Route::post('/profressor/edit/{tea_id}','\App\Modules\Profressor\ProfressorController@action');
-    Route::GET('/profressor/delete/{tea_id}','\App\Modules\Profressor\ProfressorController@delete');
-    Route::GET('/profressor/create','\App\Modules\Profressor\ProfressorController@create');
-    Route::Get('/login','\App\Modules\Login\LoginController@index');
-    Route::Post('/login','\App\Modules\Login\LoginController@action');
-    Route::Get('/logout','\App\Modules\Login\LoginController@logout');
+    Route::POST('/profressor/edit/{tea_id}','\App\Modules\Profressor\ProfressorController@action');
+    Route::GET('/profressor/delete/{tea_id}','\App\Modules\Profressor\ProfressorController@action_delete');
+    Route::GET('/profressor/add','\App\Modules\Profressor\ProfressorController@addform');
+    Route::POST('/profressor/add','\App\Modules\Profressor\ProfressorController@addaction');
     Route::Get('/responsible','\App\Modules\Responsible\ResponsibleController@index');
     Route::Get('/chief','\App\Modules\Chief\ChiefController@index');
-    Route::Get('/home/right','\App\Modules\Right\RightController@right');
-
+    Route::Get('/right','\App\Modules\Right\RightController@index');
+    Route::Get('/right/add','\App\Modules\Right\RightController@addform');
+    Route::POST('/right/add','\App\Modules\Right\RightController@addaction');
+    */
+});
 });

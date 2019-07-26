@@ -10,8 +10,12 @@ Helper.ajax = function(url,method,params,callback){
             params['_method']=method
         }
     } else if(typeof params ==='string'){   
-        if(method !='GET'){
-            params+='&_method='+method
+        if(method !='GET'){ 
+            if(params==''){
+                params+='_method='+method
+            }else{
+                params+='&_method='+method
+            }
         }
     }
     $.ajax({
@@ -39,3 +43,38 @@ Helper.ajax = function(url,method,params,callback){
     });
     
 }
+$(function(){
+    $('.form-ajax').on('submit',function(e){
+        e.preventDefault();
+        var form = $(this);
+        var url = form.attr('action');
+        var method = form.attr('method');
+        var data = form.serialize();
+        var callback = form.attr('callback');
+        if(typeof callback !=='string'){
+            callback = function(response){
+                alert(response.message);
+                if(typeof response.url ==='string' && response.url!=''){
+                    window.location.href=response.url;
+                }else{
+                    window.location.reload();
+                }
+            }
+        }
+        Helper.ajax (url,method,data,callback)
+    });
+    $('.delete-item').on('click',function(e){
+        e.preventDefault();
+        if(confirm('ท่านต้องการจะลบรายการนี้หรือไม่')){
+            var el = $(this);
+            var url = el.attr('href');
+            var method = 'DELETE';
+            var data = '';
+            callback = function(){
+                alert('ระบบได้ลบข้อมูลเรียบร้อยแล้ว');
+                window.location.reload();
+            }
+            Helper.ajax (url,method,data,callback)
+        }
+    });
+});

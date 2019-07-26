@@ -7,47 +7,47 @@
             <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                    <form action="/action_page.php">
+                    <form action="/right">
                         <div class="form-group">
-                            <label for="email">ค้นหา</label>
-                            <input type="email" class="form-control" id="email">
+                            <label for="keyword">ค้นหา</label>
+                            <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
                         <button type="submit" class="btn btn-default">ค้นหาอาจารย์</button>
                     </form>
                 </div>
             </div>
+            <button type="submit" class="btn btn-default"><a href="/right/create">เพิ่มสิทธิ์</a></button>
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">ตารางการอบรม</div>
-                <div class="panel-body">
-                    <table class="table table-striped">
+                <div class="panel-heading">ตารางสิทธ์</div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสแหล่งทุน</th>
-                                <th>ชื่อแหล่งทัน</th>
+                                <th>รหัสสิทธ์</th>
+                                <th>ชื่อสิทธ์</th>
                                 <th style="width:200.px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($soure as $index => $row)  
-                            <tr>                     
+                            @foreach($right as $index => $rights)
+                            <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{$row->sour_name}}</td>
+                                <td>{{$rights->right_name}}</td>     
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default"><a class="fa fa-edit"></button></a>
-                                        <button type="button" class="btn btn-default"><a class="fa fa-trash"></button></a>
+                                    <a class="btn btn-default" href="/right/{{$rights->right_id}}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-default delete-item" href="/right/{{$rights->right_id}}"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
-                        {!! $soure->render() !!}
                 </div>
             </div>
         </div>
-    </div>  
-</div>
+    </div>
+</div>    
 @endsection

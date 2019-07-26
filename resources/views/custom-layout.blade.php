@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> </title>
     <meta name="description" content="">
@@ -13,18 +14,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="/assets/css/notika-custom-icon.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="/assets/css/style.css">   
+    <link rel="stylesheet" href="/assets/css/custom.css"> 
 </head>
 <body>
     <nav class="navbar navbar-default nav-bg-color">
@@ -55,80 +45,72 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                                <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a>
-                                </li>
-                                <li><a data-toggle="tab" href="#tea"><i class="fa fa-user"></i></i> อาจารย์</a>
-                                </li>
-                                 <li><a data-toggle="tab" href="#sou"><span class="fa fa-bar-chart"></i> วิจัย</a>
-                                </li>
-                                <li><a href="/home/academic"><span class="glyphicon glyphicon-book"></i> ผลงานทางวิชาการ</a>
-                                </li>
-                                <li><a href="/train"><i class="fa fa-clipboard"></i> การอบรม</a>
-                                </li>
-                                <li class=""><a href="/education"><i class="glyphicon glyphicon-education"></i> แผนการศึกษาต่อ</a>
-                                </li>
-                                <li><a data-toggle="tab" href=""><i class="fa fa-address-card"></i> ขอตำแหน่งทางวิชาการ</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content custom-menu-content">
-                                <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               
-                                </div>
-                                <div id="tea" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                    <ul class="notika-main-menu-dropdown">
-                                        <li><a href="/profressor">รายชื่ออาจารย์</a>
-                                        </li>
-                                        <li><a href="/home/right">สิทธ์อาจารย์</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            <div class="tab-content custom-menu-content">
-                                <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               
-                                </div>
-                                <div id="sou" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                    <ul class="notika-main-menu-dropdown">
-                                        <li><a href="/home/study">รายชื่ออาจารย์การทำวิจัย</a>
-                                        </li>
-                                        <li><a href="/home/soure">แหล่งทุน</a>
-                                        </li>
-                                    </ul>
-                            </div>
-                            <div class="tab-content custom-menu-content">
-                                <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               
-                                </div>
-                                <div id="formres" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                    <ul class="notika-main-menu-dropdown">
-                                        <li><a href="/Home/study">แบบฟอร์ม</a>
-                                        </li>
-                                        <li><a href="google-map.html">แหล่งทุน</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                    <ul class="notika-main-menu-dropdown">
-                                        <li><a href="/Home/train">แบบฟอร์ม</a>
-                                        </li>
-                                        <li><a href="/Home/train2">การนำไปใช้ประโยชน์</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                    <ul class="notika-main-menu-dropdown">
-                                        <li><a href="form-elements.html">รายละเอียดการศึกษา</a>
-                                        </li>
-                                        <li><a href="form-components.html">ติดตามแผนการศึกษาต่อ</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="/"><i class="fa fa-home"></i> หน้าแรก</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user">อาจารย์</i>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/profressor">รายชื่ออาจารย์</a></li>
+                                    <li><a href="/right">สิทธ์อาจารย์</a></li>
+                                    <li><a href="/qualification">คุณวุฒิ</a></li>
+                                    <li><a href="/position">ตำแหน่ง</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-bar-chart">วิจัย</i>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/study">รายชื่ออาจารย์การทำวิจัย</a></li>
+                                    <li><a href="/soure">แหล่งทุน</a></li>
+                                    <li><a href="/typesoure">ประเภทแหล่งทุน</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-book">ผลงานวิชาการ</i>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                <li><a href="/portfolio">ผลงานวิชาการ</a></li>
+                                    <li><a href="/publishs">แหล่งเผยแพร่ผลงาน</a></li>
+                                    <li><a href="/groups">กลุ่ม</a></li>
+                                    <li><a href="/type">ประเภท</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-clipboard">อบรม</i>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/train">การอบรม</a></li>
+                                    <li><a href="/reports">รายงานการติดตามการนำไปใช้ประโยชน์</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-education">แผนการศึกษาต่อ</i>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="form-elements.html">รายละเอียดการศึกษา</a></li>
+                                    <li><a href="form-components.html">ติดตามแผนการศึกษาต่อ</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-address-card">ขอตำแหน่งทางวิชาการ</i>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/train">การอบรม</a></li>
+                                    <li><a href="/reports">รายงานการติดตามการนำไปใช้ประโยชน์</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
     @yield('content')
-    
 <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/myscript.js"></script>
 </body>
 </html>
