@@ -5,42 +5,41 @@
     <div class="row">
         <div class="col-md-2">
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
-                    <form action="/reports">
+                    <form action="/positiontypes">
                         <div class="form-group">
-                            <label for="keyword">ค้นหา</label>
+                            <label for="keyword"></label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
-                        <button type="submit" class="btn btn-default">ค้นหารายงานการติดตาม</button>
+                        <button type="submit" class="btn btn-default">ค้นหาประเภท</button>
                     </form>
                 </div>
             </div>
-           <a class="btn btn-default" href="/reports/create">เพิ่มรายงานการติดตาม</a>    
+           <a class="btn btn-default" href="/positiontypes/create">เพิ่มประเภท</a>
+            
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">ตารางรายงานการติดตามการนำใช้ประโยชน์</div>
+                <div class="panel-heading">ตารางประเภท</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสรายงานการติดตาม</th>
-                                <th>ด้าน</th>
-                                <th>วันเดือนปี</th>
-                                <th style="width:200.px">แก้ไขรายการ</th>
+                                <th>ลำดับ</th>
+                                <th>ประเภท</th>
+                                <th style="width:200.px"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($report as $index => $reports)
+                        @foreach($positiontype as $index => $positiontypes)
                             <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{$reports->side}}</td>
-                                <td>{{$reports->date}}</td>
+                                <td>{{$positiontypes->pos_name}}</td>
                                 <td>
                                     <div class="btn-group">
-                                    <a class="btn btn-default" href="/reports/{{$reports->rep_id}}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-default delete-item" href="/reports/{{$reports->rep_id}}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-default" href="/positiontypes/{{$positiontypes->pos_id}}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-default delete-item" href="/positiontypes/{{$positiontypes->pos_id}}"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

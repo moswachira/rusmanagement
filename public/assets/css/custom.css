@@ -1,12 +1,13 @@
-.navbar-header{height:90px}
-.navbar-brand{padding:5px 0px 15px 15px;}
-.navbar-brand .mylogo{height:80px;}
+.navbar-header{height:100px}
+.navbar-brand{padding:5px 0px 15px 0px;}
+.navbar-brand .mylogo{height:90px;}
 .nav-bg-color{background: #2759be;}
 .panel-menu a{color:#1073C6!important;}
-.sub-nav-menu a{color:#333!important; font-size:13px;}
+.sub-nav-menu a{color:#333!important; font-size:10px;}
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,.2)}
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{background-color: rgba(0,0,0,.3)}
 .header-panal{background: #AED6F1!important;color:#21618C!important;}
+.navbar-default .navbar-nav>li>a{color:#fff!important}
 
 
 

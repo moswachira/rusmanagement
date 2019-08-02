@@ -32,14 +32,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($degree as $index => $qualification)
+                        @foreach($qualification as $index => $qualifications)
                             <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{$qualification->degr_name}}</td>
+                                <td>{{$qualifications->qua_name}}</td>
                                 <td>
                                     <div class="btn-group">
-                                    <a class="btn btn-default" href="/qualification/{{$qualification->degr_id}}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-default delete-item" href="/qualification/{{$qualification->degr_id}}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-default" href="/qualification/{{$qualifications->qua_id}}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-default delete-item" href="/qualification/{{$qualifications->qua_id}}"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

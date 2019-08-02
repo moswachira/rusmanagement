@@ -6,14 +6,18 @@ use Input;
 use DB;
 use stdClass;
 use App\Services\MyResponse;
+use App\Services\CurrentUser;
 class TrainController extends Controller
 {
     public function index(Request $request)
     {
-        $keyword = $request->get('keyword');
+        $keyword = $request->get('keyword'); 
 
         $training = DB::table('training')
-        ->whereNull('deleted_at');
+        ->select('training.*','teacher.first_name','teacher.last_name')
+        ->leftJoin('teacher','training.tea_id','teacher.tea_id')
+        ->whereNull('training.deleted_at');
+
         if(!empty($keyword)){
             $training->where(function ($query) use($keyword){
                 $query->where('tra_name','LIKE','%'.$keyword.'%')
@@ -36,6 +40,8 @@ class TrainController extends Controller
         $endtime = $request->get('endtime');
         $place = $request->get('place');
         $detail = $request->get('detail');
+        $currentuser = CurrentUser::user();
+        
 
         if(!empty($traname) && !empty($starttime) && !empty($endtime) && !empty($place) && !empty($detail))
         {
@@ -45,6 +51,7 @@ class TrainController extends Controller
                     'end_time' =>$endtime,
                     'place' =>$place,
                     'detail' =>$detail,
+                    'tea_id' =>$currentuser->tea_id,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]);
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/train');

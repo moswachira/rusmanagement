@@ -13,12 +13,18 @@ class ProfressorController extends Controller
     {
         $keyword = $request->get('keyword');
         $degr_id = $request->get('degr_id');
+        $qua_id = $request->get('qua_id');
         $aca_id = $request->get('aca_id');
+        $bra_id = $request->get('bra_id');
+        $inst_id = $request->get('inst_id');
 
         $teacher = DB::table('teacher')
-        ->select('teacher.*','degree.degr_name','academic.aca_name')
+        ->select('teacher.*','degree.degr_name','qualification.qua_name','academic.aca_name','branch.bra_name','institution.inst_name')
         ->leftJoin('degree','teacher.degr_id','degree.degr_id')
+        ->leftJoin('qualification','teacher.qua_id','qualification.qua_id')
         ->leftJoin('academic','teacher.aca_id','academic.aca_id')
+        ->leftJoin('branch','teacher.bra_id','branch.bra_id')
+        ->leftJoin('institution','teacher.inst_id','institution.inst_id')
         ->whereNull('teacher.deleted_at');
 
         if(!empty($keyword))
@@ -34,21 +40,39 @@ class ProfressorController extends Controller
         {
             $teacher->where('teacher.degr_id','=',$degr_id);
         }
+        if(is_numeric($qua_id))
+        {
+            $teacher->where('teacher.qua_id','=',$qua_id);
+        }
         if(is_numeric($aca_id))
         {
             $teacher->where('teacher.aca_id','=',$aca_id);
         }
+        if(is_numeric($bra_id))
+        {
+            $teacher->where('teacher.bra_id','=',$bra_id);
+        }
+        if(is_numeric($inst_id))
+        {
+            $teacher->where('teacher.inst_id','=',$inst_id);
+        }
         
         $teacher = $teacher->orderBy('teacher.first_name','asc')->paginate(10);
         $degree = DB::table('degree')->whereNull('deleted_at')->get();
+        $qualification = DB::table('qualification')->whereNull('deleted_at')->get();
         $academic = DB::table('academic')->whereNull('deleted_at')->get();
-        return view('pro::list',compact('teacher','degree','academic'));
+        $branch = DB::table('branch')->whereNull('deleted_at')->get();
+        $institution = DB::table('institution')->whereNull('deleted_at')->get();
+        return view('pro::list',compact('teacher','degree','qualification','academic','branch','institution'));
     }
     public function create()
     {
         $degree = DB::table('degree')->whereNull('deleted_at')->get();
+        $qualification = DB::table('qualification')->whereNull('deleted_at')->get();
         $academic = DB::table('academic')->whereNull('deleted_at')->get();
-        return view('pro::form',compact('degree','academic'));
+        $branch = DB::table('branch')->whereNull('deleted_at')->get();
+        $institution = DB::table('institution')->whereNull('deleted_at')->get();
+        return view('pro::form',compact('degree','qualification','academic','branch','institution'));
     }
     public function store(Request $request)
     {
@@ -57,12 +81,15 @@ class ProfressorController extends Controller
         $gender = $request->get('gender');
         $email = $request->get('email');
         $degr_id = $request->get('degr_id');
+        $qua_id = $request->get('qua_id');
         $aca_id = $request->get('aca_id');
+        $bra_id = $request->get('bra_id');
+        $inst_id = $request->get('inst_id');
         $detail = $request->get('detail');
         $username = $request->get('username');
         $password = $request->get('password');
 
-        if(!empty($firstname) && !empty($username) && !empty($password) && !empty($lastname) && !empty($gender) && !empty($email) && is_numeric($degr_id) && is_numeric($aca_id))
+        if(!empty($firstname) && !empty($username) && !empty($password) && !empty($lastname) && !empty($gender) && !empty($email) && is_numeric($degr_id) && is_numeric($aca_id) && is_numeric($bra_id) && is_numeric($inst_id) && is_numeric($qua_id))
         {
             $teacher = DB::table('teacher')
             ->where('first_name',$firstname)
@@ -85,7 +112,10 @@ class ProfressorController extends Controller
                     'gender' =>$gender,
                     'email' =>$email,
                     'degr_id' =>$degr_id,
+                    'qua_id' =>$qua_id,
                     'aca_id' =>$aca_id,
+                    'bra_id' =>$bra_id,
+                    'inst_id' =>$inst_id,
                     'detail' =>$detail,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]);
@@ -119,11 +149,17 @@ class ProfressorController extends Controller
             if(!empty($profressor))
             {
                 $degree = DB::table('degree')->whereNull('deleted_at')->get();
+                $qualification = DB::table('qualification')->whereNull('deleted_at')->get();
                 $academic = DB::table('academic')->whereNull('deleted_at')->get();
+                $branch = DB::table('branch')->whereNull('deleted_at')->get();
+                $institution = DB::table('institution')->whereNull('deleted_at')->get();
                 return view('pro::form',[
                     'profressor'=>$profressor,
                     'degree'=>$degree,
-                    'academic'=>$academic
+                    'qualification'=>$qualification,
+                    'academic'=>$academic,
+                    'branch'=>$branch,
+                    'institution'=>$institution
                 ]);
             }
         }
@@ -139,13 +175,16 @@ class ProfressorController extends Controller
             $gender = $request->get('gender');
             $email = $request->get('email');
             $degr_id = $request->get('degr_id');
+            $qua_id = $request->get('qua_id');
             $aca_id = $request->get('aca_id');
+            $bra_id = $request->get('bra_id');
+            $inst_id = $request->get('inst_id');
             $detail = $request->get('detail');
             $username = $request->get('username');
             $password = $request->get('password');
 
 
-            if(!empty($firstname) && !empty($lastname) && !empty($gender) && !empty($email) && is_numeric($degr_id) && is_numeric($aca_id))
+            if(!empty($firstname) && !empty($lastname) && !empty($gender) && !empty($email) && is_numeric($degr_id) && is_numeric($aca_id) && is_numeric($bra_id) && is_numeric($inst_id) && is_numeric($qua_id))
             {
                 $teacher = DB::table('teacher')
             ->where('tea_id','!=',$tea_id)
@@ -161,7 +200,10 @@ class ProfressorController extends Controller
                     'gender' =>$gender,
                     'email' =>$email,
                     'degr_id' =>$degr_id,
+                    'qua_id' =>$qua_id,
                     'aca_id' =>$aca_id,
+                    'bra_id' =>$bra_id,
+                    'inst_id' =>$inst_id,
                     'detail' =>$detail,
                     'updated_at' =>date('Y-m-d H:i:s'),
                 ]);

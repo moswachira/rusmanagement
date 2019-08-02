@@ -34,7 +34,7 @@
                                 ทั้งหมด
                             </option>
                         @foreach($souretype as $index => $row)
-                            <option value="{{$row->sout_id}}" {{Input::get('sout_id')==$row->sout_id?'selected':''}}>
+                            <option value="{{$row->sout_id}}" {{isset($soures)&& $soures->sout_id==$row->sout_id?'selected':''}}>
                                 {{$row->sout_name}}
                             </option>
                         @endforeach

@@ -3,26 +3,25 @@
 @section('content')
 <div class="container">
             <div class="panel panel-default">
-                <div class="panel-heading">ตารางอาจารย์</div>
+                <div class="panel-heading">ตารางอบรม</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสอาจารย์</th>
+                                <th>#</th>
                                 <th>ชื่อ</th>
-                                <th>ชื่อเรื่องอบรม</th>
+                                <th width="20%">ชื่อเรื่องอบรม</th>
                                 <th>ระยะที่เริ่ม</th>
                                 <th>ระยะสิ้นสุด</th>
                                 <th>สถานที่</th>
-                                <th>ผ่านการอบรม</th>
-                                <th style="width:200.px">แก้ไขรายการ</th>
+                                <th style="width:200.px"></th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach($training as $index => $train)
                             <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{CurrentUser::user()->first_name}}</td>
+                                <td>{{$train->first_name}} {{$train->last_name}}</td>
                                 <td>
                                     <a href="#" class="" data-toggle="modal" data-target="#exampleModa{{$index}}">{{$train->tra_name}}</a>
                                     <div class="modal fade" id="exampleModa{{$index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,9 +43,9 @@
                                 <td>{{$train->start_time}}</td>
                                 <td>{{$train->end_time}}</td>
                                 <td>{{$train->place}}</td>
-                                <td><input type="checkbox" name="vehicle1" value="Bike"> ผ่านแล้ว<br></td>
                                 <td>
                                     <div class="btn-group">
+                                    <a class="btn btn-default" href="/followtrain/{{$train->tra_id}}"><i class="fa fa-file-text-o"></i></a>
                                     <a class="btn btn-default" href="/train/{{$train->tra_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/train/{{$train->tra_id}}"><i class="fa fa-trash"></i></a>
                                     </div>
@@ -55,7 +54,7 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <a class="btn btn-default" href="/train/create">เพิ่มอาจารย์</a>
+                    <a class="btn btn-default" href="/train/create">เพิ่มการอบรม</a>
                 </div>
             </div>
         </div>

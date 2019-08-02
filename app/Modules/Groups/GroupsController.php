@@ -16,7 +16,7 @@ class GroupsController extends Controller
         ->whereNull('deleted_at');
         if(!empty($keyword)){
             $group->where(function ($query) use($keyword){
-                $query->where('gro_name','LIKE','%'.$keyword.'%');
+            $query->where('gro_name','LIKE','%'.$keyword.'%');
             });
         }
         $group = $group->paginate(10);

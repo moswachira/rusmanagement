@@ -6,6 +6,7 @@ use Input;
 use DB;
 use stdClass;
 use App\Services\MyResponse;
+use App\Services\CurrentUser;
 class PortfolioController extends Controller
 {
     public function index(Request $request)
@@ -16,17 +17,17 @@ class PortfolioController extends Controller
         $pub_id = $request->get('pub_id');
 
         $portfolio = DB::table('portfolio')
-        ->select('portfolio.*','academictype.acatype_name','group.gro_name','publish.pub_name')
+        ->select('portfolio.*','academictype.acatype_name','group.gro_name','publish.pub_name','teacher.first_name','teacher.last_name')
         ->leftJoin('academictype','portfolio.acatype_id','academictype.acatype_id')
+        ->leftJoin('teacher','portfolio.tea_id','teacher.tea_id')
         ->leftJoin('group','portfolio.gro_id','group.gro_id')
         ->leftJoin('publish','portfolio.pub_id','publish.pub_id')
         ->whereNull('portfolio.deleted_at');
-
+    
         if(!empty($keyword))
         {
             $portfolio->where(function ($query) use($keyword){
                 $query->where('por_name','LIKE','%'.$keyword.'%')
-                      ->orWhere('date','LIKE','%'.$keyword.'%')
                       ->orWhere('place','LIKE','%'.$keyword.'%');
             });
         }
@@ -43,7 +44,6 @@ class PortfolioController extends Controller
         {
             $portfolio->where('portfolio.pub_id','=',$pub_id);
         }
-        
         $portfolio = $portfolio->orderBy('portfolio.por_name','asc')->paginate(10);
         $academictype = DB::table('academictype')->whereNull('deleted_at')->get();
         $group = DB::table('group')->whereNull('deleted_at')->get();
@@ -59,28 +59,24 @@ class PortfolioController extends Controller
     }
     public function store(Request $request)
     {
-        $porname = $request->get('porname');
+        $por_name = $request->get('por_name');
         $score = $request->get('score');
         $acatype_id = $request->get('acatype_id');
         $gro_id = $request->get('gro_id');
         $pub_id = $request->get('pub_id');
+        $detail = $request->get('detail');
+        $currentuser = CurrentUser::user();
 
-        if(!empty($porname) && !empty($score) && is_numeric($acatype_id) && is_numeric($gro_id) && is_numeric($pub_id))
-        {
-            $portfolio = DB::table('portfolio')
-            ->where('porname',$porname)
-            ->where('score',$score)
-            ->whereNull('portfolio.deleted_at')->first();
-            if(!empty($portfolio)){
-                return MyResponse::error('ขออภัยข้อมูลนี้มีในระบบแล้วคะ');
-            }
-                
-                DB::table('portfolio')->insert([
-                    'porname' =>$porname,
+        if(!empty($por_name) && !empty($score) && is_numeric($acatype_id) && is_numeric($gro_id) && is_numeric($pub_id) && !empty($detail))
+                {
+                    DB::table('portfolio')->insert([
+                    'por_name' =>$por_name,
                     'score' =>$score,
                     'acatype_id' =>$acatype_id,
                     'gro_id' =>$gro_id,
                     'pub_id' =>$pub_id,
+                    'detail' =>$detail,
+                    'tea_id' =>$currentuser->tea_id,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]);
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/portfolio');
@@ -103,7 +99,7 @@ class PortfolioController extends Controller
                     'port'=>$port,
                     'academictype'=>$academictype,
                     'group'=>$group,
-                    'publish'=>$publish,
+                    'publish'=>$publish
                 ]);
             }
         }
@@ -114,29 +110,23 @@ class PortfolioController extends Controller
     {
         if(is_numeric($por_id))
         {
-            $porname = $request->get('porname');
+           
+            $por_name = $request->get('por_name');
             $score = $request->get('score');
             $acatype_id = $request->get('acatype_id');
             $gro_id = $request->get('gro_id');
             $pub_id = $request->get('pub_id');
+            $detail = $request->get('detail');
 
-
-            if(!empty($porname) && !empty($score) && is_numeric($acatype_id) && is_numeric($gro_id)  && is_numeric($pub_id))
+            if(!empty($por_name) && !empty($score) && is_numeric($acatype_id) && is_numeric($gro_id)  && is_numeric($pub_id) && !empty($detail))
             {
-            $portfolio = DB::table('portfolio')
-            ->where('por_id','!=',$por_id)
-            ->where('por_name',$porname)
-            ->where('score',$score)
-            ->whereNull('portfolio.deleted_at')->first();
-            if(!empty($portfolio)){
-                return MyResponse::error('ขออภัยข้อมูลนี้มีในระบบแล้วคะ');
-            }
                 DB::table('portfolio')->where('por_id',$por_id)->update([
-                    'por_name' =>$porname,
+                    'por_name' =>$por_name,
                     'score' =>$score,
                     'acatype_id' =>$acatype_id,
                     'gro_id' =>$gro_id,
                     'pub_id' =>$pub_id,
+                    'detail' =>$detail,
                     'updated_at' =>date('Y-m-d H:i:s'),
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/portfolio');

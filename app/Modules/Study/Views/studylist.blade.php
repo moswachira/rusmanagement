@@ -51,13 +51,13 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th style="width:40px">ลับดับ</th>
-                                <th>ชื่อ</th>
-                                <th>ชื่อโปรเจค</th>
-                                <th>ปี</th>
+                                <th>#</th>
+                                <th width="15%">ชื่อ</th>
+                                <th width="20%">ชื่อโปรเจค</th>
+                                <th width="10%">ปี</th>
                                 <th>แหล่งทุน</th>
                                 <th>ประเภทแหล่งทุน</th>
-                                <th style="width:120px"></th>
+                                <th style="width:95px"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,7 +89,9 @@
                                 <td>
                                     <div class="btn-group">
                                     <a class="btn btn-default" href="/study/{{$studys->res_id}}"><i class="fa fa-edit"></i></a>
+                                    @if(CurrentUser::permission([3]))
                                     <a class="btn btn-default delete-item" href="/study/{{$studys->res_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

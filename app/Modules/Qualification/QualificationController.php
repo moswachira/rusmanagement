@@ -12,27 +12,28 @@ class QualificationController extends Controller
     {
         $keyword = $request->get('keyword');
 
-        $degree = DB::table('degree')
+        $qualification = DB::table('qualification')
         ->whereNull('deleted_at');
         if(!empty($keyword)){
-            $degree->where(function ($query) use($keyword){
-                $query->where('degr_name','LIKE','%'.$keyword.'%');
+            $qualification->where(function ($query) use($keyword){
+                $query->where('qua_name','LIKE','%'.$keyword.'%');
             });
         }
-        $degree = $degree->paginate(10);
-        return view('qua::qualificationlist',compact('degree'));
+        $qualification = $qualification->paginate(10);
+        return view('qua::list',compact('qualification'));
     }
     public function create()
     {
-        return view('qua::qualificationform');
+        return view('qua::form');
     }
     public function store(Request $request)
     {
-        $degrname = $request->get('degrname');
-        if(!empty($degrname))
+        $quaname = $request->get('quaname');
+
+        if(!empty($quaname))
         {
-            DB::table('degree')->insert([
-                'degr_name' =>$degrname,
+            DB::table('qualification')->insert([
+                'qua_name' =>$quaname,
                 'created_at' =>date('Y-m-d H:i:s'),
             ]);
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/qualification');
@@ -41,31 +42,31 @@ class QualificationController extends Controller
         }
     
     }
-    public function show($degr_id,Request $request)
+    public function show($qua_id,Request $request)
     {
-        if(is_numeric($degr_id))
+        if(is_numeric($qua_id))
         {
-            $qualification = DB::table('degree')->where('degr_id',$degr_id)->first();
-            if(!empty($qualification))
+            $quas = DB::table('qualification')->where('qua_id',$qua_id)->first();
+            if(!empty($quas))
             {
-                return view('qua::qualificationform',[
-                    'qualification'=>$qualification
+                return view('qua::form',[
+                    'quas'=>$quas
                 ]);
             }
         }
         return view('data-not-found',['back_url'=>'/qualification']);
     }
     
-    public function update($degr_id,Request $request)
+    public function update($right_id,Request $request)
     {
-        if(is_numeric($degr_id))
+        if(is_numeric($qua_id))
         {
-            $degrname = $request->get('degrname');
+            $quaname = $request->get('rightname');
 
-            if(!empty($degrname))
+            if(!empty($quaname) )
             {
-                DB::table('degree')->where('degr_id',$degr_id)->update([
-                    'degr_name' =>$degrname,
+                DB::table('qualification')->where('qua_id',$qua_id)->update([
+                    'qua_name' =>$quaname,
                     'updated_at' =>date('Y-m-d H:i:s'),
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/qualification');
@@ -77,11 +78,11 @@ class QualificationController extends Controller
         return MyResponse::error('ป้อนข้อมูลไม่ถูกต้อง');
     }
 
-    public function destroy($degr_id)
+    public function destroy($qua_id)
     {
-        if(is_numeric($degr_id))
+        if(is_numeric($qua_id))
         {
-            DB::table('degree')->where('degr_id',$degr_id)->update([
+            DB::table('qualification')->where('qua_id',$qua_id)->update([
                 'deleted_at' =>date('Y-m-d H:i:s'),
             ]);
             return MyResponse::success('ระบบได้ลบข้อมูลเรียบร้อยแล้ว');

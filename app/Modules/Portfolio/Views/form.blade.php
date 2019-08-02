@@ -9,9 +9,9 @@
                 <a herf="/portfolio"กลับหน้าหลัก></a>
                 <div class="panel-heading" style="font-size: 20px;">
                     @if(isset($port))
-                    แหล่งเผยแพร่ผลงาน : {{$port->por_name}}
+                    วิจัย : {{$port->por_name}}
                     @else
-                    เพิ่มแหล่งเผยแพร่ผลงาน
+                    เพิ่มผลงานวิชาการ
                     @endif
                 </div>
                 @if(isset($port))
@@ -24,13 +24,19 @@
                 @endif
                     <div class="panel-body">
                     <div class="form-group">
-                            <th>ชื่อผลงาน:</th>
-                        <input type="text" name="porname" class="form-control" value="{{isset($port)?$port->por_name:''}}"/>
+                        <th>ชื่อ:</th>
+                    <input type="text" name="firstname" class="form-control" value="{{CurrentUser::user()->first_name}}"/>
                     </div>
                     <div class="form-group">
-                            <th>คะแนน:</th>
+                        <th>ชื่อผลงานวิชาการ:</th>
+                    <input type="text" name="por_name" class="form-control" value="{{isset($port)?$port->por_name:''}}"/>
+                    </div>
+                    <th>รายละเอียด:</th>
+                    <textarea  row="10" name="detail" class="form-control" >{{isset($port)?$port->detail:''}}</textarea>
+                    <div class="form-group">
+                    <th>คะแนน:</th>
                         <input type="text" name="score" class="form-control" value="{{isset($port)?$port->score:''}}"/>
-                    </div> 
+                    </div>
                     <div class="form-group">
                             <label >แหล่งเผยแพร่</label>
                             <select name="pub_id">
@@ -38,7 +44,7 @@
                                     ทั้งหมด
                                 </option>
                             @foreach($publish as $index => $rowww)
-                            <option value="{{$rowww->pub_id}}" {{Input::get('pub_id')==$rowww->pub_id?'selected':''}}>
+                            <option value="{{$rowww->pub_id}}" {{isset($port)&& $port->pub_id==$rowww->pub_id?'selected':''}}>
                             {{$rowww->pub_name}}
                             </option>
                             @endforeach
@@ -51,7 +57,7 @@
                                     ทั้งหมด
                                 </option>
                             @foreach($academictype as $index => $row)
-                            <option value="{{$row->acatype_id}}" {{Input::get('acatype_id')==$row->acatype_id?'selected':''}}>
+                            <option value="{{$row->acatype_id}}" {{isset($port)&& $port->acatype_id==$row->acatype_id?'selected':''}}>
                             {{$row->acatype_name}}
                             </option>
                             @endforeach
@@ -64,7 +70,7 @@
                                     ทั้งหมด
                                 </option>
                             @foreach($group as $index => $roww)
-                            <option value="{{$roww->gro_id}}" {{Input::get('gro_id')==$roww->gro_id?'selected':''}}>
+                            <option value="{{$roww->gro_id}}" {{isset($port)&& $port->gro_id==$roww->gro_id?'selected':''}}>
                             {{$roww->gro_name}}
                             </option>
                             @endforeach

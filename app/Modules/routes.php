@@ -17,8 +17,19 @@ Route::prefix('')->group(function () {
     Route::resource('type','\App\Modules\Academictype\AcademictypeController');
     Route::resource('train','\App\Modules\Train\TrainController');
     Route::resource('typesoure','\App\Modules\Typesoure\TypesoureController'); 
+    Route::resource('branchs','\App\Modules\Branchs\BranchsController');
     Route::resource('groups','\App\Modules\Groups\GroupsController');
-    Route::resource('publishs','\App\Modules\Publishs\PublishsController');
+    Route::resource('publishs','\App\Modules\Publishs\PublishsController'); 
+    Route::resource('institutions','\App\Modules\Institutions\InstitutionsController'); 
+    Route::resource('education','\App\Modules\Education\EducationController');
+    Route::resource('degrees','\App\Modules\Degrees\DegreesController'); 
+    Route::resource('follow','\App\Modules\Follow\FollowController'); 
+    Route::resource('requestlog','\App\Modules\Requestlog\RequestlogController'); 
+    Route::resource('subjectss','\App\Modules\Subjectss\SubjectssController'); 
+    Route::resource('positiontypes','\App\Modules\Positiontypes\PositiontypesController'); 
+    Route::resource('request','\App\Modules\Request\RequestController'); 
+    Route::resource('followtrain','\App\Modules\Followtrain\FollowtrainController'); 
+
     /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');
     Route::GET('/home/soure','\App\Modules\Soure\SoureController@soure');

@@ -14,7 +14,7 @@
                         </div>
                         <div class="form-group">
                             <label >ประเภทแหล่งทุน</label>
-                            <select name="sout_id">
+                            <select style="width:100%" name="sout_id">
                                 <option value="all">
                                     ทั้งหมด
                                 </option>

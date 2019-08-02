@@ -45,7 +45,7 @@
                         <input name="gender" type="radio" {{isset($profressor) && $profressor->gender=='หญิง'?'checked':''}} value="หญิง"/>หญิง
                     </div>
                     <div class="form-group">
-                        <label >คุณวุฒิ</label>
+                        <label >ระดับ</label>
                         <select name="degr_id">
                             <option value="all">
                                 ทั้งหมด
@@ -57,15 +57,54 @@
                         @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label >คุณวุฒิ</label>
+                        <select name="qua_id">
+                            <option value="all">
+                                ทั้งหมด
+                            </option>
+                        @foreach($qualification as $index => $roww)
+                            <option value="{{$roww->qua_id}}" {{isset($profressor) && $profressor->qua_id==$roww->qua_id?'selected':''}}>
+                                {{$roww->qua_name}}
+                            </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label >สาขา</label>
+                        <select name="bra_id">
+                            <option value="all">
+                                ทั้งหมด
+                            </option>
+                        @foreach($branch as $index => $rowww)
+                            <option value="{{$rowww->bra_id}}" {{isset($profressor) && $profressor->bra_id==$rowww->bra_id?'selected':''}}>
+                                {{$rowww->bra_name}}
+                            </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label >สถาบัน</label>
+                        <select name="inst_id">
+                            <option value="all">
+                                ทั้งหมด
+                            </option>
+                        @foreach($institution as $index => $rowwww)
+                            <option value="{{$rowwww->inst_id}}" {{isset($profressor) && $profressor->inst_id==$rowwww->inst_id?'selected':''}}>
+                                {{$rowwww->inst_name}}
+                            </option>
+                        @endforeach
+                        </select>
+                    </div>
                         <div class="form-group">
                         <label >ตำแหน่ง</label>
                         <select name="aca_id">
                             <option value="all">
                                 ทั้งหมด
                             </option>
-                        @foreach($academic as $index => $roww)
-                            <option value="{{$roww->aca_id}}" {{isset($profressor) && $profressor->aca_id==$roww->aca_id?'selected':''}}>
-                                {{$roww->aca_name}}
+                        @foreach($academic as $index => $rowwwww)
+                            <option value="{{$rowwwww->aca_id}}" {{isset($profressor) && $profressor->aca_id==$rowwwww->aca_id?'selected':''}}>
+                                {{$rowwwww->aca_name}}
                             </option>
                         @endforeach
                         </select>

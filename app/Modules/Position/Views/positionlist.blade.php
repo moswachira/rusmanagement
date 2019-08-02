@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-md-2">
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
                     <form action="/position">
                         <div class="form-group">
-                            <label for="keyword">ค้นหา</label>
+                            <label for="keyword"></label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
                         <button type="submit" class="btn btn-default">ค้นหาตำแหน่ง</button>
@@ -21,15 +21,15 @@
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">ตารางอาจารย์</div>
+                <div class="panel-heading">ตารางตำแหล่ง</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสตำแหน่ง</th>
-                                <th>ชื่อ</th>
-                                <th>ย่อ</th>
-                                <th style="width:200.px">แก้ไขรายการ</th>
+                                <th>ลำดับ</th>
+                                <th>ชื่อตำแหน่ง</th>
+                                <th>ชื่อย่อ</th>
+                                <th style="width:200.px"></th>
                             </tr>
                         </thead>
                         <tbody>

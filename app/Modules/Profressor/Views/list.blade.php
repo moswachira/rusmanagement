@@ -13,7 +13,7 @@
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label >คุณวุฒิ</label>
+                            <label >ระดับ</label>
                             <select style="width:100%" name="degr_id">
                                 <option value="all">
                                     ทั้งหมด
@@ -21,6 +21,19 @@
                             @foreach($degree as $index => $row)
                             <option value="{{$row->degr_id}}" {{Input::get('degr_id')==$row->degr_id?'selected':''}}>
                             {{$row->degr_name}}
+                            </option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label >คุณวุฒิ</label>
+                            <select style="width:100%" name="qua_id">
+                                <option value="all">
+                                    ทั้งหมด
+                                </option>
+                            @foreach($qualification as $index => $row)
+                            <option value="{{$row->qua_id}}" {{Input::get('qua_id')==$row->qua_id?'selected':''}}>
+                            {{$row->qua_name}}
                             </option>
                             @endforeach
                             </select>
@@ -37,12 +50,27 @@
                             </option>
                             @endforeach
                             </select>
-                        </div>      
+                        </div>
+                        <div class="form-group">
+                        <label >สาขา</label>
+                        <select style="width:100%" name="bra_id">
+                            <option value="all">
+                                ทั้งหมด
+                            </option>
+                        @foreach($branch as $index => $roww)
+                            <option value="{{$roww->bra_id}}" {{Input::get('bra_id')==$roww->bra_id?'selected':''}}>
+                                {{$roww->bra_name}}
+                            </option>
+                        @endforeach
+                        </select>
+                    </div>      
                         <button type="submit" class="btn btn-default">ค้นหาอาจารย์</button>
                     </form>
                 </div>
             </div>
+            @if(CurrentUser::permission([3]))
            <a class="btn btn-default" href="/profressor/create">เพิ่มอาจารย์</a>
+           @endif
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
@@ -53,9 +81,10 @@
                             <tr>
                                 <th style="width:30px">#</th>
                                 <th>ชื่อ</th>
-                                <th>นามสกุล</th>
                                 <th>เพศ</th>
+                                <th>ระดับ</th>
                                 <th>คุณวุฒิ</th>
+                                <th>สาขา</th>
                                 <th>ตำแหน่ง</th>
                                 <th style="width:120px"></th>
                             </tr>
@@ -66,11 +95,15 @@
                                 <td>{{$profressor->first_name}} {{$profressor->last_name}}</td>
                                 <td>{{$profressor->gender}}</td>
                                 <td>{{$profressor->degr_name}}</td>
+                                <td>{{$profressor->qua_name}}</td>
+                                <td>{{$profressor->bra_name}}</td>
                                 <td>{{$profressor->aca_name}}</td>
                                 <td>
                                     <div class="btn-group">
                                     <a class="btn btn-default" href="/profressor/{{$profressor->tea_id}}"><i class="fa fa-edit"></i></a>
+                                    @if(CurrentUser::permission([3]))
                                     <a class="btn btn-default delete-item" href="/profressor/{{$profressor->tea_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>
