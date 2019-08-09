@@ -43,7 +43,9 @@ class StudyController extends Controller
         $soure = DB::table('soure')->whereNull('deleted_at')->get();
         $souretype = DB::table('souretype')->whereNull('deleted_at')->get();
         return view('stu::studylist',compact('research','soure','souretype'));
+        
     }
+     
     public function create()
     {
         $soure = DB::table('soure')->whereNull('deleted_at')->get();

@@ -7,41 +7,41 @@
             <div class="panel panel-default">
                 <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
-                    <form action="/institutions">
+                    <form action="/document">
                         <div class="form-group">
                             <label for="keyword"></label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
-                        <button type="submit" class="btn btn-default">ค้นหาสถาบัน</button>
+                        <button type="submit" class="btn btn-default">ค้นหาระดับ</button>
                     </form>
                 </div>
             </div>
-            @if(CurrentUser::permission([]))
-           <a class="btn btn-default" href="/institutions/create">เพิ่มสถาบัน</a>
+            @if(CurrentUser::permission([3]))
+           <a class="btn btn-default" href="/document/create">เพิ่มระดับ</a>
             @endif
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">ตารางสถาบัน</div>
+                <div class="panel-heading">ตารางระดับ</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>สถาบัน</th>
+                                <th>ระดับ</th>
                                 <th style="width:200.px"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($institution as $index => $institutions)
+                        @foreach($document as $index => $documents)
                             <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{$institutions->inst_name}}</td>
+                                <td>{{$documents->doc_name}}</td>
                                 <td>
                                     <div class="btn-group">
-                                    @if(CurrentUser::permission([]))
-                                    <a class="btn btn-default" href="/institutions/{{$institutions->inst_id}}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-default delete-item" href="/institutions/{{$institutions->inst_id}}"><i class="fa fa-trash"></i></a>
+                                    @if(CurrentUser::permission([3]))
+                                    <a class="btn btn-default" href="/document/{{$documents->doc_id}}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-default delete-item" href="/document/{{$documents->doc_id}}"><i class="fa fa-trash"></i></a>
                                     @endif
                                     </div>
                                 </td>

@@ -29,7 +29,9 @@
                     </form>
                 </div>
             </div>
+            @if(CurrentUser::permission([]))
            <a class="btn btn-default" href="/soure/create">เพิ่มแหล่งทุน</a>
+           @endif
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
@@ -52,8 +54,10 @@
                                 <td>{{$soures->sout_name}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/soure/{{$soures->sour_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/soure/{{$soures->sour_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

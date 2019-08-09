@@ -59,32 +59,44 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">ข้อมูลรายละเอียดงาน</div>
                         <div class="panel-body">
-                        <div class="col-md-6">
+                            <div class="col-md-12">
                             <div class="form-group">
-                                <th>รายละเอียดงาน:</th>
-                                    <input type="text" name="req_name" class="form-control" value="{{isset($requests)?$requests->req_name:''}}"/>
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="form-group">
-                            <th>ปีที่ไป:</th>
-                                    <select style="width:80%" name="complete_year">
-                                        <option value="all">
-                                            ทั้งหมด
-                                        </option>
-                                    @for($i=date('Y');$i<(date('Y')+10);$i++)
-                                        <option value="{{$i+543}}" {{isset($requests) && $requests->complete_year==($i+543)?'selected':''}}>
-                                            {{$i+543}}
-                                        </option>
-                                    @endfor
-                                    </select>
+                                <th>ระบุชื่อ
+                                @if(isset($profressor) && $profressor->aca_name=='อาจารย์')
+                                    <input type="hidden" name="doc_id" class="form-control" value="1"/>
+                                    เอกสารประกอบการสอน
+                                @elseif(isset($profressor) && $profressor->aca_name=='ผู้ช่วยศาสตราจารย์')
+                                    <input type="hidden" name="doc_id" class="form-control" value="2"/>
+                                    เอกสารคำสอน
+                                @endif
+                                :</th>
+                                <input type="text" name="req_name" class="form-control" value="{{isset($requests)?$requests->req_name:''}}"/>
                             </div>
                             </div>
                             <div class="col-md-12">
                             <div class="form-group">
+                            <th>ปีที่คาดว่าจะสำเร็จ:</th>
+                                <select style="width:30%" name="complete_year">
+                                    <option value="all">
+                                        ทั้งหมด
+                                    </option>
+                                @for($i=date('Y');$i<(date('Y')+10);$i++)
+                                    <option value="{{$i+543}}" {{isset($requests) && $requests->complete_year==($i+543)?'selected':''}}>
+                                        {{$i+543}}
+                                    </option>
+                                @endfor
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="checkbox" name="select_study" value="Y"> วิจัย<br>
+                                <input type="checkbox" name="select_book" value="Y"> ตำรา<br>
+                                <input type="checkbox" name="select_text" value="Y"> หนังสือ<br><br>
+                            </div>
+                            <div class="form-group">
                                 <th>หมายเหตุ:</th>
                                     <textarea row="10" name="note" class="form-control" value="{{isset($requests)?$requests->note:''}}"></textarea>
-                            </div>
+                            </div> 
                             </div>
                         </div>
                     <button class="btn">ยืนยัน</button>

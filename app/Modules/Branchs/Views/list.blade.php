@@ -16,8 +16,9 @@
                     </form>
                 </div>
             </div>
+            @if(CurrentUser::permission([]))
            <a class="btn btn-default" href="/branchs/create">เพิ่มสาขา</a>
-            
+            @endif
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
@@ -38,8 +39,10 @@
                                 <td>{{$branchs->bra_name}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/branchs/{{$branchs->bra_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/branchs/{{$branchs->bra_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

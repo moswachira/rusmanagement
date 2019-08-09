@@ -53,7 +53,7 @@
                             <tr>
                                 <th>#</th>
                                 <th width="15%">ชื่อ</th>
-                                <th width="20%">ชื่อโปรเจค</th>
+                                <th width="30%">ชื่อโปรเจค</th>
                                 <th width="10%">ปี</th>
                                 <th>แหล่งทุน</th>
                                 <th>ประเภทแหล่งทุน</th>
@@ -88,8 +88,8 @@
                                 <td>{{$studys->sout_name}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([0]))
                                     <a class="btn btn-default" href="/study/{{$studys->res_id}}"><i class="fa fa-edit"></i></a>
-                                    @if(CurrentUser::permission([3]))
                                     <a class="btn btn-default delete-item" href="/study/{{$studys->res_id}}"><i class="fa fa-trash"></i></a>
                                     @endif
                                     </div>

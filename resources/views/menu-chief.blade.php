@@ -40,6 +40,9 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/train">การอบรม</a></li>
+                                    <li><a href="/sides">ด้าน</a></li>
+                                    <li><a href="/followtrainchife">ติดตามการนำไปใช้ประโยชน์</a></li>
+
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -60,6 +63,7 @@
                                     <li><a href="/request">ขอตำแหน่งทางวิชาการ</a></li>
                                     <li><a href="/subjectss">วิชา</a></li>
                                     <li><a href="/positiontypes">ประเภท</a></li>
+                                    <li><a href="/document">เอกสาร</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -25,6 +25,14 @@ class CurrentUser
         return null;
         
     }
+    public static function is_admin(){
+        if(Auth::check()){
+            $user = Auth::user();
+            return ($user->user_type===MyConst::$USER_LEVEL_ADMIN);
+        }
+        return null;
+        
+    }
     public static function menu(){
         if(Auth::check()){
             $user = Auth::user();

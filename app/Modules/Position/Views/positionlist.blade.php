@@ -15,9 +15,10 @@
                         <button type="submit" class="btn btn-default">ค้นหาตำแหน่ง</button>
                     </form>
                 </div>
-            </div>
+            </div>                                    
+            @if(CurrentUser::permission([]))
            <a class="btn btn-default" href="/position/create">เพิ่มตำแหน่ง</a>
-            
+            @endif
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
@@ -40,8 +41,10 @@
                                 <td>{{$position->initials}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/position/{{$position->aca_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/position/{{$position->aca_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

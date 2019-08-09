@@ -29,6 +29,10 @@ Route::prefix('')->group(function () {
     Route::resource('positiontypes','\App\Modules\Positiontypes\PositiontypesController'); 
     Route::resource('request','\App\Modules\Request\RequestController'); 
     Route::resource('followtrain','\App\Modules\Followtrain\FollowtrainController'); 
+    Route::resource('sides','\App\Modules\Sides\SidesController'); 
+    Route::resource('document','\App\Modules\Document\DocumentController'); 
+    Route::resource('comment','\App\Modules\Comment\CommentController'); 
+    Route::resource('followtrainchife','\App\Modules\Followtrain\FollowtrainchifeController'); 
 
     /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');

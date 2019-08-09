@@ -16,8 +16,9 @@
                     </form>
                 </div>
             </div>
+            @if(CurrentUser::permission([]))
            <a class="btn btn-default" href="/groups/create">เพิ่มกลุ่ม</a>
-            
+            @endif
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
@@ -28,7 +29,7 @@
                             <tr>
                                 <th>รหัสกลุ่ม</th>
                                 <th>กลุ่ม</th>
-                                <th style="width:200.px">แก้ไขรายการ</th>
+                                <th style="width:200px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,8 +39,10 @@
                                 <td>{{$groups->gro_name}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/groups/{{$groups->gro_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/groups/{{$groups->gro_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

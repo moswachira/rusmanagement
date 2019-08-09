@@ -12,11 +12,15 @@ class TrainController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('keyword'); 
+        $currentuser = CurrentUser::user();
 
         $training = DB::table('training')
         ->select('training.*','teacher.first_name','teacher.last_name')
         ->leftJoin('teacher','training.tea_id','teacher.tea_id')
         ->whereNull('training.deleted_at');
+        if(!CurrentUser::is_admin()){
+        $training->where('teacher.tea_id',$currentuser->tea_id);
+        }
 
         if(!empty($keyword)){
             $training->where(function ($query) use($keyword){

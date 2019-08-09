@@ -43,8 +43,11 @@ class RequestlogController extends Controller
     {
         if(is_numeric($req_id))
         {
+        $request  = DB::table('request')
+        ->where('req_id','=',$req_id)->first();
             return view('log::form',[
-                'req_id'=>$req_id
+                'req_id'=>$req_id,
+                'request'=>$request
             ]);
         }
         return view('data-not-found',['back_url'=>'/request']);

@@ -12,8 +12,6 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/profressor">รายชื่ออาจารย์</a></li>
-                                    <li><a href="/right">สิทธ์อาจารย์</a></li>
-                                    <li><a href="/position">ตำแหน่ง</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -21,8 +19,6 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/study">รายชื่ออาจารย์การทำวิจัย</a></li>
-                                    <li><a href="/soure">แหล่งทุน</a></li>
-                                    <li><a href="/typesoure">ประเภทแหล่งทุน</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -30,9 +26,6 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/portfolio">ผลงานวิชาการ</a></li>
-                                    <li><a href="/publishs">แหล่งเผยแพร่ผลงาน</a></li>
-                                    <li><a href="/groups">กลุ่ม</a></li>
-                                    <li><a href="/type">ประเภท</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -47,10 +40,6 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/education">รายละเอียดการศึกษาต่อ</a></li>
-                                    <li><a href="/branchs">สาขา</a></li>
-                                    <li><a href="/institutions">สถาบัน</a></li>
-                                    <li><a href="/degrees">ระดับ</a></li>
-                                    <li><a href="/qualification">คุณวุฒิ</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -58,8 +47,6 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/request">ขอตำแหน่งทางวิชาการ</a></li>
-                                    <li><a href="/subjectss">วิชา</a></li>
-                                    <li><a href="/positiontypes">ประเภท</a></li>
                                 </ul>
                             </li>
                         </ul>

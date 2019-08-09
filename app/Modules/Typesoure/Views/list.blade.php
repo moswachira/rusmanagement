@@ -16,7 +16,9 @@
                     </form>
                 </div>
             </div>
+            @if(CurrentUser::permission([]))
            <a class="btn btn-default" href="/typesoure/create">เพิ่มแหล่งทุน</a>
+           @endif
         </div> 
         <div class="col-md-8">
             <div class="panel panel-default">
@@ -37,8 +39,10 @@
                                 <td>{{$souretypes->sout_name}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/typesoure/{{$souretypes->sout_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/typesoure/{{$souretypes->sout_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

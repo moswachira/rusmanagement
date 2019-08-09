@@ -61,6 +61,8 @@
                     </li>
                     <li><a data-toggle="tab" href="#Interface"><i class="fa fa-bar-chart"></i></i> การมอบหมายงาน</a>
                     </li>
+                    <li><a data-toggle="tab" href="#Interface"><i class="fa fa-bar-chart"></i></i> ติดตามการนำไปใช้ประโยชน์</a>
+                    </li>
                 </ul>
                 <div class="tab-content custom-menu-content">
                     <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">               

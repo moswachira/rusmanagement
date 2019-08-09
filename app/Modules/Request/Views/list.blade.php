@@ -6,7 +6,7 @@
            
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">ตารางวิจัย</div>
+                <div class="panel-heading">ตารางขอกำหนดตำแหน่งทางวิชาการ</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
@@ -33,15 +33,29 @@
                                 <td>{{$requests->position}}</td>
                                 <td>{{$requests->req_name}}</td>
                                 <td>{{$requests->percent_doc}}</td>
+                                @if($requests->select_study=='Y')
                                 <td>{{$requests->percent_study}}</td>
+                                @else
+                                <td>ไม่เลือก</td>
+                                @endif
+                                @if($requests->select_book=='Y')
                                 <td>{{$requests->percent_book}}</td>
+                                @else
+                                <td>ไม่เลือก</td>
+                                @endif
+                                @if($requests->select_text=='Y')
                                 <td>{{$requests->percent_text}}</td>
+                                @else
+                                <td>ไม่เลือก</td>
+                                @endif
                                 <td>{{$requests->complete_year}}</td>
                                 <td>
                                     <div class="btn-group">
                                     <a class="btn btn-default" href="/requestlog/{{$requests->req_id}}"><i class="fa fa-file-text-o"></i></a>
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/request/{{$requests->req_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/request/{{$requests->req_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>
@@ -49,7 +63,7 @@
                         </tbody>
                         
                     </table>
-                    <a class="btn btn-default" href="/request/create">เพิ่มงานวิจัย</a>
+                    <a class="btn btn-default" href="/request/create">เพิ่มการขอตำแหน่งทางวิชาการ</a>
                 </div>
             </div>
         </div>

@@ -40,6 +40,8 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/train">การอบรม</a></li>
+                                    <li><a href="/sides">ด้าน</a></li>
+
                                 </ul>
                             </li>
                             <li class="dropdown">

@@ -16,8 +16,9 @@
                     </form>
                 </div>
             </div>
+            @if(CurrentUser::permission([0]))
            <a class="btn btn-default" href="/publishs/create">เพิ่มแหล่งเผยแพร่</a>
-            
+            @endif
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
@@ -42,8 +43,10 @@
                                 <td>{{$publishs->place}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/publishs/{{$publishs->pub_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/publishs/{{$publishs->pub_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

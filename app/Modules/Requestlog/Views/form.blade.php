@@ -16,19 +16,19 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <th>เอกสาร(%):</th>
-                                        <input type="text" maxlength="3" name="percent_doc" class="form-control" />
+                                        <input   type="text" maxlength="3" name="percent_doc" class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <th>ผลงานวิจัย(%):</th>
-                                        <input type="text" maxlength="3" name="percent_study" class="form-control" />
+                                        <input {{$request->select_study=='N'?'readonly':''}} value="0" type="text" maxlength="3" name="percent_study" class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <th>ประเภทหนังสือ(%):</th>
-                                        <input type="text" maxlength="3" name="percent_book" class="form-control" />
+                                        <input {{$request->select_book=='N'?'readonly':''}} value="0" type="text" maxlength="3" name="percent_book" class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <th>ประเภทตำรา(%):</th>
-                                        <input type="text" maxlength="3" name="percent_text" class="form-control" />
+                                        <input {{$request->select_text=='N'?'readonly':''}} value="0" type="text" maxlength="3" name="percent_text" class="form-control" />
                                 </div>
                             </div>
                         </div>

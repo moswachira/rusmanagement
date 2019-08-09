@@ -66,7 +66,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>ชื่อ</th>
-                                <th width="30%">ชื่อผลงาน</th>
+                                <th width="40%">ชื่อผลงาน</th>
                                 <th>แหล่งเผยแพร่</th>
                                 <th>ประเภท</th>
                                 <th>กลุ่ม</th>
@@ -103,8 +103,8 @@
                                 <td>{{$port->score}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([0]))
                                     <a class="btn btn-default" href="/portfolio/{{$port->por_id}}"><i class="fa fa-edit"></i></a>
-                                    @if(CurrentUser::permission([3]))
                                     <a class="btn btn-default delete-item" href="/portfolio/{{$port->por_id}}"><i class="fa fa-trash"></i></a>
                                     @endif
                                     </div>

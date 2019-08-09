@@ -99,9 +99,11 @@
                                 <td>{{$profressor->bra_name}}</td>
                                 <td>{{$profressor->aca_name}}</td>
                                 <td>
+                                    @if(CurrentUser::permission([]))
                                     <div class="btn-group">
                                     <a class="btn btn-default" href="/profressor/{{$profressor->tea_id}}"><i class="fa fa-edit"></i></a>
-                                    @if(CurrentUser::permission([3]))
+                                    @endif
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default delete-item" href="/profressor/{{$profressor->tea_id}}"><i class="fa fa-trash"></i></a>
                                     @endif
                                     </div>

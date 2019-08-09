@@ -16,8 +16,9 @@
                     </form>
                 </div>
             </div>
+            @if(CurrentUser::permission([]))
            <a class="btn btn-default" href="/subjectss/create">เพิ่มวิชา</a>
-            
+            @endif
         </div> 
         <div class="col-md-10">
             <div class="panel panel-default">
@@ -38,8 +39,10 @@
                                 <td>{{$subjectss->sub_name}}</td>
                                 <td>
                                     <div class="btn-group">
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/subjectss/{{$subjectss->sub_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/subjectss/{{$subjectss->sub_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

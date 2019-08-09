@@ -9,21 +9,24 @@ use App\Services\MyResponse;
 use App\Services\CurrentUser;
 class FollowtrainController extends Controller
 {
-   
     public function store(Request $request) 
     {
-        $date = $request->get('date');
-        $side = $request->get('side');
+        $start_time = $request->get('start_time');
+        $end_time = $request->get('end_time');
+        $side_id = $request->get('side_id');
         $detail = $request->get('detail');
+        $status = $request->get('status');
         $tra_id = $request->get('tra_id');
         $currentuser = CurrentUser::user();
 
-        if(!empty($date)  && !empty($detail) && !empty($side) && is_numeric($tra_id))
+        if(!empty($start_time) && !empty($end_time) && !empty($detail) && !empty($status) && is_numeric($side_id) && is_numeric($tra_id))
         {
                 DB::table('followtrain')->insert([
-                    'date' =>$date,
+                    'start_time' =>$start_time,
+                    'end_time' =>$end_time,
                     'detail' =>$detail,
-                    'side' =>$side,
+                    'side_id' =>$side_id,
+                    'status' =>$status,
                     'tra_id' =>$tra_id,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]);
@@ -37,14 +40,30 @@ class FollowtrainController extends Controller
     {
         if(is_numeric($followtr_id))
         {
+            $side = DB::table('side')->whereNull('deleted_at')->get();
             $followtrain = DB::table('followtrain')
-        ->select('followtrain.*','teacher.first_name','teacher.last_name')
+        ->select('followtrain.*','teacher.first_name','teacher.last_name','side.side_name')
         ->leftJoin('training','followtrain.tra_id','training.tra_id')
         ->leftJoin('teacher','teacher.tea_id','training.tea_id')
-        ->where('followtrain.tra_id','=',$followtr_id)->whereNull('followtrain.deleted_at')->get();
+        ->leftJoin('side','followtrain.side_id','side.side_id')
+        ->where('followtrain.tra_id','=',$followtr_id)
+        ->whereNull('followtrain.deleted_at')->first();
+        $form = view('fot::form',[
+                    'side'=>$side,
+                    'tra_id'=>$followtr_id,
+        ]);
+            if(!empty($followtrain)){
+                $form = view('fot::detail',[
+                    'followtrain'=>$followtrain,
+                    'side'=>$side,
+                    'tra_id'=>$followtr_id,
+        ]);
+            }
                 return view('fot::list',[
                     'followtrain'=>$followtrain,
                     'tra_id'=>$followtr_id,
+                    'side'=>$side,
+                    'form'=>$form->render(),
                 ]);
             }
         

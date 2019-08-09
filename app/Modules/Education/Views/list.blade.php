@@ -69,8 +69,10 @@
                                 <td>
                                     <div class="btn-group">
                                     <a class="btn btn-default" href="/follow/{{$edus->edu_id}}"><i class="fa fa-file-text-o"></i></a>
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/education/{{$edus->edu_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/education/{{$edus->edu_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>

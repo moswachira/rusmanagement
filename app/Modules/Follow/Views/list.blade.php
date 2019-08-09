@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
+                @if(CurrentUser::permission([1,2]))
                 <div class="panel-heading">ติดตามการไปศึกษาต่อ</div>
                 <div class="panel-body">
                     <form action="/follow" class="form-ajax" method="POST">
@@ -30,6 +31,8 @@
             </div>
         </div>
     </div>
+@endif
+@if(CurrentUser::permission([3]))
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -63,5 +66,6 @@
             </div>
         </div>
     </div>  
+@endif
 </div>
 @endsection

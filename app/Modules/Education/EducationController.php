@@ -17,6 +17,7 @@ class EducationController extends Controller
         $bra_id = $request->get('bra_id');
         $qua_id = $request->get('qua_id');
         $inst_id = $request->get('inst_id');
+        $currentuser = CurrentUser::user();
 
         $education = DB::table('education')
         ->select('education.*','degree.degr_name','branch.bra_name','institution.inst_name','teacher.first_name','teacher.last_name','qualification.qua_name')
@@ -26,7 +27,10 @@ class EducationController extends Controller
         ->leftJoin('qualification','education.qua_id','qualification.qua_id')
         ->leftJoin('institution','education.inst_id','institution.inst_id')
         ->whereNull('education.deleted_at');
-
+        if(!CurrentUser::is_admin()){
+            $education->where('teacher.tea_id',$currentuser->tea_id);
+            }
+         
         if(!empty($keyword))
         {
             $education->where(function ($query) use($keyword){

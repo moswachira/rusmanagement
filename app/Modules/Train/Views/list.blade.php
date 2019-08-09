@@ -46,8 +46,10 @@
                                 <td>
                                     <div class="btn-group">
                                     <a class="btn btn-default" href="/followtrain/{{$train->tra_id}}"><i class="fa fa-file-text-o"></i></a>
+                                    @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/train/{{$train->tra_id}}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-default delete-item" href="/train/{{$train->tra_id}}"><i class="fa fa-trash"></i></a>
+                                    @endif
                                     </div>
                                 </td>
                             </tr>
@@ -58,6 +60,6 @@
                 </div>
             </div>
         </div>
-
 </div>
+
 @endsection
