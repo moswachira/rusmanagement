@@ -67,7 +67,7 @@
                                 <td>{{$edus->degr_name}}</td>
                                 <td>{{$edus->start_year}} {{$edus->end_year}}</td>
                                 <td>
-                                    <div class="btn-group">
+                                <div class="btn-group">
                                     <a class="btn btn-default" href="/follow/{{$edus->edu_id}}"><i class="fa fa-file-text-o"></i></a>
                                     @if(CurrentUser::permission([]))
                                     <a class="btn btn-default" href="/education/{{$edus->edu_id}}"><i class="fa fa-edit"></i></a>

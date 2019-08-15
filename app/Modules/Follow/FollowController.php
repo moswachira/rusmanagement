@@ -9,12 +9,11 @@ use App\Services\MyResponse;
 use App\Services\CurrentUser;
 class FollowController extends Controller
 {
-   
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         $date = $request->get('date');
-        $status = $request->get('status');
         $detail = $request->get('detail');
+        $status = $request->get('status');
         $edu_id = $request->get('edu_id');
         $currentuser = CurrentUser::user();
 
@@ -41,10 +40,21 @@ class FollowController extends Controller
         ->select('follow.*','teacher.first_name','teacher.last_name')
         ->leftJoin('education','follow.edu_id','education.edu_id')
         ->leftJoin('teacher','teacher.tea_id','education.tea_id')
-        ->where('follow.edu_id','=',$fow_id)->whereNull('follow.deleted_at')->get();
+        ->where('follow.edu_id','=',$fow_id)
+        ->whereNull('follow.deleted_at')->first();
+        $form = view('fow::form',[
+                    'edu_id'=>$fow_id,
+        ]);
+            if(!empty($follow)){
+                $form = view('fow::detail',[
+                    'follow'=>$follow,
+                    'edu_id'=>$fow_id,
+        ]);
+            }
                 return view('fow::list',[
                     'follow'=>$follow,
                     'edu_id'=>$fow_id,
+                    'form'=>$form->render(),
                 ]);
             }
         
@@ -52,3 +62,5 @@ class FollowController extends Controller
     }
 
 }
+
+

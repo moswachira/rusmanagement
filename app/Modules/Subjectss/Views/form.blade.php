@@ -17,11 +17,15 @@
                 @if(isset($subjectss))
                 <form action="/subjectss/{{$subjectss->sub_id}}" class="form-ajax" method="PUT">
                     <input type="hidden" value="put" name="_methods">
-                    @csrf();
+                    @csrf()
                 @else
                 <form class="form-ajax" action="/subjectss" method="POST">
-                @csrf();
+                @csrf()
                 @endif
+                    <div class="panel-body">
+                        <th>รหัสวิชา :</th>
+                    <input type="text" name="subcode" class="form-control" value="{{isset($subjectss)?$subjectss->sub_code:''}}"/>
+                    </div>
                     <div class="panel-body">
                         <th>วิชา :</th>
                     <input type="text" name="subname" class="form-control" value="{{isset($subjectss)?$subjectss->sub_name:''}}"/>

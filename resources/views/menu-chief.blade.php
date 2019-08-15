@@ -50,6 +50,7 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/education">รายละเอียดการศึกษาต่อ</a></li>
+                                    <li><a href="/followchife">ติดตามการศึกษาต่อ</a></li>
                                     <li><a href="/branchs">สาขา</a></li>
                                     <li><a href="/institutions">สถาบัน</a></li>
                                     <li><a href="/degrees">ระดับ</a></li>

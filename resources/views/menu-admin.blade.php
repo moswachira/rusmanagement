@@ -14,6 +14,8 @@
                                     <li><a href="/profressor">รายชื่ออาจารย์</a></li>
                                     <li><a href="/right">สิทธ์อาจารย์</a></li>
                                     <li><a href="/position">ตำแหน่ง</a></li>
+                                    <li><a href="/term">ภาคเรียน</a></li>
+                                    <li><a href="/program">การสอน</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

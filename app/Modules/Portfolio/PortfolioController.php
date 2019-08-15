@@ -15,6 +15,7 @@ class PortfolioController extends Controller
         $acatype_id = $request->get('acatype_id');
         $gro_id = $request->get('gro_id');
         $pub_id = $request->get('pub_id');
+        $currentuser = CurrentUser::user();
 
         $portfolio = DB::table('portfolio')
         ->select('portfolio.*','academictype.acatype_name','group.gro_name','publish.pub_name','teacher.first_name','teacher.last_name')
@@ -23,7 +24,9 @@ class PortfolioController extends Controller
         ->leftJoin('group','portfolio.gro_id','group.gro_id')
         ->leftJoin('publish','portfolio.pub_id','publish.pub_id')
         ->whereNull('portfolio.deleted_at');
-    
+        if(!CurrentUser::is_admin()){
+            $portfolio->where('teacher.tea_id',$currentuser->tea_id);
+            }
         if(!empty($keyword))
         {
             $portfolio->where(function ($query) use($keyword){

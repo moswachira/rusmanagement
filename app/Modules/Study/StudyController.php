@@ -14,6 +14,7 @@ class StudyController extends Controller
         $keyword = $request->get('keyword');
         $sour_id = $request->get('sour_id');
         $sout_id = $request->get('sout_id');
+        $currentuser = CurrentUser::user();
 
         $research = DB::table('research')
         ->select('research.*','soure.sour_name','souretype.sout_name','teacher.first_name','teacher.last_name')
@@ -21,6 +22,9 @@ class StudyController extends Controller
         ->leftJoin('teacher','research.tea_id','teacher.tea_id')
         ->leftJoin('souretype','research.sout_id','souretype.sout_id')
         ->whereNull('research.deleted_at');
+        if(!CurrentUser::is_admin()){
+            $research->where('teacher.tea_id',$currentuser->tea_id);
+            }
 
         if(!empty($keyword))
         {

@@ -29,10 +29,12 @@ class SubjectssController extends Controller
     public function store(Request $request)
     {
         $subname = $request->get('subname');
+        $subcode = $request->get('subcode');
         if(!empty($subname))
         {
             DB::table('subjects')->insert([
                 'sub_name' =>$subname,
+                'sub_code' =>$subcode,
                 'created_at' =>date('Y-m-d H:i:s'),
             ]);
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/subjectss');
@@ -61,11 +63,13 @@ class SubjectssController extends Controller
         if(is_numeric($sub_id))
         {
             $subname = $request->get('subname');
+            $subcode = $request->get('subcode');
 
             if(!empty($subname))
             {
                 DB::table('subjects')->where('sub_id',$sub_id)->update([
                     'sub_name' =>$subname,
+                    'sub_code' =>$subcode,
                     'updated_at' =>date('Y-m-d H:i:s'),
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/subjectss');

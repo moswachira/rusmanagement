@@ -32,7 +32,11 @@ Route::prefix('')->group(function () {
     Route::resource('sides','\App\Modules\Sides\SidesController'); 
     Route::resource('document','\App\Modules\Document\DocumentController'); 
     Route::resource('comment','\App\Modules\Comment\CommentController'); 
+    Route::resource('commentplan','\App\Modules\Commentplan\CommentplanController'); 
     Route::resource('followtrainchife','\App\Modules\Followtrain\FollowtrainchifeController'); 
+    Route::resource('followchife','\App\Modules\Follow\FollowchifeController'); 
+    Route::resource('term','\App\Modules\Term\TermController'); 
+    Route::resource('program','\App\Modules\Program\ProgramController'); 
 
     /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');

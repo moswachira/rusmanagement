@@ -14,6 +14,7 @@ class RequestController extends Controller
         $keyword = $request->get('keyword');
         $aca_id = $request->get('acas_id');
         $doc_id = $request->get('doc_id');
+        $currentuser = CurrentUser::user();
 
         $request = DB::table('request')
         ->select('request.*','teacher.first_name','teacher.last_name','academic.aca_name')
@@ -21,6 +22,9 @@ class RequestController extends Controller
         ->leftJoin('academic','teacher.aca_id','academic.aca_id')
         ->leftJoin('document','request.doc_id','document.doc_id')
         ->whereNull('request.deleted_at');
+        if(!CurrentUser::is_admin()){
+            $request->where('teacher.tea_id',$currentuser->tea_id);
+            }
 
         if(!empty($keyword))
         {

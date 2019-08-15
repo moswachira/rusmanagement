@@ -6,25 +6,25 @@
         </div>
           <div class="col-md-8">   
             <div class="panel panel-default">
-                <a herf="/degrees"กลับหน้าหลัก></a>
+                <a herf="/commentplan"กลับหน้าหลัก></a>
                 <div class="panel-heading" style="font-size: 20px;">
-                    @if(isset($degrees))
-                    ระดับ : {{$degrees->degr_name}}
+                    @if(isset($commentplan))
+                    คอมเม้นอบรม : {{$commentplan->comp_name}}
                     @else
-                    เพิ่มระดับ
+                    เพิ่มคอมเม้น
                     @endif
                 </div>
-                @if(isset($degrees))
-                <form action="/degrees/{{$degrees->degr_id}}" class="form-ajax" method="PUT">
+                @if(isset($commentplan))
+                <form action="/commentplan/{{$commentplan->comp_id}}" class="form-ajax" method="PUT">
                     <input type="hidden" value="put" name="_methods">
                     @csrf()
                 @else
-                <form class="form-ajax" action="/degrees" method="POST">
+                <form class="form-ajax" action="/commentplan" method="POST">
                 @csrf()
                 @endif
                     <div class="panel-body">
-                        <th>ระดับ :</th>
-                    <input type="text" name="degrname" class="form-control" value="{{isset($degrees)?$degrees->degr_name:''}}"/>
+                        <th>คอมเม้น :</th>
+                    <input type="text" name="compname" class="form-control" value="{{isset($commentplan)?$commentplan->comp_name:''}}"/>
                     </div> 
                     <button class="btn">ยืนยัน</button>
                 </form>
