@@ -37,6 +37,7 @@ Route::prefix('')->group(function () {
     Route::resource('followchife','\App\Modules\Follow\FollowchifeController'); 
     Route::resource('term','\App\Modules\Term\TermController'); 
     Route::resource('program','\App\Modules\Program\ProgramController'); 
+    Route::resource('teacherprogram','\App\Modules\Teacherprogram\TeacherprogramController'); 
 
     /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');

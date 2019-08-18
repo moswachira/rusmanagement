@@ -12,6 +12,8 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/profressor">รายชื่ออาจารย์</a></li>
+                                    <li><a href="/program">การสอน</a></li>
+                                    <li><a href="/teacherprogram">แผรการสอน</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

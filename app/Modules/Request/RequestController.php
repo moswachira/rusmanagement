@@ -14,13 +14,19 @@ class RequestController extends Controller
         $keyword = $request->get('keyword');
         $aca_id = $request->get('acas_id');
         $doc_id = $request->get('doc_id');
+        $program_id = $request->get('program_id');
+        $term_id = $request->get('term_id');
+        $sub_id = $request->get('sub_id');
         $currentuser = CurrentUser::user();
 
         $request = DB::table('request')
-        ->select('request.*','teacher.first_name','teacher.last_name','academic.aca_name')
+        ->select('request.*','teacher.first_name','teacher.last_name','academic.aca_name','subjects.sub_name','term.term_name')
         ->leftJoin('teacher','request.tea_id','teacher.tea_id')
         ->leftJoin('academic','teacher.aca_id','academic.aca_id')
         ->leftJoin('document','request.doc_id','document.doc_id')
+        ->leftJoin('program','request.program_id','program.program_id')
+        ->leftJoin('subjects','request.sub_id','subjects.sub_id')
+        ->leftJoin('term','request.term_id','term.term_id')
         ->whereNull('request.deleted_at');
         if(!CurrentUser::is_admin()){
             $request->where('teacher.tea_id',$currentuser->tea_id);
@@ -41,21 +47,37 @@ class RequestController extends Controller
         {
             $request->where('request.doc_id','=',$doc_id);
         }
-        
+        if(is_numeric($program_id))
+        {
+            $request->where('request.program_id','=',$program_id);
+        }
+        if(is_numeric($term_id))
+        {
+            $request->where('request.term_id','=',$term_id);
+        }
+        if(is_numeric($sub_id))
+        {
+            $request->where('request.sub_id','=',$sub_id);
+        }
         $request = $request->orderBy('request.req_name','asc')->paginate(10);
         $academic = DB::table('academic')->whereNull('deleted_at')->get();
         $document = DB::table('document')->whereNull('deleted_at')->get();
-        return view('req::list',compact('request','academic','document'));
+        $program = DB::table('program')->whereNull('deleted_at')->get();
+        $subjects = DB::table('subjects')->whereNull('deleted_at')->get();
+        $term = DB::table('term')->whereNull('deleted_at')->get();
+        return view('req::list',compact('request','academic','document','program','term','subjects'));
     }
     public function create()
     {
         $currentuser = CurrentUser::user();
         $academic  = DB::table('academic')->whereNull('deleted_at')->get();
         $document  = DB::table('document')->whereNull('deleted_at')->get();
+        $program  = DB::table('program')->whereNull('deleted_at')->get();
+        $term  = DB::table('term')->whereNull('deleted_at')->get();
         $profressor = DB::table('teacher')
         ->leftJoin('academic','teacher.aca_id','academic.aca_id')
         ->where('tea_id','=',$currentuser->tea_id)->whereNull('teacher.deleted_at')->first();
-        return view('req::form',compact('academic','document','profressor'));
+        return view('req::form',compact('academic','document','profressor','program','term'));
     }
     public function store(Request $request)
     {

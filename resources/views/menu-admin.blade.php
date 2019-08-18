@@ -16,6 +16,7 @@
                                     <li><a href="/position">ตำแหน่ง</a></li>
                                     <li><a href="/term">ภาคเรียน</a></li>
                                     <li><a href="/program">การสอน</a></li>
+                                    <li><a href="/teacherprogram">แผรการสอน</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

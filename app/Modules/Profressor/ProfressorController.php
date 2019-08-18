@@ -56,6 +56,7 @@ class ProfressorController extends Controller
         {
             $teacher->where('teacher.inst_id','=',$inst_id);
         }
+    
         
         $teacher = $teacher->orderBy('teacher.first_name','asc')->paginate(10);
         $degree = DB::table('degree')->whereNull('deleted_at')->get();

@@ -109,6 +109,31 @@
                         @endforeach
                         </select>
                         </div>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">แผนการสอน</div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>เทอม</th>
+                                        <th>วิชา</th>
+                                        <th style="width:120px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($program as $index => $rowwwwww)
+                                    <tr>                       
+                                        <td>{{$index+1}}</td>
+                                        <td>{{$rowwwwww->term_name}}</td>
+                                        <td>{{$rowwwwww->sub_name}}</td>
+                                        <td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                         <div class="form-group">
                         <th>Username:</th>
                     <input type="text" name="username" autocomplate="off" class="form-control" value="{{isset($profressor)?$profressor->username:''}}"/>

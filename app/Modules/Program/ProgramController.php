@@ -6,6 +6,7 @@ use Input;
 use DB;
 use stdClass;
 use App\Services\MyResponse;
+use App\Services\CurrentUser;
 class ProgramController extends Controller
 {
     public function index(Request $request)
@@ -13,12 +14,17 @@ class ProgramController extends Controller
         $keyword = $request->get('keyword');
         $term_id = $request->get('term_id');
         $sub_id = $request->get('sub_id');
+        $currentuser = CurrentUser::user();
 
         $program = DB::table('program')
-        ->select('program.*','term.term_name','subjects.sub_name')
+        ->select('program.*','term.term_name','subjects.sub_name','teacher.first_name','teacher.last_name')
         ->leftJoin('term','term.term_id','program.term_id')
         ->leftJoin('subjects','subjects.sub_id','program.sub_id')
+        ->leftJoin('teacher','program.tea_id','teacher.tea_id')
         ->whereNull('program.deleted_at');
+        if(!CurrentUser::is_admin()){
+            $program->where('teacher.tea_id',$currentuser->tea_id);
+            }
         
         if(is_numeric($term_id))
         {
@@ -44,6 +50,7 @@ class ProgramController extends Controller
     {
         $term_id = $request->get('term_id');
         $sub_id = $request->get('sub_id');
+        $currentuser = CurrentUser::user();
 
         if(is_numeric($term_id) && is_numeric($sub_id))
         {
@@ -51,6 +58,9 @@ class ProgramController extends Controller
                 'term_id' =>$term_id,
                 'sub_id' =>$sub_id,
                 'created_at' =>date('Y-m-d H:i:s'),
+                'tea_id' =>$currentuser->tea_id,
+
+
             ]);
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/program');
         }else{

@@ -16,7 +16,7 @@
                     </form>
                 </div>
             </div>
-            @if(CurrentUser::permission([]))
+            @if(CurrentUser::permission([3]))
            <a class="btn btn-default" href="/program/create">เพิ่มการสอน</a>
            @endif
         </div> 
