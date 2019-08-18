@@ -77,7 +77,7 @@ class ProgramController extends Controller
             {
                 return view('prog::form',[
                     'programs'=>$programs,
-                    'term'=>$term,
+                    'terms'=>$terms,
                     'subjects'=>$subjects
                 ]);
             }

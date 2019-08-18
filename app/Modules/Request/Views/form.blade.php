@@ -55,6 +55,31 @@
                             </div>
                     </div>
                 </div> 
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">ตารางแผนการสอน</div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>วิชา</th>
+                                <th>ภาคเรียน</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($teacherprogram as $index => $teacherprograms)
+                            <tr>                       
+                                <td>{{$index+1}}</td>
+                                <td>{{$teacherprograms->sub_name}}</td>     
+                                <td>{{$teacherprograms->term_name}}</td>     
+                                <td>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>   
                 <div class="panel panel-default">
                     <div class="panel-heading">ข้อมูลรายละเอียดงาน</div>

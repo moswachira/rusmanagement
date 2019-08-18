@@ -12,6 +12,19 @@
                             <label for="keyword">ค้นหา</label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
+                        <div class="form-group">
+                            <label >ระดับ</label>
+                            <select style="width:100%" name="term_id">
+                                <option value="all">
+                                    ทั้งหมด
+                                </option>
+                            @foreach($term as $index => $terms)
+                            <option value="{{$terms->term_id}}" {{Input::get('term_id')==$terms->term_id?'selected':''}}>
+                            {{$terms->term_name}}
+                            </option>
+                            @endforeach
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-default">ค้นหาอาจารย์</button>
                     </form>
                 </div>

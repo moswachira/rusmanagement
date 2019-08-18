@@ -9,7 +9,7 @@
                 <a herf="/teacherprogram"กลับหน้าหลัก></a>
                 <div class="panel-heading" style="font-size: 20px;">
                     @if(isset($teacherprograms))
-                    แผนการสอน : {{$teacherprograms->first_name}}
+                    แผนการสอน : {{$profressor->first_name}}
                     @else
                     เพิ่มแผนการสอน
                     @endif

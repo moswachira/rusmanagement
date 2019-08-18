@@ -15,6 +15,7 @@ class TeacherprogramController extends Controller
         $sub_id = $request->get('sub_id');
         $term_id = $request->get('term_id');
         $tea_id = $request->get('tea_id');
+        $currentuser = CurrentUser::user();
 
         $teacherprogram = DB::table('teacherprogram')
         ->select('teacherprogram.*','subjects.sub_name','term.term_name','teacher.first_name','teacher.last_name')
@@ -22,7 +23,9 @@ class TeacherprogramController extends Controller
         ->leftJoin('teacher','teacherprogram.tea_id','teacher.tea_id')
         ->leftJoin('term','teacherprogram.term_id','term.term_id')
         ->whereNull('teacherprogram.deleted_at');
-        
+        if(!CurrentUser::is_admin()){
+            $teacherprogram->where('teacher.tea_id',$currentuser->tea_id);
+            }
 
         if(!empty($keyword))
         {
@@ -65,6 +68,7 @@ class TeacherprogramController extends Controller
         $sub_id = $request->get('sub_id');
         $term_id = $request->get('term_id');
         $tea_id = $request->get('tea_id');
+        $currentuser = CurrentUser::user();
 
         if(is_numeric($sub_id) && is_numeric($term_id) && is_numeric($tea_id))
         {
@@ -88,13 +92,16 @@ class TeacherprogramController extends Controller
             if(!empty($teacherprograms))
             {
                 $subjects = DB::table('subjects')->whereNull('deleted_at')->get();
+                $teacher = DB::table('teacher')->where('tea_id')->whereNull('deleted_at')->get();
                 $term = DB::table('term')->whereNull('deleted_at')->get();
-                $teacher = DB::table('teacher')->whereNull('deleted_at')->get();
+                $profressor = DB::table('teacher')
+                ->where('tea_id','=',$teacherprograms->tea_id)->whereNull('teacher.deleted_at')->first();
                 return view('teapro::form',[
                     'teacherprograms'=>$teacherprograms,
                     'subjects'=>$subjects,
                     'term'=>$term,
-                    'teacher'=>$teacher
+                    'profressor'=>$profressor,
+                    'teacher'=>$teacher,
                 ]);
             }
         }
@@ -107,15 +114,13 @@ class TeacherprogramController extends Controller
         {
             $sub_id = $request->get('sub_id');
             $term_id = $request->get('term_id');
-            $tea_id = $request->get('tea_id');
 
 
-            if(is_numeric($sub_id) && is_numeric($term_id) && is_numeric($tea_id))
+            if(is_numeric($sub_id) && is_numeric($term_id))
             {
                 DB::table('teacherprogram')->where('teapro_id',$teapro_id)->update([
                     'sub_id' =>$sub_id,
                     'term_id' =>$term_id,
-                    'tea_id' =>$tea_id,
                     'updated_at' =>date('Y-m-d H:i:s'),
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/teacherprogram');
