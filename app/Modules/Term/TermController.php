@@ -16,7 +16,7 @@ class TermController extends Controller
         ->whereNull('deleted_at');
         if(!empty($keyword)){
             $term->where(function ($query) use($keyword){
-                $query->where('term_name','LIKE','%'.$keyword.'%');
+                $query->where('termn','LIKE','%'.$keyword.'%');
             });
         }
         $term = $term->paginate(10);
@@ -28,11 +28,12 @@ class TermController extends Controller
     }
     public function store(Request $request)
     {
-        $termname = $request->get('termname');
-        if(!empty($termname))
+        $termn= $request->get('termn');
+        if(!empty($termn))
         {
             DB::table('term')->insert([
-                'term_name' =>$termname,
+                'termn' =>$termn,
+                'year' =>$year,
                 'created_at' =>date('Y-m-d H:i:s'),
             ]);
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/term');
@@ -60,11 +61,12 @@ class TermController extends Controller
     {
         if(is_numeric($term_id))
         {
-            $termname = $request->get('termname');
-            if(!empty($termname))
+            $term = $request->get('term');
+            if(!empty($term))
             {
                 DB::table('term')->where('term_id',$term_id)->update([
-                    'term_name'   =>$termname,
+                    'termn'=>$termn,
+                    'year'=>$year,
                     'updated_at' =>date('Y-m-d H:i:s'),
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/term');

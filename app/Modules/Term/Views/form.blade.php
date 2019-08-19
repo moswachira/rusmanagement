@@ -24,7 +24,9 @@
                 @endif
                     <div class="panel-body">
                         <th>ภาคเรียน:</th>
-                    <input type="text" name="termname" class="form-control" value="{{isset($terms)?$terms->term_name:''}}"/>
+                    <input type="text" name="termn" class="form-control" value="{{isset($terms)?$terms->termn:''}}"/>
+                        <th>ปี:</th>
+                    <input type="text" name="year" class="form-control" value="{{isset($terms)?$terms->year:''}}"/>
                     <button class="btn">ยืนยัน</button>
                 </form>
             </div> 

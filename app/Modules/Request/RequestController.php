@@ -20,13 +20,14 @@ class RequestController extends Controller
         $currentuser = CurrentUser::user();
 
         $request = DB::table('request')
-        ->select('request.*','teacher.first_name','teacher.last_name','academic.aca_name','subjects.sub_name','term.term_name')
+        ->select('request.*','teacher.first_name','teacher.last_name','academic.aca_name','subjects.sub_name')
         ->leftJoin('teacher','request.tea_id','teacher.tea_id')
+        ->leftJoin('subjects','request.sub_id','subjects.sub_id')
         ->leftJoin('academic','teacher.aca_id','academic.aca_id')
         ->leftJoin('document','request.doc_id','document.doc_id')
-        ->leftJoin('subjects','request.sub_id','subjects.sub_id')
-        ->leftJoin('teacherprogram','request.teapro_id','teacherprogram.teapro_id')
-        ->leftJoin('term','request.term_id','term.term_id')
+        //->leftJoin('subjects','request.sub_id','subjects.sub_id')
+        //->leftJoin('teacherprogram','request.teapro_id','teacherprogram.teapro_id')
+        //->leftJoin('term','request.term_id','term.term_id')
         ->whereNull('request.deleted_at');
         if(!CurrentUser::is_admin()){
             $request->where('teacher.tea_id',$currentuser->tea_id);
@@ -72,25 +73,66 @@ class RequestController extends Controller
         $currentuser = CurrentUser::user();
         $academic  = DB::table('academic')->whereNull('deleted_at')->get();
         $document  = DB::table('document')->whereNull('deleted_at')->get();
-        $teacherprogram = DB::table('teacherprogram')->whereNull('deleted_at')->get();
-        $term  = DB::table('term')->whereNull('deleted_at')->get();
-        $subjects = DB::table('subjects')->whereNull('deleted_at')->get();
         $profressor = DB::table('teacher')
         ->leftJoin('academic','teacher.aca_id','academic.aca_id')
-        ->leftJoin('subjects','request.sub_id','subjects.sub_id')
-        ->leftJoin('term','request.term_id','term.term_id')
-        ->leftJoin('teacherprogram','request.teapro_id','teacherprogram.teapro_id')
-        ->where('tea_id','=',$currentuser->tea_id)
-        ->whereNull('teacher.deleted_at')->first();
+        ->where('tea_id','=',$currentuser->tea_id)->whereNull('teacher.deleted_at')->first();
+        //$teacherprogram = DB::table('teacherprogram')->whereNull('deleted_at')->get();
+       // $term  = DB::table('term')->whereNull('deleted_at')->get();
+
+
+        $result_subjects = DB::select(DB::raw("SELECT subjects.sub_id,subjects.sub_code,subjects.sub_name,term.year as term_year,CONCAT(term.termn,'/',term.year) as t
+        FROM `program`
+        LEFT JOIN subjects ON(subjects.sub_id=program.sub_id)
+        LEFT JOIN term ON(term.term_id=program.term_id)
+        RIGHT JOIN (SELECT sub_id,count(sub_id) as total
+        FROM `program`
+        LEFT JOIN term ON(term.term_id=program.term_id)
+        WHERE tea_id = 1 and term.year IN('2562','2561','2560')
+        GROUP BY sub_id
+        HAVING total >= 3) as mytable ON(mytable.sub_id=program.sub_id)
+        WHERE tea_id = 1  and term.year IN('2562','2561','2560')
+        ORDER BY sub_name asc,term.year DESC ,term.termn ASC"));
+
+        $subjects = [];
+        foreach($result_subjects as $sub)
+        {
+            if(!isset($subjects[$sub->sub_id]))
+            {
+                $subjects[$sub->sub_id] = [
+                    'subject_id'=>$sub->sub_id,
+                    'subject_code'=>$sub->sub_code,
+                    'subject_name'=>$sub->sub_name,
+                    'term'=>[$sub->t],
+                    'year'=>[$sub->term_year]
+                ];
+            }
+            else
+            {
+                if(!in_array( $sub->t, $subjects[$sub->sub_id]['term']))
+                {
+                    $subjects[$sub->sub_id]['term'][] = $sub->t;
+                }
+                if(!in_array($sub->term_year, $subjects[$sub->sub_id]['year']))
+                {
+                    $subjects[$sub->sub_id]['year'][] = $sub->term_year;
+                }
+            }
+        }
+        $subjects = array_values($subjects);
+        $subjects = array_filter($subjects,function($item){
+            return count($item['year']) >=3;
+        });
+        $subjects = array_values($subjects);
+
         return view('req::form',compact('academic','document','profressor','teacherprogram','term','subjects'));
     }
     public function store(Request $request)
     {
-        $req_name = $request->get('req_name');
         $note = $request->get('note');
         $complete_year = $request->get('complete_year');
         $aca_id = $request->get('aca_id');
         $doc_id = $request->get('doc_id');
+        $sub_id = $request->get('sub_id');
         $select_study = $request->get('select_study');
         $select_book = $request->get('select_book');
         $select_text = $request->get('select_text');
@@ -98,7 +140,7 @@ class RequestController extends Controller
         $position = $request->get('position');
         $currentuser = CurrentUser::user();
 
-        if(!empty($req_name) && !empty($complete_year))
+        if(!empty($complete_year) && is_numeric($sub_id))
         {
             $select_study=!empty($select_study) ?'Y':'N';
             $select_book=!empty($select_book) ?'Y':'N';
@@ -109,7 +151,6 @@ class RequestController extends Controller
                 return MyResponse::error('กรุณาเลือกอย่างใดอย่างหนึ่ง');
             }
                 DB::table('request')->insert([
-                    'req_name' =>$req_name,
                     'note' =>$note,
                     'complete_year' =>$complete_year,
                     'position' =>$position,
@@ -118,6 +159,7 @@ class RequestController extends Controller
                     'select_text' =>$select_text,
                     'aca_id' =>$aca_id,
                     'doc_id' =>$doc_id,
+                    'sub_id' =>$sub_id,
                     'tea_id' =>$currentuser->tea_id,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]); 
