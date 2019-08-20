@@ -78,8 +78,7 @@ class RequestController extends Controller
         ->where('tea_id','=',$currentuser->tea_id)->whereNull('teacher.deleted_at')->first();
         //$teacherprogram = DB::table('teacherprogram')->whereNull('deleted_at')->get();
        // $term  = DB::table('term')->whereNull('deleted_at')->get();
-
-
+        
         $result_subjects = DB::select(DB::raw("SELECT subjects.sub_id,subjects.sub_code,subjects.sub_name,term.year as term_year,CONCAT(term.termn,'/',term.year) as t
         FROM `program`
         LEFT JOIN subjects ON(subjects.sub_id=program.sub_id)
@@ -87,10 +86,10 @@ class RequestController extends Controller
         RIGHT JOIN (SELECT sub_id,count(sub_id) as total
         FROM `program`
         LEFT JOIN term ON(term.term_id=program.term_id)
-        WHERE tea_id = 1 and term.year IN('2562','2561','2560')
+        WHERE tea_id = {$currentuser->tea_id} and term.year IN('2562','2561','2560')
         GROUP BY sub_id
         HAVING total >= 3) as mytable ON(mytable.sub_id=program.sub_id)
-        WHERE tea_id = 1  and term.year IN('2562','2561','2560')
+        WHERE tea_id = {$currentuser->tea_id} and term.year IN('2562','2561','2560')
         ORDER BY sub_name asc,term.year DESC ,term.termn ASC"));
 
         $subjects = [];
