@@ -52,6 +52,18 @@ class RequestlogController extends Controller
         }
         return view('data-not-found',['back_url'=>'/request']);
     }
-    
+    public function edit($rog_id,Request $request)
+    {
+        if(is_numeric($rog_id))
+        {
+        $requestlog  = DB::table('requestlog')
+        ->where('rog_id','=',$rog_id)->first(); 
+            return view('log::list',[
+                'rog_id'=>$rog_id,
+                'requestlog'=>$requestlog
+            ]);
+        }
+        return view('data-not-found',['back_url'=>'/request']);
+    }
 
 }

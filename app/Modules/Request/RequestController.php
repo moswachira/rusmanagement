@@ -16,7 +16,6 @@ class RequestController extends Controller
         $doc_id = $request->get('doc_id');
         $term_id = $request->get('term_id');
         $sub_id = $request->get('sub_id');
-        $teapro_id = $request->get('teapro_id');
         $currentuser = CurrentUser::user();
 
         $request = DB::table('request')
@@ -24,14 +23,14 @@ class RequestController extends Controller
         ->leftJoin('teacher','request.tea_id','teacher.tea_id')
         ->leftJoin('subjects','request.sub_id','subjects.sub_id')
         ->leftJoin('academic','teacher.aca_id','academic.aca_id')
-        ->leftJoin('document','request.doc_id','document.doc_id')
         //->leftJoin('subjects','request.sub_id','subjects.sub_id')
         //->leftJoin('teacherprogram','request.teapro_id','teacherprogram.teapro_id')
         //->leftJoin('term','request.term_id','term.term_id')
         ->whereNull('request.deleted_at');
-        if(!CurrentUser::is_admin()){
+        if(!CurrentUser::is_admin())
+        {
             $request->where('teacher.tea_id',$currentuser->tea_id);
-            }
+        }
 
         if(!empty($keyword))
         {
@@ -44,29 +43,15 @@ class RequestController extends Controller
         {
             $request->where('request.aca_id','=',$aca_id);
         }
-        if(is_numeric($doc_id))
-        {
-            $request->where('request.doc_id','=',$doc_id);
-        }
-        if(is_numeric($teapro_id))
-        {
-            $request->where('request.teapro_id','=',$teapro_id);
-        }
-        if(is_numeric($term_id))
-        {
-            $request->where('request.term_id','=',$term_id);
-        }
         if(is_numeric($sub_id))
         {
             $request->where('request.sub_id','=',$sub_id);
         }
+        
         $request = $request->orderBy('request.req_name','asc')->paginate(10);
         $academic = DB::table('academic')->whereNull('deleted_at')->get();
-        $document = DB::table('document')->whereNull('deleted_at')->get();
-        $teacherprogram = DB::table('teacherprogram')->whereNull('deleted_at')->get();
         $subjects = DB::table('subjects')->whereNull('deleted_at')->get();
-        $term = DB::table('term')->whereNull('deleted_at')->get();
-        return view('req::list',compact('request','academic','document','teacherprogram','term','subjects'));
+        return view('req::list',compact('request','academic','subjects'));
     }
     public function create()
     {
@@ -123,7 +108,7 @@ class RequestController extends Controller
         });
         $subjects = array_values($subjects);
 
-        return view('req::form',compact('academic','document','profressor','teacherprogram','term','subjects'));
+        return view('req::form',compact('academic','document','profressor','term','subjects'));
     }
     public function store(Request $request)
     {
@@ -176,8 +161,8 @@ class RequestController extends Controller
             if(!empty($requests))
             {
                 $academic = DB::table('academic')->whereNull('deleted_at')->get();
+                $requestlog = DB::table('requestlog')->get();
                 $documents = DB::table('document')->whereNull('deleted_at')->get();
-                $teacherprogram = DB::table('teacherprogram')->whereNull('deleted_at')->get();
                 $subjects = DB::table('subjects')->whereNull('deleted_at')->get();
                 $term = DB::table('term')->whereNull('deleted_at')->get();
                 $profressor = DB::table('teacher')
@@ -185,14 +170,14 @@ class RequestController extends Controller
                 ->leftJoin('document','teacher.doc_id','document.doc_id')
                 ->leftJoin('subjects','request.sub_id','subjects.sub_id')
                 ->leftJoin('term','request.term_id','term.term_id')
-                ->leftJoin('teacherprogram','request.teapro_id','teacherprogram.teapro_id')
-                ->where('tea_id','=',$requests->tea_id)->whereNull('teacher.deleted_at')->first();
+                ->where('tea_id','=',$requests->tea_id)
+                ->whereNull('teacher.deleted_at')->first();
                 return view('req::form',[
                     'requests'=>$requests,
                     'academic'=>$academic,
                     'documents'=>$documents,
                     'teacher'=>$teacher,
-                    'teacherprogram'=>$teacherprogram,
+                    'requestlog'=>$requestlog,
                     'term'=>$term,
                     'subjects'=>$subjects,
                     'profressor'=>$profressor
