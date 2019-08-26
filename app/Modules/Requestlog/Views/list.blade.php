@@ -19,13 +19,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($requestlog as $index => $requestlogs)
+                        @foreach($requestlogs as $index => $requestlog)
                             <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{$requestlogs->percent_doc}}</td>
-                                <td>{{$requestlogs->percent_study}}</td>
-                                <td>{{$requestlogs->percent_book}}</td>
-                                <td>{{$requestlogs->percent_text}}</td>
+                                <td>{{$requestlog->percent_doc}}</td>
+                                <td>{{$requestlog->percent_study}}</td>
+                                <td>{{$requestlog->percent_book}}</td>
+                                <td>{{$requestlog->percent_text}}</td>
                                 <td>
                             </td>
                         </tr>

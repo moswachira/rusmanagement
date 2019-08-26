@@ -37,7 +37,9 @@ Route::prefix('')->group(function () {
     Route::resource('followchife','\App\Modules\Follow\FollowchifeController'); 
     Route::resource('term','\App\Modules\Term\TermController'); 
     Route::resource('program','\App\Modules\Program\ProgramController'); 
-    Route::resource('teacherprogram','\App\Modules\Teacherprogram\TeacherprogramController'); 
+    Route::resource('teacherprogram','\App\Modules\Teacherprogram\TeacherprogramController');
+    Route::resource('assignment','\App\Modules\Assignment\AssignmentController');
+    Route::resource('worktype','\App\Modules\Worktype\WorktypeController');
 
     /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');

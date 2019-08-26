@@ -30,7 +30,7 @@
                                 <div class="btn-group">
                                 @if(!CurrentUser::is_admin())
                             <a class="btn btn-default" href="/requestlog/{{$requests->req_id}}"><i class="fa fa-file-text-o"></i></a>
-                            <a class="btn btn-default" href="/requestlog/{{$requests->req_id}}/edit"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-default" href="/requestlog/{{$requests->req_id}}/edit"><i class="glyphicon glyphicon-file"></i></a>
                         @else
                             <a class="btn btn-default" href="/request/{{$requests->req_id}}"><i class="fa fa-edit"></i></a>
                             <a class="btn btn-default delete-item" href="/request/{{$requests->req_id}}"><i class="fa fa-trash"></i></a>
