@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'MyConst' => App\Services\MyConst::class,
         'MyResponse' => App\Services\MyResponse::class,
         'CurrentUser' => App\Services\CurrentUser::class,
+        'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
     ],
 
 ];

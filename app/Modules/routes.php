@@ -41,6 +41,10 @@ Route::prefix('')->group(function () {
     Route::resource('assignment','\App\Modules\Assignment\AssignmentController');
     Route::resource('worktype','\App\Modules\Worktype\WorktypeController');
 
+   /* Route::get('laravel-version', function() {
+        $laravel = app();
+        return "Your Laravel version is ".$laravel::VERSION;
+   });
     /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');
     Route::GET('/home/soure','\App\Modules\Soure\SoureController@soure');
