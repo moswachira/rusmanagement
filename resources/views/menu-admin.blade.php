@@ -14,6 +14,7 @@
                                     <li><a href="/profressor">รายชื่ออาจารย์</a></li>
                                     <li><a href="/right">สิทธ์อาจารย์</a></li>
                                     <li><a href="/position">ตำแหน่ง</a></li>
+                                    <li><a href="/worktype">ประเภทงาน</a></li>
                                     <li><a href="/term">ภาคเรียน</a></li>
                                     <li><a href="/program">การสอน</a></li>
                                     <li><a href="/teacherprogram">แผรการสอน</a></li>
@@ -74,6 +75,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="sub-nav-menu"><a href="#">รายละเอียด</a></li>
+                        <li class="sub-nav-menu"><a href="/assignment">มอบหมายงาน</a></li>
                         <li class="sub-nav-menu"><a href="/logout">ออกจากระบบ</a></li>
                     </ul>
                 </li>

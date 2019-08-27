@@ -57,7 +57,15 @@
                 </div> 
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">ตารางแผนการสอน</div>
+                <div class="panel-heading"><th>ระบุชื่อ
+                                @if(isset($profressor) && $profressor->aca_name=='อาจารย์')
+                                    <input type="hidden" name="doc_id" class="form-control" value="1"/>
+                                    เอกสารประกอบการสอน
+                                @elseif(isset($profressor) && $profressor->aca_name=='ผู้ช่วยศาสตราจารย์')
+                                    <input type="hidden" name="doc_id" class="form-control" value="2"/>
+                                    เอกสารคำสอน
+                                @endif
+                                :</th></div>
                         <div class="panel-body">
                             <table class="table table-striped">
                         <thead>
@@ -68,12 +76,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($teacherprogram as $index => $teacherprograms)
+                            @foreach($subjects as $index => $subject)
                             <tr>                       
-                                <td>{{$index+1}}</td>
-                                <td>{{$teacherprograms->sub_name}}</td>     
-                                <td>{{$teacherprograms->term_name}}</td>     
+                                <td><input type="radio" value="{{$subject['subject_id']}}" name="sub_id"/> {{$index+1}}</td>
+                                <td>{{$subject['subject_name']}}</td>     
                                 <td>
+                                @foreach($subject['term'] as $_term)
+                                    <span class="label label-sm label-default">{{$_term}}</span>
+                                @endforeach
                                 </td>
                             </tr>
                             @endforeach
@@ -84,20 +94,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">ข้อมูลรายละเอียดงาน</div>
                         <div class="panel-body">
-                            <div class="col-md-12">
-                            <div class="form-group">
-                                <th>ระบุชื่อ
-                                @if(isset($profressor) && $profressor->aca_name=='อาจารย์')
-                                    <input type="hidden" name="doc_id" class="form-control" value="1"/>
-                                    เอกสารประกอบการสอน
-                                @elseif(isset($profressor) && $profressor->aca_name=='ผู้ช่วยศาสตราจารย์')
-                                    <input type="hidden" name="doc_id" class="form-control" value="2"/>
-                                    เอกสารคำสอน
-                                @endif
-                                :</th>
-                                <input type="text" name="req_name" class="form-control" value="{{isset($requests)?$requests->req_name:''}}"/>
-                            </div>
-                            </div>
                             <div class="col-md-12">
                             <div class="form-group">
                             <th>ปีที่คาดว่าจะสำเร็จ:</th>

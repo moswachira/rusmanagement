@@ -17,7 +17,7 @@ class ProgramController extends Controller
         $currentuser = CurrentUser::user();
 
         $program = DB::table('program')
-        ->select('program.*','term.term_name','subjects.sub_name','teacher.first_name','teacher.last_name')
+        ->select('program.*','term.termn','subjects.sub_name','term.year')
         ->leftJoin('term','term.term_id','program.term_id')
         ->leftJoin('subjects','subjects.sub_id','program.sub_id')
         ->leftJoin('teacher','program.tea_id','teacher.tea_id')
@@ -89,14 +89,16 @@ class ProgramController extends Controller
     {
         if(is_numeric($program_id))
         {
-            $term_id = $request->get('term_id');
-            $sub_id = $request->get('sub_id');
+            $termn = $request->get('termn');
+            $year = $request->get('year');
+            $sub_name = $request->get('sub_name');
 
-            if(is_numeric($term_id) && is_numeric($sub_id))
+            if(!empty($termn) && !empty($year) && !empty($sub_name))
             {
                 DB::table('program')->where('program_id',$program_id)->update([
-                    'term_id' =>$term_id,
-                    'sub_id' =>$sub_id,
+                    'termn' =>$termn,
+                    'year' =>$year,
+                    'sub_name' =>$sub_name,
                     'updated_at' =>date('Y-m-d H:i:s'),
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/program');

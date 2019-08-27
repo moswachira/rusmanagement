@@ -32,7 +32,9 @@ class RequestlogController extends Controller
                 'percent_book' =>$percent_book,
                 'percent_text' =>$percent_text,
                 'created_at' =>date('Y-m-d H:i:s'),
+                
             ]);
+           
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/request');
         }else{
             return MyResponse::error('กรุณาป้อนข้อมูลให้ครบ');
@@ -52,6 +54,20 @@ class RequestlogController extends Controller
         }
         return view('data-not-found',['back_url'=>'/request']);
     }
-    
+    public function edit($rog_id,Request $request)
+    {
+        if(is_numeric($rog_id))
+        //print_r($req_id);exit;
+        {
+        $requestlogs = DB::table('requestlog')
+        ->where('req_id','=',$rog_id)->get(); 
+            return view('log::list',[
+                'req_id'=>$rog_id,
+                'requestlogs'=>$requestlogs
+            ]);
+        }
+        
+        return view('data-not-found',['back_url'=>'/request']);
+    }
 
 }

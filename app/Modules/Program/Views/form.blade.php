@@ -26,12 +26,25 @@
                     <div class="form-group">
                         <label >เทอม</label>
                         <select name="term_id">
-                            <option value="all">
+                            <option value="">
                                 ทั้งหมด
                             </option>
                         @foreach($term as $index => $row)
                             <option value="{{$row->term_id}}" {{isset($programs)&& $programs->term_id==$row->term_id?'selected':''}}>
-                                {{$row->term_name}}
+                                {{$row->termn}}
+                            </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label >ปีการศึกษา</label>
+                        <select name="term_id">
+                            <option value="all">
+                                ทั้งหมด
+                            </option>
+                        @foreach($term as $index => $roww)
+                            <option value="{{$roww->term_id}}" {{isset($programs)&& $programs->term_id==$roww->term_id?'selected':''}}>
+                                {{$roww->year}}
                             </option>
                         @endforeach
                         </select>
@@ -42,9 +55,9 @@
                             <option value="all">
                                 ทั้งหมด
                             </option>
-                        @foreach($subjects as $index => $row)
-                            <option value="{{$row->sub_id}}" {{isset($programs)&& $programs->sub_id==$row->sub_id?'selected':''}}>
-                                {{$row->sub_name}}
+                        @foreach($subjects as $index => $rowww)
+                            <option value="{{$rowww->sub_id}}" {{isset($programs)&& $programs->sub_id==$rowww->sub_id?'selected':''}}>
+                                {{$rowww->sub_name}}
                             </option>
                         @endforeach
                         </select>

@@ -27,16 +27,16 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
                                 <th>ภาคเรียน</th>
+                                <th>ปี</th>
                                 <th style="width:200.px"></th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach($term as $index => $terms)
                             <tr>                       
-                                <td>{{$index+1}}</td>
-                                <td>{{$terms->term_name}}</td>
+                                <td>{{$terms->termn}}</td>
+                                <td>{{$terms->year}}</td>
                                 <td>
                                     <div class="btn-group">
                                     @if(CurrentUser::permission([]))

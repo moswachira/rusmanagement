@@ -89,6 +89,7 @@ class ProfressorController extends Controller
         $detail = $request->get('detail');
         $username = $request->get('username');
         $password = $request->get('password');
+      
 
         if(!empty($firstname) && !empty($username) && !empty($password) && !empty($lastname) && !empty($gender) && !empty($email) && is_numeric($degr_id) && is_numeric($aca_id) && is_numeric($bra_id) && is_numeric($inst_id) && is_numeric($qua_id))
         {

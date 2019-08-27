@@ -28,8 +28,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>เทอม</th>
                                 <th>วิชา</th>
+                                <th>ภาคเรียน</th>
+                                <th>ปีการศึกษา</th>
                                 <th style="width:120px"></th>
                             </tr>
                         </thead>
@@ -37,8 +38,9 @@
                         @foreach($program as $index => $programs)
                             <tr>                       
                                 <td>{{$index+1}}</td>
-                                <td>{{$programs->term_name}}</td>
                                 <td>{{$programs->sub_name}}</td>
+                                <td>{{$programs->termn}}</td>
+                                <td>{{$programs->year}}</td>
                                 <td>
                                     <div class="btn-group">
                                     @if(CurrentUser::permission([]))
