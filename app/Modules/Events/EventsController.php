@@ -1,14 +1,11 @@
 <?php
-namespace App\Modules\Event;
+namespace App\Modules\Events;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Input;
 use DB;
-use stdClass;
-use App\Event;
 use App\Services\MyResponse;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
-class EventController extends Controller
+class EventsController extends Controller
 {
     public function createEvent()
     {
@@ -16,26 +13,33 @@ class EventController extends Controller
     }
     public function store(Request $request)
     {
-        $event= new Event();
-        $event->title=$request->get('title');
-        $event->start_date=$request->get('startdate');
-        $event->end_date=$request->get('enddate');
-        $event->save();
-        return redirect('event')->with('success', 'Event has been added');
+        $title = $request->get('title');
+        $start_date = $request->get('start_date');
+        $end_date = $request->get('end_date');
+        
+
+        if(!empty($title) && !empty($start_date) && !empty($end_date))
+        {
+                DB::table('calendar')->insert([
+                    'title' =>$title,
+                    'start_date' =>$start_date,
+                    'end_date' =>$end_date,
+                    'created_at' =>date('Y-m-d H:i:s'),
+                ]);
+        }
     }
     public function calender()
             {
+                ini_set("memory_limit","1024M");
                 $events = [];
-                $data = Event::all();
-                if($data->count())
-                 {
+                $data = DB::table('calendar')->get();
                     foreach ($data as $key => $value) 
                     {
                         $events[] = Calendar::event(
                             $value->title,
                             true,
-                            new \DateTime($value->start_date),
-                            new \DateTime($value->end_date.'+1 day'),
+                            date('Y-m-d',strtotime($value->start_date)),
+                            date('Y-m-d',strtotime($value->end_date.'+1 day')),
                             null,
                             // Add color
                          [
@@ -44,8 +48,7 @@ class EventController extends Controller
                          ]
                         );
                     }
-                }
                 $calendar = Calendar::addEvents($events);
-                return view('calender', compact('calendar'));
+                return view('eve::calender', compact('calendar'));
             }
 }

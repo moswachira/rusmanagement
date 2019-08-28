@@ -44,7 +44,7 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/Teacherprogram/Views','teapro');
         $this->loadViewsFrom(__DIR__.'/Assignment/Views','ass');
         $this->loadViewsFrom(__DIR__.'/Worktype/Views','wokt');
-        $this->loadViewsFrom(__DIR__.'/Event/Views','eve');
+        $this->loadViewsFrom(__DIR__.'/Events/Views','eve');
        
     }
 }

@@ -230,6 +230,7 @@ return [
         'MyConst' => App\Services\MyConst::class,
         'MyResponse' => App\Services\MyResponse::class,
         'CurrentUser' => App\Services\CurrentUser::class,
+        'Notification' => App\Services\Notification::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
     ],
 

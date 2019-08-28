@@ -6,9 +6,9 @@ Route::prefix('')->group(function () {
     Route::group(['middleware' => ['auth']], function ()
 {
     Route::Get('/','\App\Modules\Home\HomeController@index');
-    Route::get('event/add','\App\Modules\Event\EventController@createEvent');
-    Route::post('event/add','\App\Modules\Event\EventController@store');
-    Route::get('event','\App\Modules\Event\EventController@calender');
+    Route::get('event/add','\App\Modules\Events\EventsController@createEvent');
+    Route::post('event/add','\App\Modules\Events\EventsController@store');
+    Route::get('event','\App\Modules\Events\EventsController@calender');
     Route::resource('profressor', '\App\Modules\Profressor\ProfressorController');
     Route::resource('right','\App\Modules\Right\RightController');
     Route::resource('position','\App\Modules\Position\PositionController');

@@ -16,14 +16,14 @@
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <strong> Start Date : </strong>  
-            <input class="date form-control"  type="text" id="startdate" name="startdate">   
+            <input class="date form-control"  type="text" id="startdate" name="start_date">   
          </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <strong> End Date : </strong>  
-            <input class="date form-control"  type="text" id="enddate" name="enddate">   
+            <input class="date form-control"  type="text" id="enddate" name="end_date">   
          </div>
         </div>
         <div class="row">
