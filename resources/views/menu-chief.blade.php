@@ -45,7 +45,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="/train">การอบรม</a></li>
                                     <li><a href="/sides">ด้าน</a></li>
-                                    <li><a href="/followtrainchife">ติดตามการนำไปใช้ประโยชน์</a></li>
+                                    <li><a href="/typesoure">ติดตามการนำไปใช้ประโยชน์</a></li>
 
                                 </ul>
                             </li>
@@ -72,6 +72,7 @@
                                 </ul>
                             </li>
                         </ul>
+                        <li>{!! Notification::get() !!}</li>
                 <li class="dropdown nav-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         <i class="fa fa-user" aria-hidden="true"></i> {{CurrentUser::user()->first_name}}<span class="caret"></span>

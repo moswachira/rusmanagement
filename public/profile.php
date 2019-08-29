@@ -1,248 +1,122 @@
-<ul class="nav navbar-nav ml-auto">
-<li class="nav-item dropdown d-md-down-none show">
-<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
-<i class="icon-bell"></i>
-<span class="badge badge-pill badge-danger">5</span>
-</a>
-<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg show">
-<div class="dropdown-header text-center">
-<strong>You have 5 notifications</strong>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="/assets/css/custom2.css"> 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<body>
+    <div id="navbar-wrapper">
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img class="mylogo" src="http://bait.rmutsb.ac.th/bait/images/logobait.png"/>
+                </a>
+                </div>  
+                    <div id="navbar-collapse" class="collapse navbar-collapse">
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="input-group" style="padding-left: 350px;">
+                                <input type="text" class="form-control" class="w3-bar-item w3-button" placeholder="Search..">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </span>
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown nav-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <i class="fa fa-user" aria-hidden="true"></i> {{CurrentUser::user()->first_name}}<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="sub-nav-menu"><a href="#">รายละเอียด</a></li>
+                                    <li class="sub-nav-menu"><a href="/assignment">มอบหมายงาน</a></li>
+                                    <li class="sub-nav-menu"><a href="/logout">ออกจากระบบ</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card "  style="width:13%;padding-top: 50px;">
+  <a href="#" class="w3-bar-item w3-button w3-padding-24">หน้าแรก</a> 
+  <div class="w3-dropdown-hover">
+    <button class="w3-bar-item w3-button w3-padding-24"><i class="fa fa-user" style="padding-left: 10px;"> อาจารย์</i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+    <a href="/profressor" class="w3-bar-item w3-button w3-padding-15">รายชื่ออาจารย์</a></li>
+    <a href="/right" class="w3-bar-item w3-button w3-padding-15">สิทธ์อาจารย์</a>
+    <a href="/position" class="w3-bar-item w3-button w3-padding-15">ตำแหน่ง</a>
+    <a href="/worktype" class="w3-bar-item w3-button w3-padding-15">ประเภทงาน</a>
+    <a href="/term" class="w3-bar-item w3-button w3-padding-15">ภาคเรียน</a>
+    <a href="/program" class="w3-bar-item w3-button w3-padding-15">การสอน</a>
+    <a href="/teacherprogram" class="w3-bar-item w3-button w3-padding-15">แผรการสอน</a>
+    </div>
+  </div>  
+  <div class="w3-dropdown-hover">
+    <button class="w3-bar-item w3-button w3-padding-24"><i class="fa fa-bar-chart" style="padding-left: 10px;"> วิจัย</i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="/study" class="w3-bar-item w3-button w3-padding-15">รายชื่ออาจารย์การทำวิจัย</a>
+      <a href="/soure" class="w3-bar-item w3-button w3-padding-15">แหล่งทุน</a>
+      <a href="/typesoure" class="w3-bar-item w3-button w3-padding-15">ประเภทแหล่งทุน</a>
+    </div>
+  </div> 
+  <div class="w3-dropdown-hover">
+    <button class="w3-bar-item w3-button w3-padding-24"><i class="glyphicon glyphicon-book" style="padding-left: 10px;"> ผลงานวิชาการ</i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="/portfolio" class="w3-bar-item w3-button w3-padding-15">ผลงานวิชาการ</a>
+      <a href="/publishs" class="w3-bar-item w3-button w3-padding-15">แหล่งเผยแพร่ผลงาน</a>
+      <a href="/groups" class="w3-bar-item w3-button w3-padding-15">กลุ่ม</a>
+      <a href="/type" class="w3-bar-item w3-button w3-padding-15">ประเภทผลงานวิชาการ</a>
+    </div>
+  </div> 
+  <div class="w3-dropdown-hover">
+    <button class="w3-bar-item w3-button w3-padding-24"><i class="fa fa-clipboard" style="padding-left: 10px;"> อบรม</i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="/train" class="w3-bar-item w3-button w3-padding-15">การอบรม</a>
+      <a href="/sides" class="w3-bar-item w3-button w3-padding-15">ด้าน</a>
+      <a href="/typesoure" class="w3-bar-item w3-button w3-padding-15">ติดตามการนำไปใช้ประโยชน์</a>
+    </div>
+  </div> 
+  <div class="w3-dropdown-hover">
+    <button class="w3-bar-item w3-button w3-padding-24"><i class="fa fa-caret-down" style="padding-left: 10px;"> แผนการศึกษาต่อ</i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="/education" class="w3-bar-item w3-button w3-padding-15">รายละเอียดการศึกษาต่อ</a>
+      <a href="/followchife" class="w3-bar-item w3-button w3-padding-15">ติดตามการศึกษาต่อ</a>
+      <a href="/branchs" class="w3-bar-item w3-button w3-padding-15">สาขา</a>
+      <a href="/institutions" class="w3-bar-item w3-button w3-padding-15">สถาบัน</a>
+      <a href="/degrees" class="w3-bar-item w3-button w3-padding-15">ระดับ</a>
+      <a href="/qualification" class="w3-bar-item w3-button w3-padding-15">คุณวุฒิ</a>
+    </div>
+  </div> 
+  <div class="w3-dropdown-hover">
+    <button class="w3-bar-item w3-button w3-padding-24"><i class="fa fa-caret-down" style="padding-left: 10px;"> ขอตำแหน่งทางวิชาการ</i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="/request" class="w3-bar-item w3-button w3-padding-15">ขอตำแหน่งทางวิชาการ</a>
+      <a href="/subjectss" class="w3-bar-item w3-button w3-padding-15">วิชา</a>
+      <a href="/positiontypes" class="w3-bar-item w3-button w3-padding-15">ประเภท</a>
+      <a href="/document" class="w3-bar-item w3-button w3-padding-15">เอกสาร</a>
+    </div>
+  </div> 
 </div>
-<a class="dropdown-item" href="#">
-<i class="icon-user-follow text-success"></i> New user registered</a>
-<a class="dropdown-item" href="#">
-<i class="icon-user-unfollow text-danger"></i> User deleted</a>
-<a class="dropdown-item" href="#">
-<i class="icon-chart text-info"></i> Sales report is ready</a>
-<a class="dropdown-item" href="#">
-<i class="icon-basket-loaded text-primary"></i> New client</a>
-<a class="dropdown-item" href="#">
-<i class="icon-speedometer text-warning"></i> Server overloaded</a>
-<div class="dropdown-header text-center">
-<strong>Server</strong>
+
+<div style="margin-left:30%">
+
+<div class="w3-container">
+<h2>Dropdown in Sidebar</h2>
+<p>In this example, we have added a dropdown menu inside the sidebar.</p>
+<p>Notice the caret-down icon, which we use to indicate that this is a dropdown menu.</p>
 </div>
-<a class="dropdown-item" href="#">
-<div class="text-uppercase mb-1">
-<small>
-<b>CPU Usage</b>
-</small>
+
 </div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-<small class="text-muted">348 Processes. 1/4 Cores.</small>
-</a>
-<a class="dropdown-item" href="#">
-<div class="text-uppercase mb-1">
-<small>
-<b>Memory Usage</b>
-</small>
-</div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-<small class="text-muted">11444GB/16384MB</small>
-</a>
-<a class="dropdown-item" href="#">
-<div class="text-uppercase mb-1">
-<small>
-<b>SSD 1 Usage</b>
-</small>
-</div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-<small class="text-muted">243GB/256GB</small>
-</a>
-</div>
-</li>
-<li class="nav-item dropdown d-md-down-none">
-<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-<i class="icon-list"></i>
-<span class="badge badge-pill badge-warning">15</span>
-</a>
-<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
-<div class="dropdown-header text-center">
-<strong>You have 5 pending tasks</strong>
-</div>
-<a class="dropdown-item" href="#">
-<div class="small mb-1">Upgrade NPM &amp; Bower
-<span class="float-right">
-<strong>0%</strong>
-</span>
-</div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-</a>
-<a class="dropdown-item" href="#">
-<div class="small mb-1">ReactJS Version
-<span class="float-right">
-<strong>25%</strong>
-</span>
-</div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-</a>
-<a class="dropdown-item" href="#">
-<div class="small mb-1">VueJS Version
-<span class="float-right">
-<strong>50%</strong>
-</span>
-</div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-</a>
-<a class="dropdown-item" href="#">
-<div class="small mb-1">Add new layouts
-<span class="float-right">
-<strong>75%</strong>
-</span>
-</div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-</a>
-<a class="dropdown-item" href="#">
-<div class="small mb-1">Angular 2 Cli Version
-<span class="float-right">
-<strong>100%</strong>
-</span>
-</div>
-<span class="progress progress-xs">
-<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-</span>
-</a>
-<a class="dropdown-item text-center" href="#">
-<strong>View all tasks</strong>
-</a>
-</div>
-</li>
-<li class="nav-item dropdown d-md-down-none">
-<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-<i class="icon-envelope-letter"></i>
-<span class="badge badge-pill badge-info">7</span>
-</a>
-<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
-<div class="dropdown-header text-center">
-<strong>You have 4 messages</strong>
-</div>
-<a class="dropdown-item" href="#">
-<div class="message">
-<div class="py-3 mr-3 float-left">
-<div class="avatar">
-<img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
-<span class="avatar-status badge-success"></span>
-</div>
-</div>
-<div>
-<small class="text-muted">John Doe</small>
-<small class="text-muted float-right mt-1">Just now</small>
-</div>
-<div class="text-truncate font-weight-bold">
-<span class="fa fa-exclamation text-danger"></span> Important message</div>
-<div class="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-</div>
-</a>
-<a class="dropdown-item" href="#">
-<div class="message">
-<div class="py-3 mr-3 float-left">
-<div class="avatar">
-<img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
-<span class="avatar-status badge-warning"></span>
-</div>
-</div>
-<div>
-<small class="text-muted">John Doe</small>
-<small class="text-muted float-right mt-1">5 minutes ago</small>
-</div>
-<div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-<div class="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-</div>
-</a>
-<a class="dropdown-item" href="#">
-<div class="message">
-<div class="py-3 mr-3 float-left">
-<div class="avatar">
-<img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
-<span class="avatar-status badge-danger"></span>
-</div>
-</div>
-<div>
-<small class="text-muted">John Doe</small>
-<small class="text-muted float-right mt-1">1:52 PM</small>
-</div>
-<div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-<div class="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-</div>
-</a>
-<a class="dropdown-item" href="#">
-<div class="message">
-<div class="py-3 mr-3 float-left">
-<div class="avatar">
-<img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
-<span class="avatar-status badge-info"></span>
-</div>
-</div>
-<div>
-<small class="text-muted">John Doe</small>
-<small class="text-muted float-right mt-1">4:03 PM</small>
-</div>
-<div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-<div class="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-</div>
- </a>
-<a class="dropdown-item text-center" href="#">
-<strong>View all messages</strong>
-</a>
-</div>
-</li>
-<li class="nav-item dropdown">
-<a class="nav-link nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-<img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
-</a>
-<div class="dropdown-menu dropdown-menu-right">
-<div class="dropdown-header text-center">
-<strong>Account</strong>
-</div>
-<a class="dropdown-item" href="#">
-<i class="fa fa-bell-o"></i> Updates
-<span class="badge badge-info">42</span>
-</a>
-<a class="dropdown-item" href="#">
-<i class="fa fa-envelope-o"></i> Messages
-<span class="badge badge-success">42</span>
-</a>
-<a class="dropdown-item" href="#">
-<i class="fa fa-tasks"></i> Tasks
-<span class="badge badge-danger">42</span>
-</a>
-<a class="dropdown-item" href="#">
-<i class="fa fa-comments"></i> Comments
-<span class="badge badge-warning">42</span>
-</a>
-<div class="dropdown-header text-center">
-<strong>Settings</strong>
-</div>
-<a class="dropdown-item" href="#">
-<i class="fa fa-user"></i> Profile</a>
-<a class="dropdown-item" href="#">
-<i class="fa fa-wrench"></i> Settings</a>
-<a class="dropdown-item" href="#">
-<i class="fa fa-usd"></i> Payments
-<span class="badge badge-dark">42</span>
-</a>
-<a class="dropdown-item" href="#">
-<i class="fa fa-file"></i> Projects
-<span class="badge badge-primary">42</span>
-</a>
-<div class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">
-<i class="fa fa-shield"></i> Lock Account</a>
-<a class="dropdown-item" href="#">
-<i class="fa fa-lock"></i> Logout</a>
-</div>
-</li>
-</ul>
+</body>

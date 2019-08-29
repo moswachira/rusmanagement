@@ -33,6 +33,14 @@ class CurrentUser
         return null;
         
     }
+    public static function is_teacher(){
+        if(Auth::check()){
+            $user = Auth::user();
+            return ($user->user_type===MyConst::$USER_LEVEL_TEACHER);
+        }
+        return null;
+        
+    }
     public static function menu(){
         if(Auth::check()){
             $user = Auth::user();

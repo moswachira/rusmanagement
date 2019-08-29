@@ -2,10 +2,18 @@
 
 namespace App\Services;
 use DB;
+use App\Services\CurrentUser;
 class Notification
 {
     public static function get(){
-        $total = DB::table('assignment')->count();
-        return '<a href="#">News <span class="badge">'.$total.'</span></a>';
+        $currentuser = CurrentUser::user();
+        $total =0;
+        if($currentuser && !CurrentUser::is_teacher()){
+            $total = DB::table('assignment')
+                ->where('teacher.tea_id',$currentuser->tea_id)->count();
+                return '<a href="/assignment">มอบหมายงาน <span class="badge">'.$total.'</span></a>';
+            }
+      
+        
     }
 }
