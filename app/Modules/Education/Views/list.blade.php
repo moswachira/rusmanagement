@@ -44,7 +44,7 @@
             </div>
            <a class="btn btn-default" href="/education/create">เพิ่มอาจารย์</a>
         </div> 
-        <div class="col-md-10">
+        <div class="col-md-10" style="padding-top: 100px;">
             <div class="panel panel-default">
                 <div class="panel-heading">ตารางแผนการศึกษาต่อ</div>
                 <div class="panel-body">

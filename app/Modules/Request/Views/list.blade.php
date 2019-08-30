@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+    <div class="col-md-2">
+    </div>
+        <div class="col-md-10" style="padding-top: 100px;">
             <div class="panel panel-default">
                 <div class="panel-heading">ตารางขอกำหนดตำแหน่งทางวิชาการ</div>
                 <div class="panel-body">
@@ -15,7 +17,7 @@
                                 <th>ตำแหน่งปัจจุบัน</th>
                                 <th>ตำแหน่งที่ขอ</th>
                                 <th>ชื่อเอกสาร วิชา</th>
-                                <th style="width:100px"></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

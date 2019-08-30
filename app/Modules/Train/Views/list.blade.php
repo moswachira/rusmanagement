@@ -2,8 +2,11 @@
 @section('title','รายการอาจารย์ประจำมหาวิทยาลัย')
 @section('content')
 <div class="container">
-            <div class="panel panel-default">
-                <div class="panel-heading">ตารางอบรม</div>
+<div class="col-md-2">
+</div>
+    <div class="col-md-10" style="padding-top: 100px;">
+        <div class="panel panel-default">
+            <div class="panel-heading">ตารางอบรม</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
@@ -60,6 +63,7 @@
                 </div>
             </div>
         </div>
+    </div>    
 </div>
 
 @endsection

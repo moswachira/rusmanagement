@@ -3,16 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">ค้นหา</div>
+        <div class="col-md-2">
+        </div>
+            @if(CurrentUser::permission([]))
+           <a class="btn btn-default" href="/soure/create">เพิ่มแหล่งทุน</a>
+           @endif
+        <div class="col-md-10" style="padding-top: 70px;">
+        <div class="panel panel-info">
+                <div class="panel-heading">ค้นหา <button type="submit" class="btn btn-default pull-right" style="padding-top: 2px;padding-bottom: 2px;"><i class="fa fa-search"></button></i></div>
                 <div class="panel-body">
                     <form action="/soure">
                         <div class="form-group">
+                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="keyword">คีย์เวร์ด</label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="col-md-6">
                             <label >ประเภทแหล่งทุน</label>
                             <select style="width:100%" name="sout_id">
                                 <option value="all">
@@ -24,18 +31,14 @@
                             </option>
                             @endforeach
                             </select>
-                        </div>      
-                        <button type="submit" class="btn btn-default">ค้นแหล่งทุน</button>
+                        </div>    
+                        </div>
+                        </div>
                     </form>
                 </div>
             </div>
-            @if(CurrentUser::permission([]))
-           <a class="btn btn-default" href="/soure/create">เพิ่มแหล่งทุน</a>
-           @endif
-        </div> 
-        <div class="col-md-9">
-            <div class="panel panel-default">
-                <div class="panel-heading">ตารางแหล่งทุน</div>
+            <div class="panel panel-info">
+                <div class="panel-heading">ตารางแหล่งทุน  <a class="btn btn-default pull-right" href="/soure/create" style="padding-top: 2px;padding-bottom: 2px;"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
