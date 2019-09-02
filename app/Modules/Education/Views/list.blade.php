@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
                     <form action="/education">
@@ -44,8 +44,8 @@
             </div>
            <a class="btn btn-default" href="/education/create">เพิ่มอาจารย์</a>
         </div> 
-        <div class="col-md-10" style="padding-top: 100px;">
-            <div class="panel panel-default">
+        <div class="col-md-10">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading">ตารางแผนการศึกษาต่อ</div>
                 <div class="panel-body">
                     <table class="table table-striped">

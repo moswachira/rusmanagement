@@ -4,8 +4,8 @@
 <div class="container">
 <div class="col-md-2">
 </div>
-    <div class="col-md-10" style="padding-top: 100px;">
-        <div class="panel panel-default">
+    <div class="col-md-10">
+        <div class="panel panel-primary w3-card">
             <div class="panel-heading">ตารางอบรม</div>
                 <div class="panel-body">
                     <table class="table table-striped">

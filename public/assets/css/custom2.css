@@ -1,82 +1,61 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 
 body {
-    background: rgb(255, 255, 255);
+    background: #d7e1f0;
 }
 
-.navbar-fixed-top {
-    top: 0;
-    border-width: 0 0 1px;
-}
-.navbar-brand{
-    padding:4px 0px 15px 5px;}
-.navbar-brand .mylogo{
-    height:45px;}
 
-.navbar-default .navbar-nav #user-profile {
-    height: 50px;
-    padding-top: 15px;
-    padding-left: 58px;
-}
 
-.navbar-default .navbar-nav #user-profile img {
-    height: 45px;
-    width: 45px;
-    position: absolute;
-    top: 2px;
-    left: 8px;
-    padding: 1px;
-}
-.navbar-default {
-    background-color: #4775d1;
-    border-color: #ccf2ff;
-}
 
-.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
-    color: #000;
-    background-color: blue;
-}
-.panel-default {
-    border-color: #ddd;
-}
 .red{
     background-color: #b00;
 }
+.blue{
+  background-color: #cce0ff;
+}
+.blue2{
+  background-color: #e6ecff;
+}
+.blue3{
+  background-color: #4775d1;
+}
 
-/* Style the links inside the sidenav */
-#mySidenav a {
-    position: absolute; /* Position them relative to the browser window */
-    left: -80px; /* Position them outside of the screen */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
-    width: 100px; /* Set a specific width */
-    text-decoration: none; /* Remove underline */
-    font-size: 20px; /* Increase font size */
-    color: white; /* White text color */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+.navbar-header{height:100px}
+.navbar-brand{padding:15px 0px 15px 15px;}
+.navbar-brand .mylogo{height:70px;}
+.nav-bg-color{background: #39609a;}
+.panel-menu a{color:#1073C6!important;}
+.sub-nav-menu a{color:#333!important; font-size:13px;}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,.2)}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{background-color: rgba(0,0,0,.3)}
+.header-panal{background: #AED6F1!important;color:#21618C!important;}
+.navbar-default .navbar-nav>li>a{color:#fff!important}
+.navbar-default .navbar-nav>li>a{color:#fff!important}
+
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
   }
   
-  #mySidenav a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
-  }
+.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+.panel panel-primary {
+        border-color: #203556;
+    }
+
+.panel panel-primary {
+    color: #203556;
+}
+
+.panel-body{
+    background-color: #f3f6fb;
+}
+
+
   
-  /* The about link: 20px from the top with a green background */
-  #about {
-    top: 20px;
-    background-color: #4CAF50;
-  }
-  
-  #blog {
-    top: 80px;
-    background-color: #2196F3; /* Blue */
-  }
-  
-  #projects {
-    top: 140px;
-    background-color: #f44336; /* Red */
-  }
-  
-  #contact {
-    top: 200px;
-    background-color: #555 /* Light Black */
-  }
+
+
+
