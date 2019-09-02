@@ -1,11 +1,24 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 
+.dropdown-menu{
+  background: #e6ecff;
+}
+.navbar-header{height:100px}
+.navbar-brand{padding:15px 0px 15px 15px;}
+.navbar-brand .mylogo{height:70px;}
+.nav-bg-color{background: #39609a;}
+.panel-menu a{color:#1073C6!important;}
+.sub-nav-menu a{color:#333!important; font-size:13px;}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,.2)}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{background-color: rgba(0,0,0,.3)}
+.header-panal{background: #AED6F1!important;color:#21618C!important;}
+.navbar-default .navbar-nav>li>a{color:#fff!important}
+.navbar-default .navbar-nav>li>a{color:#fff!important}
+ 
 body {
     background: #d7e1f0;
+    background-image: url(../images/agsquare.png);
 }
-
-
-
 
 .red{
     background-color: #b00;
@@ -19,43 +32,27 @@ body {
 .blue3{
   background-color: #4775d1;
 }
-
-.navbar-header{height:100px}
-.navbar-brand{padding:15px 0px 15px 15px;}
-.navbar-brand .mylogo{height:70px;}
-.nav-bg-color{background: #39609a;}
-.panel-menu a{color:#1073C6!important;}
-.sub-nav-menu a{color:#333!important; font-size:13px;}
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,.2)}
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{background-color: rgba(0,0,0,.3)}
-.header-panal{background: #AED6F1!important;color:#21618C!important;}
-.navbar-default .navbar-nav>li>a{color:#fff!important}
-.navbar-default .navbar-nav>li>a{color:#fff!important}
-
-  
 .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
+  position: relative;
+  display: inline-block;
+}
+
 .dropdown:hover .dropdown-menu {
-      display: block;
-    }
+    display: block;
+  }
 
 .panel panel-primary {
-        border-color: #203556;
-    }
+      border-color: #203556;
+  }
 
 .panel panel-primary {
-    color: #203556;
+  color: #203556;
 }
 
 .panel-body{
-    background-color: #f3f6fb;
+  background-color: #f3f6fb;
 }
 
 
   
-
-
 

@@ -4,9 +4,9 @@
 <div class="container">
 <div class="col-md-2">
 </div>
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="panel panel-primary w3-card">
-            <div class="panel-heading">ตารางอบรม</div>
+            <div class="panel-heading">ตารางอบรม  <a class="btn btn-default pull-right" href="/train/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
@@ -59,7 +59,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <a class="btn btn-default" href="/train/create">เพิ่มการอบรม</a>
                 </div>
             </div>
         </div>

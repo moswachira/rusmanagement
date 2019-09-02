@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="panel panel-default">
+    <div class="panel panel-primary w3-card">
         <div class="panel-heading">ติดตามการนำไปใช้ประโยชน์</div>
         <div class="panel-body">
             <form action="/follow" class="form-ajax" method="POST">

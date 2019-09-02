@@ -8,10 +8,10 @@ class Notification
     public static function get(){
         $currentuser = CurrentUser::user();
         $total =0;
-        if($currentuser && !CurrentUser::is_teacher()){
+        if($currentuser && CurrentUser::is_teacher()){
             $total = DB::table('assignment')
-                ->where('teacher.tea_id',$currentuser->tea_id)->count();
-                return '<a href="/assignment">มอบหมายงาน <span class="badge">'.$total.'</span></a>';
+                ->where('tea_id',$currentuser->tea_id)->count();
+                return '<a href="/assignment">มอบหมายงาน<span class="badge">'.$total.'</span></a>';
             }
       
         

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
                     <form action="/document">
@@ -12,17 +12,16 @@
                             <label for="keyword"></label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
-                        <button type="submit" class="btn btn-default">ค้นหาระดับ</button>
+                        <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
                     </form>
                 </div>
             </div>
             @if(CurrentUser::permission([3]))
-           <a class="btn btn-default" href="/document/create">เพิ่มระดับ</a>
             @endif
         </div> 
         <div class="col-md-10">
-            <div class="panel panel-default">
-                <div class="panel-heading">ตารางระดับ</div>
+            <div class="panel panel-primary w3-card">
+                <div class="panel-heading">ตารางระดับ <a class="btn btn-default pull-right" href="/document/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="panel panel-default">
+    <div class="panel panel-primary w3-card">
         <div class="panel-heading">ติดตามการนำไปใช้ประโยชน์</div>
         <div class="panel-body">
                 <div class="form-group">
@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class="col-md-12">
-    <div class="panel panel-default">
+    <div class="panel panel-primary w3-card">
         <div class="panel-heading">แสดงความคิดเห็นของหัวหน้าสาขา </div>
         <div class="panel-body">
         {{$follow->commentplan}}

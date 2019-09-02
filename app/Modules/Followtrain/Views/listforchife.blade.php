@@ -5,7 +5,7 @@
     @if(CurrentUser::permission([3]))
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading">ตารางติดตามการนำไปใช้ประโยชน์</div>
                 <div class="panel-body">
                     <table class="table table-striped">

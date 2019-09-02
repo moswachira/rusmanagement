@@ -9,7 +9,6 @@
                 <div class="panel-body">
                     <form action="/education">
                         <div class="form-group">
-                            <label for="keyword">คีย์เวร์ด</label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>
                         <div class="form-group">
@@ -38,15 +37,14 @@
                             @endforeach
                             </select>
                         </div>     
-                        <button type="submit" class="btn btn-default">ค้นหาอาจารย์</button>
+                        <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
                     </form>
                 </div>
             </div>
-           <a class="btn btn-default" href="/education/create">เพิ่มอาจารย์</a>
         </div> 
         <div class="col-md-10">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางแผนการศึกษาต่อ</div>
+                <div class="panel-heading">ตารางแผนการศึกษาต่อ <a class="btn btn-default pull-right" href="/education/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

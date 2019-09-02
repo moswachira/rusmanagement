@@ -5,9 +5,9 @@
         <div class="col-md-2">   
         </div>
           <div class="col-md-8">   
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <a herf="/typesoure"กลับหน้าหลัก></a>
-                <div class="panel-heading" style="font-size: 20px;">
+                <div class="panel-heading" style="font-size: 25px;">
                     @if(isset($souretypes))
                     ประเภทแหล่งทุน : {{$souretypes->sout_name}}
                     @else

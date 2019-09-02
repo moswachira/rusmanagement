@@ -1,19 +1,22 @@
-<nav class="navbar navbar-default nav-bg-color">
-            <div class="navbar-header">
+<nav class="navbar navbar-default nav-bg-color w3-card">
+            <div class="navbar-header ">
                 <a class="navbar-brand" href="#">
                     <img class="mylogo" src="http://bait.rmutsb.ac.th/bait/images/logobait.png"/>
                 </a>
             </div>  
             <ul  class="nav navbar-nav pull-right" style="padding-top: 25px; font-size: 11px;">
             <ul class="nav navbar-nav">
-                            <li class="active"><a href="/"><i class="fa fa-home"></i> หน้าแรก</a></li>
+                            <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user">อาจารย์</i>
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/profressor">รายชื่ออาจารย์</a></li>
+                                    <li><a href="/right">สิทธิ์</a></li>
+                                    <li><a href="/position">ตำแหน่ง</a></li>
+                                    <li><a href="/qualification">คุณวุฒิ</a></li>
+                                    <li><a href="/term">ภาคเรียน</a></li>
                                     <li><a href="/program">การสอน</a></li>
-                                    <li><a href="/teacherprogram">แผรการสอน</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -21,6 +24,8 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/study">รายชื่ออาจารย์การทำวิจัย</a></li>
+                                    <li><a href="/soure">แหล่งทุน</a></li>
+                                    <li><a href="/typesoure">ประเภทแหล่งทุน</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -28,6 +33,9 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/portfolio">ผลงานวิชาการ</a></li>
+                                    <li><a href="/publishs">แหล่งเผยแพร่</a></li>
+                                    <li><a href="/type">ประเภทผลงาน</a></li>
+                                    <li><a href="/groups">กลุ่ม</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -35,6 +43,8 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/train">การอบรม</a></li>
+                                    <li><a href="/sides">ด้าน</a></li>
+                                    <li><a href="/followtrain">ติดตามการนำไปใช้ประโยชน์</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -42,6 +52,10 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/education">รายละเอียดการศึกษาต่อ</a></li>
+                                    <li><a href="/degrees">ระดับ</a></li>
+                                    <li><a href="/branchs">สาขา</a></li>
+                                    <li><a href="/institutions">สถาบัน</a></li>
+                                    <li><a href="/follow">ติดตามการศึกษาต่อ</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -49,6 +63,9 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/request">ขอตำแหน่งทางวิชาการ</a></li>
+                                    <li><a href="/subjectss">วิชา</a></li>
+                                    <li><a href="/positiontypes">ประเภท</a></li>
+                                    <li><a href="/document">เอกสาร</a></li>
                                 </ul>
                             </li>
                         </ul>

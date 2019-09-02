@@ -9,7 +9,6 @@
                 <div class="panel-body">
                     <form action="/portfolio">
                         <div class="form-group">
-                            <label for="keyword">คีย์เวร์ด</label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>
                         <div class="form-group">
@@ -55,11 +54,10 @@
                     </form>
                 </div>
             </div>
-           <a class="btn btn-default" href="/portfolio/create">เพิ่มผลงานวิชาการ</a>
         </div> 
         <div class="col-md-10">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางผลงานวิชาการ</div>
+                <div class="panel-heading">ตารางผลงานวิชาการ <a class="btn btn-default pull-right" href="/portfolio/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

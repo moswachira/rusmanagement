@@ -3,26 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="panel panel-default">
+        <div class="col-md-2">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
                     <form action="/program">
                         <div class="form-group">
-                            <label for="keyword">คีย์เวร์ด</label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-default">ค้นการสอน</button>
+                        <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
                     </form>
                 </div>
             </div>
             @if(CurrentUser::permission([3]))
-           <a class="btn btn-default" href="/program/create">เพิ่มการสอน</a>
            @endif
         </div> 
-        <div class="col-md-9">
-            <div class="panel panel-default">
-                <div class="panel-heading">ตารางการสอน</div>
+        <div class="col-md-10">
+            <div class="panel panel-primary w3-card">
+                <div class="panel-heading">ตารางการสอน  <a class="btn btn-default pull-right" href="/program/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

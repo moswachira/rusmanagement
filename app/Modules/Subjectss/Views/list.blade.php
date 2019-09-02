@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
                     <form action="/subjectss">
@@ -12,17 +12,16 @@
                             <label for="keyword"></label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
-                        <button type="submit" class="btn btn-default">ค้นหาวิชา</button>
+                        <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
                     </form>
                 </div>
             </div>
             @if(CurrentUser::permission([]))
-           <a class="btn btn-default" href="/subjectss/create">เพิ่มวิชา</a>
             @endif
         </div> 
         <div class="col-md-10">
-            <div class="panel panel-default">
-                <div class="panel-heading">ตารางวิชา</div>
+            <div class="panel panel-primary w3-card">
+                <div class="panel-heading">ตารางวิชา  <a class="btn btn-default pull-right" href="/subjectss/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

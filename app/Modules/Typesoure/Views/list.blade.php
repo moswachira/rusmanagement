@@ -4,25 +4,25 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                     <form action="/typesoure">
                         <div class="form-group">
-                            <label for="keyword">ค้นหา</label>
+                            <label for="keyword">ค้นหา </label>
                             <input capitaltypee="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>  
-                        <button capitaltypee="submit" class="btn btn-default">ค้นหาประเภท</button>
+                        <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
                     </form>
                 </div>
             </div>
             @if(CurrentUser::permission([]))
-           <a class="btn btn-default" href="/typesoure/create">เพิ่มแหล่งทุน</a>
+           
            @endif
         </div> 
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">ตารางประเภทแหล่งทุน</div>
+        <div class="col-md-10">
+            <div class="panel panel-primary w3-card">
+                <div class="panel-heading">ตารางประเภทแหล่งทุน <a class="btn btn-default pull-right" href="/typesoure/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

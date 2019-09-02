@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading">ตารางสาขา</div>
                     <form action="/assignment">
                     </form>

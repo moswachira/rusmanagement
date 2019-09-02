@@ -5,7 +5,7 @@
         <div class="col-md-2">   
         </div>
             <div class="col-md-8">   
-                <div class="panel panel-default">
+                <div class="panel panel-primary w3-card">
                     <a herf="/request"กลับหน้าหลัก></a>
                     <div class="panel-heading" style="font-size: 20px;">
                         @if(isset($requests))
@@ -56,7 +56,7 @@
                     </div>
                 </div> 
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-primary w3-card">
                 <div class="panel-heading"><th>ระบุชื่อ
                                 @if(isset($profressor) && $profressor->aca_name=='อาจารย์')
                                     <input type="hidden" name="doc_id" class="form-control" value="1"/>
@@ -91,7 +91,7 @@
                     </table>
                 </div>
             </div>   
-                <div class="panel panel-default">
+                <div class="panel panel-primary w3-card">
                     <div class="panel-heading">ข้อมูลรายละเอียดงาน</div>
                         <div class="panel-body">
                             <div class="col-md-12">

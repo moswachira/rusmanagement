@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-2">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading blue3 w3-card">ค้นหา  <button type="submit" class="btn btn-default pull-right" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="ค้นหา"><i class="fa fa-search"></button></i></div>
+            <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
                     <form action="/study">
                         <div class="form-group ">
@@ -36,6 +36,7 @@
                             </option>
                             @endforeach
                             </select>
+                            <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
                         </div>
                     </form>
                 </div>
