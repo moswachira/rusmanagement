@@ -1,6 +1,7 @@
-$(document).ready(function(){
-    $("#menu-toggle").click(function(e){
-      e.preventDefault();
-      $("#wrapper").toggleClass("menuDisplayed");
-    });
-  });
+function openRightMenu() {
+  document.getElementById("rightMenu").style.display = "block";
+}
+
+function closeRightMenu() {
+  document.getElementById("rightMenu").style.display = "none";
+}

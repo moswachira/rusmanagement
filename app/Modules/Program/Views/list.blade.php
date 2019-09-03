@@ -11,7 +11,7 @@
                         <div class="form-group">
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></button></i>
                     </form>
                 </div>
             </div>

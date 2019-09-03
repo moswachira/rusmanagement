@@ -6,7 +6,7 @@
             </div>  
             <ul  class="nav navbar-nav pull-right" style="padding-top: 25px; font-size: 11px;">
             <ul class="nav navbar-nav">
-                            <li class="active"><a href="/"><i class="fa fa-home"></i> หน้าแรก</a></li>
+                            <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user">อาจารย์</i>
                                 <span class="caret"></span></a>
@@ -53,15 +53,6 @@
                             </li>
                         </ul>
                         <li>{!! Notification::get() !!}</li>
-                <li class="dropdown nav-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                        <i class="fa fa-user" aria-hidden="true"></i> {{CurrentUser::user()->first_name}}<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="sub-nav-menu"><a href="#">รายละเอียด</a></li>
-                        <li class="sub-nav-menu"><a href="/logout">ออกจากระบบ</a></li>
-                    </ul>
-                </li>
                 <li><a href="#"></a></li>
             </ul>
         </div>  

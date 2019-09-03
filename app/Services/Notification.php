@@ -11,7 +11,7 @@ class Notification
         if($currentuser && CurrentUser::is_teacher()){
             $total = DB::table('assignment')
                 ->where('tea_id',$currentuser->tea_id)->count();
-                return '<a href="/assignment">มอบหมายงาน<span class="badge">'.$total.'</span></a>';
+                return '<a href="/assignment"><i class="glyphicon glyphicon-list-alt">มอบหมายงาน<span class="badge">'.$total.'</i></span></a>';
             }
       
         

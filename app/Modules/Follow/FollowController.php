@@ -9,6 +9,19 @@ use App\Services\MyResponse;
 use App\Services\CurrentUser;
 class FollowController extends Controller
 {
+    public function index(Request $request)
+    {
+        $follow = DB::table('follow')
+        ->select('follow.*','teacher.first_name','teacher.last_name')
+        ->leftJoin('education','follow.edu_id','education.edu_id')
+        ->leftJoin('teacher','teacher.tea_id','education.tea_id')
+        ->whereNull('follow.deleted_at')->paginate(25);
+        
+        return view('fow::listchife',compact('follow'));
+    }
+
+
+
     public function store(Request $request) 
     {
         $date = $request->get('date');

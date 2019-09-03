@@ -2,7 +2,9 @@
 @section('title')
 @section('content' )
 <div class="row">
-    <div class="col-md-12">   
+    <div class="col-md-2"> 
+    </div>
+    <div class="col-md-8">   
         <div class="panel panel-primary w3-card">
             <a herf="/assignment"กลับหน้าหลัก></a>
             <div class="panel-heading" style="font-size: 20px;">
@@ -46,7 +48,9 @@
                 </div>
                 <button class="btn">ยืนยัน</button>
             </form>
-        </div >
+        </div>
     </div>
+    <div class="col-md-2"> 
+    </div>  
 </div>
 @endsection

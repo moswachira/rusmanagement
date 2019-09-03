@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางสาขา</div>
+                <div class="panel-heading">ตารางมอบหมายงาน <a class="btn btn-default pull-right" href="/assignment/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                     <form action="/assignment">
                     </form>
                 <div class="panel-body">
@@ -41,8 +41,6 @@
                         </tbody>
                     </table>
                     @if(CurrentUser::permission([3]))
-                            <a class="btn btn-default" href="/assignment/create">เพิ่มสาขา</a>
-                            <button type="submit" class="btn btn-default">ค้นหาสาขา</button>
                         @endif
                 </div>
             </div>

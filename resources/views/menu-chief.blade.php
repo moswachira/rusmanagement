@@ -3,10 +3,20 @@
                 <a class="navbar-brand" href="#">
                     <img class="mylogo" src="http://bait.rmutsb.ac.th/bait/images/logobait.png"/>
                 </a>
-            </div>  
+            </div>
+            <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
+                <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large"> &times;</button>
+                <a href="#" class="w3-bar-item w3-button w3-center"><i class ="fa fa-user fa-5x"></i></a>
+                <a href="#" class="w3-bar-item w3-button">{{CurrentUser::user()->first_name}} {{CurrentUser::user()->last_name}}</a>
+                <a href="#" class="w3-bar-item w3-button">รายละเอียด</a>
+                <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+            </div>
+            <div class="w3-teal blue">
+                <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
+            </div>
             <ul  class="nav navbar-nav pull-right" style="padding-top: 25px; font-size: 11px;">
             <ul class="nav navbar-nav">
-                            <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a></li>
+                            <li class=""><a href="/"><i class="fa fa-home"></i>หน้าแรก</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user">อาจารย์</i>
                                 <span class="caret"></span></a>
@@ -70,15 +80,6 @@
                             </li>
                         </ul>
                         <li>{!! Notification::get() !!}</li>
-                <li class="dropdown nav-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                        <i class="fa fa-user" aria-hidden="true"></i> {{CurrentUser::user()->first_name}}<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="sub-nav-menu"><a href="#">รายละเอียด</a></li>
-                        <li class="sub-nav-menu"><a href="/logout">ออกจากระบบ</a></li>
-                    </ul>
-                </li>
                 <li><a href="#"></a></li>
             </ul>
         </div>  
