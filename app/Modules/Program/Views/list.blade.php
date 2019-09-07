@@ -20,16 +20,16 @@
         </div> 
         <div class="col-md-10">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางการสอน  <a class="btn btn-default pull-right" href="/program/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
+                <div class="panel-heading">รายการข้อมูลการสอน  <a class="btn btn-default pull-right" href="/program/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th width="10%">#</th>
                                 <th>วิชา</th>
                                 <th>ภาคเรียน</th>
                                 <th>ปีการศึกษา</th>
-                                <th style="width:120px"></th>
+                                <th style="width:100px"></th>
                             </tr>
                         </thead>
                         <tbody>

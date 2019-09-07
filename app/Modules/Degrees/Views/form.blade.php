@@ -13,6 +13,7 @@
                     @else
                     เพิ่มระดับ
                     @endif
+                    <a class="btn btn-default pull-right" href="/degrees/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>    
                 </div>
                 @if(isset($degrees))
                 <form action="/degrees/{{$degrees->degr_id}}" class="form-ajax" method="PUT">

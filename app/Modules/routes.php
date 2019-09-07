@@ -43,6 +43,7 @@ Route::prefix('')->group(function () {
     Route::resource('teacherprogram','\App\Modules\Teacherprogram\TeacherprogramController');
     Route::resource('assignment','\App\Modules\Assignment\AssignmentController');
     Route::resource('worktype','\App\Modules\Worktype\WorktypeController');
+    Route::post('/job','\App\Modules\Assignment\JobController@jobshow');
 
    /* Route::get('laravel-version', function() {
         $laravel = app();

@@ -8,7 +8,7 @@
                 <div class="panel panel-primary w3-card">
                     <a herf="/requestlog"กลับหน้าหลัก></a>
                     <div class="panel-heading" style="font-size: 20px;">
-                      ความคืบหน้า(%)
+                      ความคืบหน้า( % <a class="btn btn-default pull-right" href="/request/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>)
                     </div>
                     <form action="/requestlog/{{$req_id}}" class="form-ajax" method="PUT">
                         <input type="hidden" value="put" name="_methods">

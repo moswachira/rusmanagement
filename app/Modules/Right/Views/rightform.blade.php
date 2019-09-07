@@ -6,21 +6,21 @@
         </div>
           <div class="col-md-8">   
             <div class="panel panel-primary w3-card">
-                <a herf="/right"กลับหน้าหลัก></a>
                 <div class="panel-heading" style="font-size: 20px;">
                     @if(isset($rights))
                     สิทธิ์ : {{$rights->right_name}}
                     @else
                     เพิ่มสิทธิ์
                     @endif
+                    <a class="btn btn-default pull-right" href="/right/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="กลับหน้าสิทธิ์"><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($rights))
                 <form action="/right/{{$rights->right_id}}" class="form-ajax" method="PUT">
                     <input type="hidden" value="put" name="_methods">
-                    @csrf();
+                    @csrf()
                 @else
                 <form class="form-ajax" action="/right" method="POST">
-                @csrf();
+                @csrf()
                 @endif
                     <div class="panel-body">
                         <th>ชื่อสิทธิ์:</th>

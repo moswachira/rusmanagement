@@ -20,7 +20,7 @@ class AssignmentController extends Controller
         ->leftJoin('worktype','assignment.wokt_id','worktype.wokt_id')
         ->leftJoin('teacher','assignment.tea_id','teacher.tea_id')
         ->whereNull('assignment.deleted_at');
-        if(!CurrentUser::is_admin()){
+        if(!CurrentUser::is_admin() && !CurrentUser::is_chief()){
             $assignments->where('teacher.tea_id',$currentuser->tea_id);
             }
 
@@ -39,8 +39,9 @@ class AssignmentController extends Controller
 
         $assignments = $assignments->orderBy('assignment.ass_name','asc')->paginate(10);
         $worktype = DB::table('worktype')->whereNull('deleted_at')->get();
+        $teacher = DB::table('teacher')->whereNull('deleted_at')->get();
 
-        return view('ass::list',compact('assignments','worktype'));
+        return view('ass::list',compact('assignments','worktype','teacher'));
         
     }
      

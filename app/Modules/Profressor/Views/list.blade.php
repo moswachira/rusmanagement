@@ -84,7 +84,7 @@
                                 <th>คุณวุฒิ</th>
                                 <th>สาขา</th>
                                 <th>ตำแหน่ง</th>
-                                <th style="width:120px"></th>
+                                <th style="width:100px"></th>
                             </tr>
                         </thead>
                         <tbody>

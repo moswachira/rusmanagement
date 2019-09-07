@@ -4,7 +4,7 @@
 <div class="row">
         <div class="col-md-2">   
         </div>
-          <div class="col-md-10">   
+          <div class="col-md-8">   
             <div class="panel panel-primary w3-card">
                 <a herf="/soure"กลับหน้าหลัก></a>
                 <div class="panel-heading" style="font-size: 20px;">
@@ -13,6 +13,7 @@
                     @else
                     เพิ่มแหล่งทุน
                     @endif
+                    <a class="btn btn-default pull-right" href="/soure/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($soures))
                 <form action="/soure/{{$soures->sour_id}}" class="form-ajax" method="PUT">

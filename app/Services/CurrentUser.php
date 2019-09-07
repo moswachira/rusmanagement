@@ -41,6 +41,16 @@ class CurrentUser
         return null;
         
     }
+    public static function is_chief(){
+        if(Auth::check()){
+            $user = Auth::user();
+            $teacher = DB::table('teacher')
+                            ->where('tea_id',$user->user_id)
+                            ->first();
+            return ($user->user_type===MyConst::$USER_LEVEL_TEACHER && $teacher->right_id==3);
+        }
+        return null;
+    }
     public static function menu(){
         if(Auth::check()){
             $user = Auth::user();

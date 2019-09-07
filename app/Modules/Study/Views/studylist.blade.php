@@ -50,11 +50,11 @@
                                 <tr>
                                     <th>#</th>
                                     <th width="15%">ชื่อ</th>
-                                    <th width="30%">ชื่อโปรเจค</th>
+                                    <th width="25%">ชื่อโปรเจค</th>
                                     <th width="12%">ปี</th>
                                     <th width="17%">แหล่งทุน</th>
                                     <th width="15%">ประเภทแหล่งทุน</th>
-                                    <th style="width:95px"></th>
+                                    <th style="width:100px"></th>
                                 </tr>
                             </thead>
                             <tbody>

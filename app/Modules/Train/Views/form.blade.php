@@ -13,6 +13,7 @@
                     @else
                     เพิ่มอบรม
                     @endif
+                    <a class="btn btn-default pull-right" href="/train/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($train))
                 <form action="/train/{{$train->tra_id}}" class="form-ajax" method="PUT">

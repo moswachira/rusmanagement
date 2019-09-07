@@ -21,16 +21,16 @@
         </div> 
         <div class="col-md-10">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางแหล่งเผยแพร่  <a class="btn btn-default pull-right" href="/publishs/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
+                <div class="panel-heading">รายการข้อมูลแหล่งเผยแพร่  <a class="btn btn-default pull-right" href="/publishs/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสแหล่งเผยแพร่</th>
+                                <th width="10%">#</th>
                                 <th>ชื่อแหล่งเผยแพร่</th>
                                 <th>วันเดือนปี</th>
                                 <th>สถานที่</th>
-                                <th style="width:200.px"></th>
+                                <th style="width:100px"></th>
                             </tr>
                         </thead>
                         <tbody>

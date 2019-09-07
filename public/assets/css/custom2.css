@@ -54,6 +54,16 @@ body {
   background-color: #f3f6fb;
 }
 
+.w3-sidebar{
+  color: #fff!important;
+  background-color: #3f69aa!important;
+}
+
+.w3-button:hover {
+  color: #000!important;
+  background-color: #3f69aa!important;
+}
+
 .w3-teal, .w3-hover-teal:hover {
   color: #fff!important;
   background-color: #39609a!important;

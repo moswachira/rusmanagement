@@ -13,14 +13,15 @@
                     @else
                     เพิ่มด้าน
                     @endif
+                    <a class="btn btn-default pull-right" href="/sides/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($sides))
                 <form action="/sides/{{$sides->side_id}}" class="form-ajax" method="PUT">
                     <input type="hidden" value="put" name="_methods">
-                    @csrf();
+                    @csrf()
                 @else
                 <form class="form-ajax" action="/sides" method="POST">
-                @csrf();
+                @csrf()
                 @endif
                     <div class="panel-body">
                         <th>ด้าน :</th>

@@ -13,14 +13,15 @@
                     @else
                     เพิ่มแหล่งเผยแพร่
                     @endif
+                    <a class="btn btn-default pull-right" href="/publishs/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($publishs))
                 <form action="/publishs/{{$publishs->pub_id}}" class="form-ajax" method="PUT">
                     <input type="hidden" value="put" name="_methods">
-                    @csrf();
+                    @csrf()
                 @else
                 <form class="form-ajax" action="/publishs" method="POST">
-                @csrf();
+                @csrf()
                 @endif
                     <div class="panel-body">
                         <th>ชื่อแหล่งเผยแพร่ผลงาน :</th>

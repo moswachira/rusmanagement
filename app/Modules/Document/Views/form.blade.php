@@ -13,6 +13,7 @@
                     @else
                     เพิ่มระดับ
                     @endif
+                    <a class="btn btn-default pull-right" href="/document/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($documents))
                 <form action="/document/{{$documents->doc_id}}" class="form-ajax" method="PUT">

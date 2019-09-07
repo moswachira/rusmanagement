@@ -13,14 +13,15 @@
                     @else
                     เพิ่มคุณวุฒิ 
                     @endif
+                    <a class="btn btn-default pull-right" href="/qualification/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($quas))
                 <form action="/qualification/{{$quas->qua_id}}" class="form-ajax" method="PUT">
                     <input type="hidden" value="put" name="_methods">
-                    @csrf();
+                    @csrf()
                 @else
                 <form class="form-ajax" action="/qualification" method="POST">
-                @csrf();
+                @csrf()
                 @endif
                     <div class="panel-body">
                         <th>คุณวุฒิ :</th>

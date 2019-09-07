@@ -13,6 +13,7 @@
                     @else
                     เพิ่มวิชา 
                     @endif
+                    <a class="btn btn-default pull-right" href="/subjectss/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($subjectss))
                 <form action="/subjectss/{{$subjectss->sub_id}}" class="form-ajax" method="PUT">

@@ -13,6 +13,7 @@
                     @else
                     เพิ่มเทอม
                     @endif
+                    <a class="btn btn-default pull-right" href="/term/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($terms))
                 <form action="/term/{{$terms->term_id}}" class="form-ajax" method="PUT">

@@ -19,11 +19,12 @@
 </head>
 <body>
    {!! CurrentUser::menu() !!}
-        
+ 
     @yield('content')
 <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/myscript.js"></script>
 <script src="/assets/js/test.js"></script>
+@stack('scripts')
 </body>
 </html>

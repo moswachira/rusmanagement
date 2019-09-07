@@ -13,6 +13,7 @@
                         @else
                         ข้อมูลทั่วไป
                         @endif
+                        <a class="btn btn-default pull-right" href="/request/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                     </div>
                     @if(isset($requests))
                     <form action="/request/{{$requests->req_id}}" class="form-ajax" method="PUT">

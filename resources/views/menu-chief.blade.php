@@ -11,7 +11,7 @@
                 <a href="#" class="w3-bar-item w3-button">รายละเอียด</a>
                 <a href="/logout" class="w3-bar-item w3-button">Logout</a>
             </div>
-            <div class="w3-teal blue">
+            <div class="w3-teal">
                 <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
             </div>
             <ul  class="nav navbar-nav pull-right" style="padding-top: 25px; font-size: 11px;">
@@ -53,8 +53,8 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/train">การอบรม</a></li>
-                                    <li><a href="/sides">ด้าน</a></li>
                                     <li><a href="/followtrain">ติดตามการนำไปใช้ประโยชน์</a></li>
+                                    <li><a href="/sides">ด้าน</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -62,10 +62,10 @@
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/education">รายละเอียดการศึกษาต่อ</a></li>
+                                    <li><a href="/follow">ติดตามการศึกษาต่อ</a></li>
                                     <li><a href="/degrees">ระดับ</a></li>
                                     <li><a href="/branchs">สาขา</a></li>
                                     <li><a href="/institutions">สถาบัน</a></li>
-                                    <li><a href="/follow">ติดตามการศึกษาต่อ</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div class="panel panel-primary w3-card">
-        <div class="panel-heading">ติดตามการนำไปใช้ประโยชน์</div>
+        <div class="panel-heading">ติดตามการนำไปใช้ประโยชน์  <a class="btn btn-default pull-right" href="/train/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a></div>
         <div class="panel-body">
             <form action="/followtrain" class="form-ajax" method="POST">
                 <input type ="hidden" name ="tra_id" value="{{$tra_id}}"/>

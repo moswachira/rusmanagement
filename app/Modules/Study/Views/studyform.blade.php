@@ -13,6 +13,7 @@
                     @else
                     เพิ่มผลงานวิจัย
                     @endif
+                    <a class="btn btn-default pull-right" href="/study/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                 </div>
                 @if(isset($studys))
                 <form action="/study/{{$studys->res_id}}" class="form-ajax" method="PUT">

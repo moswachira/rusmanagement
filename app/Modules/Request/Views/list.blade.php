@@ -29,7 +29,7 @@
                                 <th>ตำแหน่งปัจจุบัน</th>
                                 <th>ตำแหน่งที่ขอ</th>
                                 <th>ชื่อเอกสาร วิชา</th>
-                                <th></th>
+                                <th style="width:100px"></th>
                             </tr>
                         </thead>
                         <tbody>

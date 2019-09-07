@@ -13,6 +13,7 @@
                         @else
                         ข้อมูลทั่วไป
                         @endif
+                        <a class="btn btn-default pull-right" href="/education/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a>
                     </div>
                     @if(isset($edus))
                     <form action="/education/{{$edus->edu_id}}" class="form-ajax" method="PUT">
@@ -63,7 +64,7 @@
                     </div>
                 </div> 
             </div>   
-                <div class="panel panel-default">
+                <div class="panel panel-primary w3-card">  
                     <div class="panel-heading">ข้อมูลสถาบันที่ต้องการไปศึกษาต่อ</div>
                         <div class="panel-body">
                             <div class="col-md-4">

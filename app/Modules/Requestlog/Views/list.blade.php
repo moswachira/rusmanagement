@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางความคืบหน้า</div>
+                <div class="panel-heading">ตารางความคืบหน้า <a class="btn btn-default pull-right" href="/request/" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title=""><i class="fa fa-close"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

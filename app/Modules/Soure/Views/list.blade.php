@@ -33,15 +33,15 @@
         </div> 
         <div class="col-md-10">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางแหล่งทุน <a class="btn btn-default pull-right" href="/soure/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
+                <div class="panel-heading">รายการข้อมูลแหล่งทุน <a class="btn btn-default pull-right" href="/soure/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
+                                <th width="10%">#</th>
                                 <th>แหล่งทุน</th>
                                 <th>ประเภทแหล่งทุน</th>
-                                <th style="width:120px"></th>
+                                <th style="width:100px"></th>
                             </tr>
                         </thead>
                         <tbody>

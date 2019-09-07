@@ -21,15 +21,15 @@
         </div> 
         <div class="col-md-10">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">ตารางตำแหล่ง <a class="btn btn-default pull-right" href="/position/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
+                <div class="panel-heading">รายการข้อมูลตำแหล่ง <a class="btn btn-default pull-right" href="/position/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>ลำดับ</th>
-                                <th>ชื่อตำแหน่ง</th>
-                                <th>ชื่อย่อ</th>
-                                <th style="width:200.px"></th>
+                                <th width="20%">#</th>
+                                <th width="40%">ชื่อตำแหน่ง</th>
+                                <th >ชื่อย่อ</th>
+                                <th style="width:100px"></th>
                             </tr>
                         </thead>
                         <tbody>
