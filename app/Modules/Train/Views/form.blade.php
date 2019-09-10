@@ -1,10 +1,19 @@
 @extends('custom-layout')
 @section('title')
 @section('content' )
+<ul class="breadcrumb w3-card">
+  <li><a href="/"><i class="fa fa-home"> หน้าแรก</i></a></li>
+  <li><a href="/train"><i class="fa fa-clipboard"> อบรม</i></a></li>
+    @if(isset($train))
+        <li><i class="fa fa-edit"> แก้ไขข้อมูลอบรม</i></li>
+    @else
+        <li><i class="fa fa-plus"> เพิ่มข้อมูลอบรม</i></li>
+    @endif
+</ul>
 <div class="row">
-        <div class="col-md-2">   
+        <div class="col-md-1">   
         </div>
-          <div class="col-md-8">   
+          <div class="col-md-10">   
             <div class="panel panel-primary w3-card">
                 <a herf="/train"กลับหน้าหลัก></a>
                 <div class="panel-heading" style="font-size: 20px;">
@@ -41,7 +50,7 @@
                 </form>
             </div>
             </div> 
-        <div class="col-md-2">   
+        <div class="col-md-1">   
     </div>
 </div>
 @endsection

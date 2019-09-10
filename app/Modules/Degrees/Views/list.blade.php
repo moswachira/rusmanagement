@@ -1,6 +1,11 @@
 @extends('custom-layout') 
 @section('title','รายการอาจารย์ประจำมหาวิทยาลัย')
 @section('content')
+<ul class="breadcrumb w3-card">
+  <li><a href="/"><i class="fa fa-home"> หน้าแรก</i></a></li>
+  <li><a href="/education"><i class="glyphicon glyphicon-education">แผนการศึกษาต่อ</i></a></li>
+  <li><a href="/right"><i class="glyphicon glyphicon-stats"> รายการข้อมูลระดับ</i></a></li>
+</ul>
 <div class="container">
     <div class="row">
         <div class="col-md-2">

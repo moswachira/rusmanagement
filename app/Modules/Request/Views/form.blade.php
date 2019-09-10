@@ -1,10 +1,19 @@
 @extends('custom-layout')
 @section('title')
 @section('content' )
+<ul class="breadcrumb w3-card">
+  <li><a href="/"><i class="fa fa-home"> หน้าแรก</i></a></li>
+  <li><a href="/request"><i class="fa fa-address-card"> ขอกำหนดตำแหน่งทางวิชาการ</i></a></li>
+    @if(isset($requests))
+        <li><i class="fa fa-edit"> แก้ไขข้อมูลขอกำหนดทำแหน่งทางวิชาการ</i></li>
+    @else
+        <li><i class="fa fa-plus"> เพิ่มรายการข้อมูลขอกำหนดตำแหน่งทางวิชาการ</i></li>
+    @endif
+</ul>
 <div class="row">
-        <div class="col-md-2">   
+        <div class="col-md-1">   
         </div>
-            <div class="col-md-8">   
+            <div class="col-md-10">   
                 <div class="panel panel-primary w3-card">
                     <a herf="/request"กลับหน้าหลัก></a>
                     <div class="panel-heading" style="font-size: 20px;">
@@ -124,7 +133,7 @@
                     <button class="btn">ยืนยัน</button>
                 </div> 
             </div> 
-        <div class="col-md-2">   
+        <div class="col-md-1">   
     </div>
 </div>
 @endsection

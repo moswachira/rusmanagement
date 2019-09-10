@@ -1,10 +1,20 @@
 @extends('custom-layout')
 @section('title')
 @section('content' )
+<ul class="breadcrumb w3-card">
+  <li><a href="/"><i class="fa fa-home"> หน้าแรก</i></a></li>
+  <li><a href="/profressor"><i class="fa fa-user"> อาจารย์</i></a></li>
+  <li><a href="/right"><i class="fa fa-child"> รายการข้อมูลสิทธิ์</i></a></li>
+    @if(isset($rights))
+        <li><i class="fa fa-edit"> แก้ไขข้อมูลสิทธิ์</i></li>
+    @else
+        <li><i class="fa fa-plus"> เพิ่มรายการข้อมูลสิทธิ์</i></li>
+    @endif
+</ul>
 <div class="row">
-        <div class="col-md-2">   
+        <div class="col-md-1">   
         </div>
-          <div class="col-md-8">   
+          <div class="col-md-10">   
             <div class="panel panel-primary w3-card">
                 <div class="panel-heading" style="font-size: 20px;">
                     @if(isset($rights))
@@ -29,7 +39,7 @@
                     <button class="btn">ยืนยัน</button>
                 </form>
             </div> 
-        <div class="col-md-2">   
+        <div class="col-md-1">   
         </div>
 </div>
 @endsection
