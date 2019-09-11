@@ -1,86 +1,255 @@
-<nav class="navbar navbar-default nav-bg-color w3-card">
-<div class="navbar-header ">
-                <a class="navbar-brand" href="#">
-                    <img class="mylogo" src="http://bait.rmutsb.ac.th/bait/images/logobait.png"/>
-                </a>
-            </div>
-            <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
-                <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large"> &times;</button>
-                <a href="#" class="w3-bar-item w3-button w3-center"><i class ="fa fa-user fa-5x"></i></a>
-                <a href="#" class="w3-bar-item w3-button">{{CurrentUser::user()->first_name}} {{CurrentUser::user()->last_name}}</a>
-                <a href="#" class="w3-bar-item w3-button">รายละเอียด</a>
-                <a href="/logout" class="w3-bar-item w3-button">Logout</a>
-            </div>
-            <div class="w3-teal">
-                <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
-            </div>
-            <ul  class="nav navbar-nav pull-right" style="padding-top: 25px; font-size: 11px;">
-            <ul class="nav navbar-nav">
-                            <li class=""><a href="/"><i class="fa fa-home"></i> หน้าแรก</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user">อาจารย์</i>
-                                <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/profressor">รายชื่ออาจารย์</a></li>
-                                    <li><a href="/right">สิทธิ์</a></li>
-                                    <li><a href="/position">ตำแหน่ง</a></li>
-                                    <li><a href="/qualification">คุณวุฒิ</a></li>
-                                    <li><a href="/term">ภาคเรียน</a></li>
-                                    <li><a href="/program">การสอน</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-bar-chart">วิจัย</i>
-                                <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/study">รายชื่ออาจารย์การทำวิจัย</a></li>
-                                    <li><a href="/soure">แหล่งทุน</a></li>
-                                    <li><a href="/typesoure">ประเภทแหล่งทุน</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-book">ผลงานวิชาการ</i>
-                                <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/portfolio">ผลงานวิชาการ</a></li>
-                                    <li><a href="/publishs">แหล่งเผยแพร่</a></li>
-                                    <li><a href="/type">ประเภทผลงาน</a></li>
-                                    <li><a href="/groups">กลุ่ม</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-clipboard">อบรม</i>
-                                <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/train">การอบรม</a></li>
-                                    <li><a href="/sides">ด้าน</a></li>
-                                    <li><a href="/followtrain">ติดตามการนำไปใช้ประโยชน์</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-education">แผนการศึกษาต่อ</i>
-                                <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/education">รายละเอียดการศึกษาต่อ</a></li>
-                                    <li><a href="/degrees">ระดับ</a></li>
-                                    <li><a href="/branchs">สาขา</a></li>
-                                    <li><a href="/institutions">สถาบัน</a></li>
-                                    <li><a href="/follow">ติดตามการศึกษาต่อ</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-address-card">ขอตำแหน่งทางวิชาการ</i>
-                                <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/request">ขอตำแหน่งทางวิชาการ</a></li>
-                                    <li><a href="/subjectss">วิชา</a></li>
-                                    <li><a href="/positiontypes">ประเภท</a></li>
-                                    <li><a href="/document">เอกสาร</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <li>{!! Notification::get() !!}</li>
-                <li><a href="#"></a></li>
-            </ul>
-        </div>  
+<style>
+  // Navigation Variables
+$content-width: 1000px;
+$breakpoint: 799px;
+$nav-height: 70px;
+$nav-background: #262626;
+$nav-font-color: #ffffff;
+$link-hover-color: #2581DC;
+
+// Outer navigation wrapper
+.navigation {
+  height: $nav-height;
+  background: $nav-background;
+}
+
+// Logo and branding
+.brand {
+  position: absolute;
+  padding-left: 20px;
+  float: left;
+  line-height: $nav-height;
+  text-transform: uppercase;
+  font-size: 1.4em;
+  a,
+  a:visited {
+    color: $nav-font-color;
+    text-decoration: none;
+  }
+}
+
+// Container with no padding for navbar
+.nav-container {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
+// Navigation 
+nav {
+  float: right;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      float: left;
+      position: relative;
+      a,
+      a:visited {
+        display: block;
+        padding: 0 20px;
+        line-height: $nav-height;
+        background: $nav-background;
+        color: $nav-font-color;
+        text-decoration: none;
+        &:hover {
+          background: $link-hover-color;
+          color: $nav-font-color;
+        }
+        &:not(:only-child):after {
+          padding-left: 4px;
+          content: ' ▾';
+        }
+      } // Dropdown list
+      ul li {
+        min-width: 190px;
+        a {
+          padding: 15px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+// Dropdown list binds to JS toggle event
+.nav-dropdown {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile navigation */
+
+// Binds to JS Toggle
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: $nav-background;
+  height: $nav-height;
+  width: $nav-height;
+}
+@media only screen and (max-width: 798px) {
+  // Hamburger nav visible on mobile only
+  .nav-mobile {
+    display: block;
+  }
+  nav {
+   width: 100%;
+    padding: $nav-height 0 15px;
+    ul {
+      display: none;
+      li {
+        float: none;
+        a {
+          padding: 15px;
+          line-height: 20px;
+        }
+        ul li a {
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+  .nav-dropdown {
+    position: static;
+  }
+}
+@media screen and (min-width: $breakpoint) {
+  .nav-list {
+    display: block !important;
+  }
+}
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+  span,
+  span:before,
+  span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: $nav-font-color;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+  &.active span {
+    background-color: transparent;
+    &:before,
+    &:after {
+      top: 0;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// Page content 
+article {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 10px;
+}
+  </style>
+<section class="navigation">
+  <div class="nav-container">
+    <div class="brand">
+      <a href="#!">Logo</a>
+    </div>
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="#!">Home</a>
+        </li>
+        <li>
+          <a href="#!">About</a>
+        </li>
+        <li>
+          <a href="#!">Services</a>
+          <ul class="nav-dropdown">
+            <li>
+              <a href="#!">Web Design</a>
+            </li>
+            <li>
+              <a href="#!">Web Development</a>
+            </li>
+            <li>
+              <a href="#!">Graphic Design</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#!">Pricing</a>
+        </li>
+        <li>
+          <a href="#!">Portfolio</a>
+          <ul class="nav-dropdown">
+            <li>
+              <a href="#!">Web Design</a>
+            </li>
+            <li>
+              <a href="#!">Web Development</a>
+            </li>
+            <li>
+              <a href="#!">Graphic Design</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#!">Contact</a>
+        </li>
+      </ul>
     </nav>
+  </div>
+</section>
+
+<article>
+  <h2>Navigation</h2>
+  <p>Responsive Dropdown Navigation Bar.</p>
+  <p>Want to see how it's made? <a href="http://www.taniarascia.com/responsive-dropdown-navigation-bar/">Read the tutorial!</a></p>
+</article>
+<script>
+  (function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+  </script>
