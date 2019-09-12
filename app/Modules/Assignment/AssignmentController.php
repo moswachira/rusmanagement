@@ -12,16 +12,18 @@ class AssignmentController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('keyword');
-        $wokt_id = $request->get('wokt_id');
         $currentuser = CurrentUser::user();
 
         $assignments = DB::table('assignment')
-        ->select('assignment.*','worktype.wokt_name','teacher.first_name','teacher.last_name')
-        ->leftJoin('worktype','assignment.wokt_id','worktype.wokt_id')
-        ->leftJoin('teacher','assignment.tea_id','teacher.tea_id')
+        ->select('assignment.*')
         ->whereNull('assignment.deleted_at');
         if(!CurrentUser::is_admin() && !CurrentUser::is_chief()){
-            $assignments->where('teacher.tea_id',$currentuser->tea_id);
+            $assignments->whereExists(function ($query) use($currentuser){
+                $query->select(DB::raw(1))
+                      ->from('assignment_teacher')
+                      ->whereRaw('assignment_teacher.ass_id = assignment.ass_id')
+                      ->where('assignment_teacher.tea_id',$currentuser->tea_id);
+            });
             }
 
         if(!empty($keyword))
@@ -32,43 +34,45 @@ class AssignmentController extends Controller
             });
         }
         
-        if(is_numeric($wokt_id))
-        {
-            $assignments->where('assignment.wokt_id','=',$wokt_id);
-        }
+        
 
         $assignments = $assignments->orderBy('assignment.ass_name','asc')->paginate(10);
-        $worktype = DB::table('worktype')->whereNull('deleted_at')->get();
         $teacher = DB::table('teacher')->whereNull('deleted_at')->get();
 
-        return view('ass::list',compact('assignments','worktype','teacher'));
+        return view('ass::list',compact('assignments','teacher'));
         
     }
      
     public function create()
     {
-        $worktype = DB::table('worktype')->whereNull('deleted_at')->get();
-
-        return view('ass::form',compact('worktype'));
+        $teacher = DB::table('teacher')->whereNull('deleted_at')->get();
+        return view('ass::form',compact('teacher'));
     }
     public function store(Request $request)
     {
         $ass_name = $request->get('ass_name');
         $start_time = $request->get('start_time');
         $end_time = $request->get('end_time');
-        $wokt_id = $request->get('wokt_id');
+        $detail = $request->get('detail');
+        $place = $request->get('place');
+        $tea_id = $request->get('tea_id');
         $currentuser = CurrentUser::user();
-
-        if(!empty($ass_name) && !empty($start_time)  && !empty($end_time) && is_numeric($wokt_id))
+        if(!empty($ass_name) && is_array($tea_id) && !empty($start_time)  && !empty($end_time) && !empty($detail) && !empty($place))
         {
-                DB::table('assignment')->insert([
+                $ass_id = DB::table('assignment')->insertGetId([
                     'ass_name' =>$ass_name,
                     'start_time' =>$start_time,
                     'end_time' =>$end_time,
-                    'wokt_id' =>$wokt_id,
-                    'tea_id' =>$currentuser->tea_id,
+                    'detail' =>$detail,
+                    'place' =>$place,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]);
+                foreach($tea_id as $id){
+                    DB::table('assignment_teacher')->insert([
+                    'tea_id' =>$id,
+                    'ass_id' =>$ass_id,
+                    ]);
+                }
             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/assignment');
         }else{
             return MyResponse::error('กรุณาป้อนข้อมูลให้ครบ');
@@ -79,13 +83,19 @@ class AssignmentController extends Controller
     {
         if(is_numeric($ass_id))
         {
+            $teacher = DB::table('teacher')->whereNull('deleted_at')->get();
             $assignments = DB::table('assignment')->where('ass_id',$ass_id)->first();
+            $assignment_teacher = DB::table('assignment_teacher')->where('ass_id',$ass_id)->get();
+            $teacher_selected = [];
+            foreach($assignment_teacher as $row){
+                $teacher_selected[]=$row->tea_id;
+            }
             if(!empty($assignments))
             {
-                $worktype = DB::table('worktype')->whereNull('deleted_at')->get();
                 return view('ass::form',[
-                    'assignment'=>$assignments,
-                    'worktype'=>$worktype
+                    'assignments'=>$assignments,
+                    'teacher'=>$teacher,
+                    'teacher_selected'=>$teacher_selected,
                 ]);
             }
         }
@@ -99,18 +109,27 @@ class AssignmentController extends Controller
             $ass_name = $request->get('ass_name');
             $start_time = $request->get('start_time');
             $end_time = $request->get('end_time');
-            $wokt_id = $request->get('wokt_id');
+            $detail = $request->get('detail');
+            $place = $request->get('place');
+            $tea_id = $request->get('tea_id');
 
-
-            if(!empty($ass_name) && !empty($start_time)  && !empty($end_time) && is_numeric($wokt_id))
+            if(!empty($ass_name) && is_array($tea_id) && !empty($start_time)  && !empty($end_time) && !empty($detail) && !empty($place))
             {
-                DB::table('assignment')->where('wokt_id',$wokt_id)->update([
+                DB::table('assignment')->where('ass_id',$ass_id)->update([
                     'ass_name' =>$ass_name,
                     'start_time' =>$start_time,
                     'end_time' =>$end_time,
-                    'wokt_id' =>$wokt_id,
+                    'detail' =>$detail,
+                    'place' =>$place,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]);
+                DB::table('assignment_teacher')->where('ass_id',$ass_id)->delete();
+                foreach($tea_id as $id){
+                    DB::table('assignment_teacher')->insert([
+                    'tea_id' =>$id,
+                    'ass_id' =>$ass_id,
+                    ]);
+                }
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/assignment');
             }else{
                 return MyResponse::error('กรุณาป้อนข้อมูลให้ครบ');
