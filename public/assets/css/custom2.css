@@ -130,7 +130,8 @@ body {
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 75px;
-  margin-left: 150px;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 .newbar a {
@@ -140,7 +141,7 @@ body {
   text-align: center;
   padding: 14px 16px 15px;
   text-decoration: none;
-  width: 12%;
+  width: 12.5%;
   background-color: #39609a;
 }
 
@@ -150,7 +151,7 @@ body {
 }
 
 .newdropdown .newdropbtn {
-  font-size: 1px;  
+  font-size: 12px;  
   border: none;
   outline: none;
   color: white;
@@ -161,6 +162,10 @@ body {
   background-color: #39609a;
 }
 
+.newdropdown:hover .newdropdown-content {
+  display: block;
+}
+
 .newbar a:hover, .newdropdown:hover .newdropbtn {
   background-color: #2c4b78;
 }
@@ -169,58 +174,42 @@ body {
   display: none;
   position: absolute;
   background-color: #d7e1f0;
-  width: 100%;
-  left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
+.newdropdown-content ul {
+  list-style-type: none;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+.newdropdown-content ul li a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  width: 100%;
+  background: #3f69aa;
+  position: relative;
+}
 
 .newdropdown-content .newheader {
-  background: #39609a;
   padding: 16px;
   color: white;
 }
 
-.newdropdown:hover .newdropdown-content {
+.newdropdown-content ul ul {
+  list-style-type: none;
+  position: absolute;
+  display: none;
+}
+
+.newdropdown-content ul li:hover ul{
   display: block;
 }
 
-/* Create three equal columns that floats next to each other */
-.newcolumn {
-  float: left;
-  width: 16%;
-  padding: 10px;
-  background-color: #d7e1f0;
-  height: 320px;
+.newdropdown-content ul ul a{
+  margin-left: 115px;
 }
 
-.newcolumn a {
-  float: none;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-  background-color: #d7e1f0;
-  width: 70%;
-}
-
-.newcolumn a:hover {
-  background-color: #afc3e1;
-}
-
-/* Clear floats after the columns */
-.newrow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .newcolumn {
-    width: 100%;
-    height: auto;
-  }
- 
-}
