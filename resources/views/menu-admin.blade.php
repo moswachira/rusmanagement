@@ -12,41 +12,50 @@
     <div class="w3-teal">
         <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
     </div>
-        <div class="newbar">
-            <a href="/"><i class="fa fa-home"> หน้าแรก</i></a>
-            <a href="/profressor"><i class="fa fa-user"> อาจารย์</i></a>
-            <a href="/study"><i class="fa fa-bar-chart"> วิจัย</i></a>
-            <a href="/portfolio"><i class="glyphicon glyphicon-book"> ผลงานวิชาการ</i></a>
-            <a href="/train"><i class="fa fa-clipboard"> อบรม</i></a>
-            <a href="/education"><i class="glyphicon glyphicon-education"> แผนการศึกษาต่อ</i></a>
-            <a href="/request"><i class="fa fa-address-card"> ขอตำแหน่งฯ</i></a>
-            <div class="newdropdown">
-            <button class="newdropbtn"><i class="fa fa-files-o"></i>
-            <i class="fa fa-caret-down"></i>
-            </button>                    
-            <div class="newdropdown-content">
+    <div class="menu">
+        <ul>
+            <li><a href="/">หน้าแรก</a></li>
+            <li><a href="/profressor"><i class="fa fa-user"> อาจารย์</i></a>
                 <ul>
-                    <li><a href="#">อาจารย์</a>
-                        <ul>
-                            <li><a href="#">สิทธิ์</a></li>
-                            <li><a href="#">ตำแหน่ง</a></li>
-                            <li><a href="#">คุณวุฒิ</a></li>
-                            <li><a href="#">ภาคเรียน</a></li>
-                            <li><a href="#">การสอน</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">วิจัย</a>
-                        <ul>
-                            <li><a href="#">แหล่งทุน</a></li>
-                            <li><a href="#">ประเภทแหล่งทุน</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">ผลงานวิชาการ</a></li>
-                    <li><a href="#">อบรม</a></li>
-                    <li><a href="#">แผนการศึกษาต่อ</a></li>
-                    <li><a href="#">ขอตำแหน่ง</a></li>
+                    <li><a href="/right">สิทธิ์</a></li>
+                    <li><a href="/position">ตำแหน่ง</a></li>
+                    <li><a href="/qualification">คุณวุฒิ</a></li>
+                    <li><a href="/term">ภาคเรียน</a></li>
+                    <li><a href="/program">การสอน</a></li>
                 </ul>
-            </div>
-        </div>
-    </div>  
+            </li>
+            <li><a href="/study"><i class="fa fa-bar-chart"> วิจัย</i></a>
+                <ul>
+                    <li><a href="/soure">แหล่งทุน</a></li>
+                    <li><a href="/typesoure">ประเภทแหล่งทุน</a></li>
+                </ul>
+            </li>
+                    <li><a href="/portfolio"><i class="glyphicon glyphicon-book"> ผลงานวิชาการ</i></a>
+                <ul>
+                    <li><a href="/publishs">แหล่งเผยแพร่</a></li>
+                    <li><a href="/type">ประเภทผลงาน</a></li>
+                    <li><a href="/groups">กลุ่ม</a></li>
+                </ul>
+            </li>
+            <li><a href="/train"><i class="fa fa-clipboard"> อบรม</i></a>
+                <ul>
+                    <li><a href="/sides">ด้าน</a></li>
+                </ul>
+            </li>
+            <li><a href="/education"><i class="glyphicon glyphicon-education"> แผนการศึกษาต่อ</i></a>
+                <ul>
+                    <li><a href="/degrees">ระดับ</a></li>
+                    <li><a href="/branchs">สาขา</a></li>
+                    <li><a href="/institutions">สถาบัน</a></li>
+                </ul>
+            </li>
+            <li><a href="/request"><i class="fa fa-address-card"> ขอตำแหน่งฯ</i></a>
+                <ul>
+                    <li><a href="/subjectss">วิชา</a></li>
+                    <li><a href="/positiontypes">ประเภท</a></li>
+                    <li><a href="/document">เอกสาร</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </nav>
