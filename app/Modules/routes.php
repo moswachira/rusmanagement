@@ -6,6 +6,7 @@ Route::prefix('')->group(function () {
     Route::group(['middleware' => ['auth']], function ()
 {
     Route::Get('/','\App\Modules\Home\HomeController@index');
+    Route::post('/upload','\App\Modules\Home\UploadController@index');
     Route::get('event/add','\App\Modules\Events\EventsController@createEvent');
     Route::post('event/add','\App\Modules\Events\EventsController@store');
     Route::get('event','\App\Modules\Events\EventsController@calender');

@@ -35,7 +35,7 @@ class ProgramController extends Controller
             $program->where('program.sub_id','=',$sub_id);
         }
 
-        $program = $program->get();     
+        $program = $program->paginate(10);     
         $term = DB::table('term')->whereNull('deleted_at')->get();
         $subjects = DB::table('subjects')->whereNull('deleted_at')->get();
         return view('prog::list',compact('program','term','subjects'));

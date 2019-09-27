@@ -1,20 +1,18 @@
 <nav class="navbar navbar-default nav-bg-color w3-card">
-            <div class="navbar-header ">
-                <a class="navbar-brand" href="#">
-                    <img class="mylogo" src="http://bait.rmutsb.ac.th/bait/images/logobait.png"/>
-                </a>
-            </div>
-            <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
-                <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large"> &times;</button>
-                <a href="#" class="w3-bar-item w3-button w3-center"><i class ="fa fa-user fa-5x"></i></a>
-                <a href="#" class="w3-bar-item w3-button">{{CurrentUser::user()->first_name}} {{CurrentUser::user()->last_name}}</a>
-                <a href="#" class="w3-bar-item w3-button">รายละเอียด</a>
-                <a href="/logout" class="w3-bar-item w3-button">Logout</a>
-            </div>
-            <div class="w3-teal">
-                <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
-            </div>
-            <div class="menu">
+    <div class="navbar-header ">
+        <a class="navbar-brand" href="#"><img class="mylogo" src="/assets/img/logobanner.png"/></a>
+    </div>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
+        <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large"> &times;</button>
+        <a href="#" class="w3-bar-item w3-button w3-center"><i class ="fa fa-user fa-5x"></i></a>
+        <a href="#" class="w3-bar-item w3-button">{{CurrentUser::user()->first_name}} {{CurrentUser::user()->last_name}}</a>
+        <a href="#" class="w3-bar-item w3-button">รายละเอียด</a>
+        <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+    </div>
+    <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
+    </div>
+    <div class="menu" style="margin-left: 40px;">
         <ul>
             <li><a href="/">หน้าแรก</a></li>
             <li><a href="/profressor"><i class="fa fa-user"> อาจารย์</i></a>
@@ -41,7 +39,7 @@
             </li>
             <li><a href="/train"><i class="fa fa-clipboard"> อบรม</i></a>
                 <ul>
-                    <li><a href="/followtrain">ติดตามการนำไปใช้ประโยชน์</a></li>
+                    <li><a href="/followtrain">การนำไปใช้ประโยชน์</a></li>
                     <li><a href="/sides">ด้าน</a></li>
                 </ul>
             </li>
@@ -60,8 +58,9 @@
                     <li><a href="/document">เอกสาร</a></li>
                 </ul>
             </li>
-            <li>{!! Notification::get() !!}</li>
-                <li><a href="#"></a></li>
-            </ul>
-        </div>  
-    </nav>
+            <li>
+                {!! Notification::get() !!}
+            </li>
+        </ul>
+    </div>  
+</nav>

@@ -1,11 +1,12 @@
  
 body {
-  background-image: url(assets/img/backgroud.jpg);
-  background: #d7e1f0;
-   
+  /* background-image: url(/assets/img/backgroud18.jpg); */
+  background-size: cover;   
+  background-color: #d7e1f0;
 }
 .dropdown-menu{
   background: #e6ecff;
+  
 }
 ul.breadcrumb {
   padding: 10px 16px;
@@ -13,6 +14,8 @@ ul.breadcrumb {
   background-color: #f3f6fb;
   width: 84%;
   margin-left: 105px;
+  background-image: url(/assets/img/backgroud10.jpg);
+  background-size: cover;   
 }
 ul.breadcrumb li {
   display: inline;
@@ -32,7 +35,7 @@ ul.breadcrumb li a:hover {
   text-decoration: underline;
 }
 .navbar-header{height:50px}
-.navbar-brand{padding:5px 0px 15px 15px;}
+.navbar-brand{padding:10px 0px 15px 0px;}
 .navbar-brand .mylogo
 {height:70px;
 }
@@ -41,7 +44,8 @@ ul.breadcrumb li a:hover {
 .sub-nav-menu a{color:#333!important; font-size:20px;}
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, 
 .navbar-default .navbar-nav>.active>a:hover
-{background-color: #203556;
+{
+  background-color: #203556;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
 .navbar-default .navbar-nav>.open>a:hover
@@ -61,6 +65,10 @@ ul.breadcrumb li a:hover {
   overflow: hidden;
 }
 .navbar-default .navbar-nav>li>a{color:#fff!important;}
+
+.navbar-default{
+  
+}
 
 
 .red{
@@ -84,19 +92,23 @@ ul.breadcrumb li a:hover {
     display: block;
   }
 
-.panel panel-primary {
-      border-color: #203556;
-      color: #203556;
-      margin-top: 10px;
+.panel  {
+    border-color: #203556;
+    background-image: url(/assets/img/backgroud6.jpg);
+    margin-top: 10px;
+    background-size: cover;   
   }
 
 .panel-body{
   background-color: #f3f6fb;
+  background-image: url(/assets/img/backgroud10.jpg);
+  background-size: cover;   
 }
 
 .w3-sidebar{
   color: #fff!important;
   background-color: #3f69aa!important;
+  z-index: 2;
 }
 
 .w3-button:hover {
@@ -109,7 +121,7 @@ ul.breadcrumb li a:hover {
   color: #fff!important;
   background-color: #39609a!important;
   margin-top: 5px;
-
+  z-index: 2;
 }
 
 
@@ -127,7 +139,8 @@ body {
 }
 .menu{
   margin-left: 100px;
-  margin-top: 50px;
+  margin-top: 80px;
+  z-index: 1;
 }
 
 .menu ul {
@@ -143,7 +156,7 @@ line-height: 35px;
 float: left;
 position:relative;
 font-size: 13px;
-z-index: 5;
+z-index: 1;
 }
 
 .menu ul li a{

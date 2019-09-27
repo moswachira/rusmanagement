@@ -29,7 +29,7 @@
         <div class=" card-box">
             <div class="panel-heading">
                 <div class="text-center m-t-15"><strong></strong></div>
-                <div class="text-custom logo-title"><img src="http://bait.rmutsb.ac.th/bait/coopwasukri/images/logonewbait.png"></div>
+                <div class="text-custom logo-title"><img src="/assets/img/logo.png"></div>
             </div>
             <div class="panel-body">
                 <form id="login-form" method="post" role="form" class="form-horizontal bv-form" action="login_submit" data-toggle="validator" novalidate="novalidate"><button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>

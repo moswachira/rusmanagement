@@ -26,6 +26,8 @@
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/myscript.js"></script>
 <script src="/assets/js/test.js"></script>
+<script src="/assets/js/simpleupload.js"></script>
+<script src="/assets/js/upload.js"></script>
 @stack('scripts')
 </body>
 </html>

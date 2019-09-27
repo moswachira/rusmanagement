@@ -40,7 +40,7 @@
                             </option>
                             @endforeach
                             </select>
-                            <button type="submit" class="btn btn-default " ><i class="fa fa-search"></button></i>
+                            <button type="submit" class="btn btn-default " data-toggle="tooltip" title="ค้นหาข้อมูล"><i class="fa fa-search"></button></i>
                         </div>
                     </form>
                 </div>

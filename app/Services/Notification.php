@@ -16,7 +16,7 @@ class Notification
                       ->whereRaw('assignment_teacher.ass_id = assignment.ass_id')
                       ->where('assignment_teacher.tea_id',$currentuser->tea_id);
             })->count();
-                return '<a href="/assignment"><i class="glyphicon glyphicon-list-alt">มอบหมายงาน<span class="badge">'.$total.'</i></span></a>';
+                return '<a href="/assignment" style="size:50px;"><i class="glyphicon glyphicon-list-alt">มอบหมายงาน<span class="badge">'.$total.'</i></span></a>';
             }
       
         

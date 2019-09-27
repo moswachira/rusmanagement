@@ -56,6 +56,7 @@ class AssignmentController extends Controller
         $detail = $request->get('detail');
         $place = $request->get('place');
         $tea_id = $request->get('tea_id');
+        $assingmentfile = $request->get('assingmentfile');
         $currentuser = CurrentUser::user();
         if(!empty($ass_name) && is_array($tea_id) && !empty($start_time)  && !empty($end_time) && !empty($detail) && !empty($place))
         {
@@ -65,6 +66,7 @@ class AssignmentController extends Controller
                     'end_time' =>$end_time,
                     'detail' =>$detail,
                     'place' =>$place,
+                    'assingmentfile' =>$assingmentfile,
                     'created_at' =>date('Y-m-d H:i:s'),
                 ]);
                 foreach($tea_id as $id){

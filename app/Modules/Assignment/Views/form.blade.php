@@ -57,18 +57,34 @@
                     @if(CurrentUser::permission([3]))
                         <div class="form-group">
                             เลือกผู้รับผิดชอบ:
-                            <select {{ (CurrentUser::permission([3]))? '':'disabled'}} class="job-assign" multiple="multiple" style="width:100%;height:120px;" name="tea_id[]">
+                            @foreach($teacher as $index => $roww)
+                                        <input type="checkbox" name="tea_id[]" {{isset($teacher_selected) && in_array($roww->tea_id,$teacher_selected)?'checked':''}} value="{{$roww->tea_id}}">
+                                    {{$roww->first_name}} {{$roww->last_name}}
+                                    @endforeach
+                            <!-- <select {{ (CurrentUser::permission([3]))? '':'disabled'}} class="job-assign" multiple="multiple" style="width:100%;height:120px;" name="tea_id[]">
                                     @foreach($teacher as $index => $roww)
                                         <option {{isset($teacher_selected) && in_array($roww->tea_id,$teacher_selected)?'selected':''}} value="{{$roww->tea_id}}">
                                     {{$roww->first_name}} {{$roww->last_name}}
                                         </option>
                                     @endforeach
-                                        </select>
+                                        </select> -->
                         </div>
                     @endif
                     </div> 
                     @if(CurrentUser::permission([3]))
                     <button class="btn">ยืนยัน</button>
+                    @endif
+                    @if(CurrentUser::permission([3]))
+                    <button type="button" data-ext="doc,docx,xls,xlsx,pdf" data-url="/upload" data-callback="data_callback" class="btn btn-default upload">
+                                        <i class="fa fa-file-text" aria-hidden="true"></i>
+                                        </button>
+                    <a href="#" id="assingmentfile_link" target="_bank"></a>
+                    <input type="hidden" name="assingmentfile" id="assingmentfile">
+                    @else
+                    @if(isset($assignments) && !empty($assignments->assingmentfile))
+                    <a href="{{isset($assignments)?$assignments->assingmentfile:'#'}}" target="_bank" class="btn btn-default"><i class="fa fa-file-text" aria-hidden="true"></i></a>
+                    <span>{{$assignments->assingmentfile}}</span>
+                    @endif
                     @endif
                  </form>
             </div> 
@@ -76,3 +92,13 @@
     </div>
 </div>
 @endsection
+@push('scripts')
+<script>
+    function data_callback(res){
+        $('#assingmentfile').val(res.url);
+        $('#assingmentfile_link').attr('href',res.url);
+        $('#assingmentfile_link').text(res.url);
+    }
+    </script>
+@endpush
+
