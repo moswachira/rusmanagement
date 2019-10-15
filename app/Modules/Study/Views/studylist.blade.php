@@ -13,7 +13,6 @@
                 <div class="panel-body">
                     <form action="/study">
                         <div class="form-group ">
-                            <label for="keyword">คีย์เวร์ด</label>
                             <input type="text" name="keyword" value="{{Input::get('keyword')}}" class="form-control" style="width:100%">
                         </div>
                         <div class="form-group ">

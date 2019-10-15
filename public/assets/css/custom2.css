@@ -1,8 +1,7 @@
  
 body {
-  /* background-image: url(/assets/img/backgroud18.jpg); */
+  background-image: url(/assets/img/backgroud10.jpg);
   background-size: cover;   
-  background-color: #d7e1f0;
 }
 .dropdown-menu{
   background: #e6ecff;

@@ -34,10 +34,6 @@
                 @endif
                     <div class="panel-body">
                     <div class="form-group">
-                        <th>ชื่อ:</th>
-                    <input type="text" name="firstname" class="form-control" value="{{CurrentUser::user()->first_name}}"/>
-                    </div>
-                    <div class="form-group">
                         <th>ชื่อผลงานวิชาการ:</th>
                     <input type="text" name="por_name" class="form-control" value="{{isset($port)?$port->por_name:''}}"/>
                     </div>

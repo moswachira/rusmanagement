@@ -24,7 +24,11 @@
         </div> 
         <div class="col-md-10">
             <div class="panel panel-primary w3-card">
-                <div class="panel-heading">รายการข้อมูลภาคเรียน <a class="btn btn-default pull-right" href="/term/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a></div>
+                <div class="panel-heading">รายการข้อมูลภาคเรียน 
+                @if(CurrentUser::permission([]))
+                <a class="btn btn-default pull-right" href="/term/create" style="padding-top: 2px;padding-bottom: 2px;" data-toggle="tooltip" title="เพิ่มข้อมูล"><i class="fa fa-plus"></i></a>
+                @endif
+                </div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

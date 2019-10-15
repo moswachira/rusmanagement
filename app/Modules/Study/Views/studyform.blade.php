@@ -34,10 +34,6 @@
                 @endif
                     <div class="panel-body">
                     <div class="form-group">
-                        <th>ชื่อ:</th>
-                    <input type="text" name="firstname" class="form-control" value="{{CurrentUser::user()->first_name}}"/>
-                    </div>
-                    <div class="form-group">
                         <th>ชื่อโปรเจค:</th>
                     <input type="text" name="subject" class="form-control" value="{{isset($studys)?$studys->subject:''}}"/>
                     </div>
@@ -73,11 +69,10 @@
                         @endforeach
                         </select>
                         </div>      
-                    </div> 
                     <button class="btn">ยืนยัน</button>
                 </form>
             </div> 
         <div class="col-md-1">   
-        </div>
+    </div>
 </div>
 @endsection

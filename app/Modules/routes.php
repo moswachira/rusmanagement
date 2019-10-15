@@ -46,10 +46,10 @@ Route::prefix('')->group(function () {
     // Route::resource('worktype','\App\Modules\Worktype\WorktypeController');
     Route::post('/job','\App\Modules\Assignment\JobController@jobshow');
 
-   /* Route::get('laravel-version', function() {
-        $laravel = app();
-        return "Your Laravel version is ".$laravel::VERSION;
-   });
+//     Route::get('laravel-version', function() {
+//         $laravel = app();
+//         return "Your Laravel version is ".$laravel::VERSION;
+//    });
     /*
     Route::GET('/home/study','\App\Modules\Study\StudyController@index');
     Route::GET('/home/soure','\App\Modules\Soure\SoureController@soure');

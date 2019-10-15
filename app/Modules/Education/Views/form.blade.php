@@ -69,7 +69,7 @@
                                 <th>สถาบันที่จบการศึกษา:</th>
                                     <input type="text" name="instname" class="form-control" value="{{isset($profressor)?$profressor->inst_name:''}}"/>
                             </div>
-                        </div>
+                            </div>
                     </div>
                 </div> 
             </div>   
@@ -178,11 +178,10 @@
                                     <textarea  row="20" name="detail" class="form-control" value="{{isset($edus)?$edus->detail:''}}"/></textarea>
                             </div>
                             </div>
-                        </div> 
+                        </div>
                     <button class="btn">ยืนยัน</button>
-                </div>
+                </div> 
             </div> 
-        </div> 
         <div class="col-md-1">   
     </div>
 </div>

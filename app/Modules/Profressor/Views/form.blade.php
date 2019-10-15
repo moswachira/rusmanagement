@@ -54,6 +54,30 @@
                         <input name="gender" type="radio" {{isset($profressor) && $profressor->gender=='หญิง'?'checked':''}} value="หญิง"/>หญิง
                     </div>
                     <div class="form-group">
+                        <label >ตำแหน่ง</label>
+                        <select name="aca_id">
+                            <option value="all">
+                                ทั้งหมด
+                            </option>
+                        @foreach($academic as $index => $rowwwww)
+                            <option value="{{$rowwwww->aca_id}}" {{isset($profressor) && $profressor->aca_id==$rowwwww->aca_id?'selected':''}}>
+                                {{$rowwwww->aca_name}}
+                            </option>
+                        @endforeach
+                        </select>
+                        </div>
+                    <div class="form-group">
+                        <th>Username:</th>
+                    <input type="text" style="width: 300px;" name="username" autocomplate="off" class="form-control" value="{{isset($profressor)?$profressor->username:''}}"/>
+                    </div>
+                    <div class="form-group">
+                        <th>Password:</th>
+                    <input type="password" style="width: 300px;" name="password" class="form-control" />
+                    </div> 
+                    <div class="form-group">
+                        <h3>ประวัติการศึกษา</h3>
+                    </div>
+                    <div class="form-group">
                         <label >ระดับ</label>
                         <select name="degr_id">
                             <option value="all">
@@ -104,30 +128,9 @@
                             </option>
                         @endforeach
                         </select>
-                    </div>
-                        <div class="form-group">
-                        <label >ตำแหน่ง</label>
-                        <select name="aca_id">
-                            <option value="all">
-                                ทั้งหมด
-                            </option>
-                        @foreach($academic as $index => $rowwwww)
-                            <option value="{{$rowwwww->aca_id}}" {{isset($profressor) && $profressor->aca_id==$rowwwww->aca_id?'selected':''}}>
-                                {{$rowwwww->aca_name}}
-                            </option>
-                        @endforeach
-                        </select>
                         </div>
-                        <div class="form-group">
-                        <th>Username:</th>
-                    <input type="text" name="username" autocomplate="off" class="form-control" value="{{isset($profressor)?$profressor->username:''}}"/>
+                        <button class="btn">ยืนยัน</button>
                     </div>
-                    <div class="form-group">
-                        <th>Password:</th>
-                    <input type="password" name="password" class="form-control" />
-                    </div>      
-                    </div> 
-                    <button class="btn">ยืนยัน</button>
                 </form>
             </div> 
         <div class="col-md-1">   
